@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101B0ED22B5720650074B0E6 /* FlowerRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED12B5720650074B0E6 /* FlowerRecognitionViewController.swift */; };
+		101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED32B5720800074B0E6 /* MyGardenViewController.swift */; };
+		101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED52B5721160074B0E6 /* HomeView.swift */; };
 		1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */; };
 		1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB102B567FA3001B5AEE /* SceneDelegate.swift */; };
 		1062DB132B567FA3001B5AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB122B567FA3001B5AEE /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		101B0ED12B5720650074B0E6 /* FlowerRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecognitionViewController.swift; sourceTree = "<group>"; };
+		101B0ED32B5720800074B0E6 /* MyGardenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewController.swift; sourceTree = "<group>"; };
+		101B0ED52B5721160074B0E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1062DB0B2B567FA3001B5AEE /* GoGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1062DB102B567FA3001B5AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,11 +43,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101B0ECA2B571FFD0074B0E6 /* MyGarden */ = {
+			isa = PBXGroup;
+			children = (
+				101B0ED32B5720800074B0E6 /* MyGardenViewController.swift */,
+			);
+			path = MyGarden;
+			sourceTree = "<group>";
+		};
+		101B0ECB2B5720060074B0E6 /* FlowerRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				101B0ED12B5720650074B0E6 /* FlowerRecognitionViewController.swift */,
+			);
+			path = FlowerRecognition;
+			sourceTree = "<group>";
+		};
+		101B0ECC2B5720180074B0E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				101B0ED52B5721160074B0E6 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		1062DB022B567FA3001B5AEE = {
 			isa = PBXGroup;
 			children = (
 				1062DB0D2B567FA3001B5AEE /* GoGreen */,
-				1062DB1C2B567FA4001B5AEE /* Info.plist */,
 				1062DB0C2B567FA3001B5AEE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +94,7 @@
 				1062DB282B5694C1001B5AEE /* Managers */,
 				1062DB272B5694B7001B5AEE /* Helpers */,
 				1062DB292B5695BE001B5AEE /* Resources */,
+				1062DB1C2B567FA4001B5AEE /* Info.plist */,
 			);
 			path = GoGreen;
 			sourceTree = "<group>";
@@ -81,6 +111,9 @@
 		1062DB232B56945F001B5AEE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				101B0ECC2B5720180074B0E6 /* Home */,
+				101B0ECB2B5720060074B0E6 /* FlowerRecognition */,
+				101B0ECA2B571FFD0074B0E6 /* MyGarden */,
 				1062DB122B567FA3001B5AEE /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -207,6 +240,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1062DB132B567FA3001B5AEE /* ViewController.swift in Sources */,
+				101B0ED22B5720650074B0E6 /* FlowerRecognitionViewController.swift in Sources */,
+				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
+				101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 			);
