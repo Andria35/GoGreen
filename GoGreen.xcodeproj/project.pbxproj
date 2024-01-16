@@ -12,6 +12,7 @@
 		1062DB132B567FA3001B5AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB122B567FA3001B5AEE /* ViewController.swift */; };
 		1062DB182B567FA4001B5AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1062DB172B567FA4001B5AEE /* Assets.xcassets */; };
 		1062DB1B2B567FA4001B5AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1062DB192B567FA4001B5AEE /* LaunchScreen.storyboard */; };
+		1062DB2C2B569608001B5AEE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1062DB2B2B569608001B5AEE /* NetworkManager */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1062DB2C2B569608001B5AEE /* NetworkManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				1062DB0D2B567FA3001B5AEE /* GoGreen */,
+				1062DB1C2B567FA4001B5AEE /* Info.plist */,
 				1062DB0C2B567FA3001B5AEE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,14 +57,77 @@
 		1062DB0D2B567FA3001B5AEE /* GoGreen */ = {
 			isa = PBXGroup;
 			children = (
-				1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */,
-				1062DB102B567FA3001B5AEE /* SceneDelegate.swift */,
-				1062DB122B567FA3001B5AEE /* ViewController.swift */,
-				1062DB172B567FA4001B5AEE /* Assets.xcassets */,
-				1062DB192B567FA4001B5AEE /* LaunchScreen.storyboard */,
-				1062DB1C2B567FA4001B5AEE /* Info.plist */,
+				1062DB222B56943A001B5AEE /* Application */,
+				1062DB232B56945F001B5AEE /* Scenes */,
+				1062DB242B569479001B5AEE /* Components */,
+				1062DB252B569496001B5AEE /* Models */,
+				1062DB262B5694A6001B5AEE /* Extensions */,
+				1062DB282B5694C1001B5AEE /* Managers */,
+				1062DB272B5694B7001B5AEE /* Helpers */,
+				1062DB292B5695BE001B5AEE /* Resources */,
 			);
 			path = GoGreen;
+			sourceTree = "<group>";
+		};
+		1062DB222B56943A001B5AEE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1062DB102B567FA3001B5AEE /* SceneDelegate.swift */,
+				1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		1062DB232B56945F001B5AEE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1062DB122B567FA3001B5AEE /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1062DB242B569479001B5AEE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1062DB252B569496001B5AEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1062DB262B5694A6001B5AEE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1062DB272B5694B7001B5AEE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1062DB282B5694C1001B5AEE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1062DB292B5695BE001B5AEE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1062DB192B567FA4001B5AEE /* LaunchScreen.storyboard */,
+				1062DB172B567FA4001B5AEE /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +146,9 @@
 			dependencies = (
 			);
 			name = GoGreen;
+			packageProductDependencies = (
+				1062DB2B2B569608001B5AEE /* NetworkManager */,
+			);
 			productName = GoGreen;
 			productReference = 1062DB0B2B567FA3001B5AEE /* GoGreen.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +177,9 @@
 				Base,
 			);
 			mainGroup = 1062DB022B567FA3001B5AEE;
+			packageReferences = (
+				1062DB2A2B569608001B5AEE /* XCRemoteSwiftPackageReference "NetworkManager" */,
+			);
 			productRefGroup = 1062DB0C2B567FA3001B5AEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +423,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1062DB2A2B569608001B5AEE /* XCRemoteSwiftPackageReference "NetworkManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Andria35/NetworkManager.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1062DB2B2B569608001B5AEE /* NetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1062DB2A2B569608001B5AEE /* XCRemoteSwiftPackageReference "NetworkManager" */;
+			productName = NetworkManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1062DB032B567FA3001B5AEE /* Project object */;
 }

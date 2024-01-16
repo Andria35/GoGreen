@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "networkmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Andria35/NetworkManager.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e2a6aee783948c236f0dc97ecd16bacdb1275bbc"
+      }
+    }
+  ],
+  "version" : 2
+}
