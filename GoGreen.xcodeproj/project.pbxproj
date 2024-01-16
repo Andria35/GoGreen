@@ -12,6 +12,10 @@
 		101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED52B5721160074B0E6 /* HomeView.swift */; };
 		101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED82B5722C00074B0E6 /* TabBarController.swift */; };
 		101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0EDA2B5729FA0074B0E6 /* ContentView.swift */; };
+		10595A862B5734FC00419366 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A852B5734FC00419366 /* OnboardingView.swift */; };
+		10595A882B57372A00419366 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A872B57372A00419366 /* WelcomeView.swift */; };
+		10595A8A2B57379D00419366 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A892B57379D00419366 /* Color.swift */; };
+		10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */; };
 		1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */; };
 		1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB102B567FA3001B5AEE /* SceneDelegate.swift */; };
 		1062DB182B567FA4001B5AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1062DB172B567FA4001B5AEE /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 		101B0ED52B5721160074B0E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		101B0ED82B5722C00074B0E6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101B0EDA2B5729FA0074B0E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		10595A852B5734FC00419366 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		10595A872B57372A00419366 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		10595A892B57379D00419366 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonComponentView.swift; sourceTree = "<group>"; };
 		1062DB0B2B567FA3001B5AEE /* GoGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1062DB102B567FA3001B5AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +86,23 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		10595A842B5734D000419366 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				10595A852B5734FC00419366 /* OnboardingView.swift */,
+				10595A872B57372A00419366 /* WelcomeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		10595A8B2B573A0B00419366 /* Swiftui */ = {
+			isa = PBXGroup;
+			children = (
+				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
+			);
+			path = Swiftui;
+			sourceTree = "<group>";
+		};
 		1062DB022B567FA3001B5AEE = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				101B0ED72B5722A20074B0E6 /* TabBar */,
+				10595A842B5734D000419366 /* Onboarding */,
 				101B0ECC2B5720180074B0E6 /* Home */,
 				101B0ECB2B5720060074B0E6 /* FlowerRecognition */,
 				101B0ECA2B571FFD0074B0E6 /* MyGarden */,
@@ -133,6 +159,7 @@
 		1062DB242B569479001B5AEE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				10595A8B2B573A0B00419366 /* Swiftui */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -147,6 +174,7 @@
 		1062DB262B5694A6001B5AEE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				10595A892B57379D00419366 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,8 +281,12 @@
 				101B0ED22B5720650074B0E6 /* FlowerRecognitionViewController.swift in Sources */,
 				101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */,
 				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
+				10595A8A2B57379D00419366 /* Color.swift in Sources */,
 				101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */,
+				10595A882B57372A00419366 /* WelcomeView.swift in Sources */,
+				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,
 				101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */,
+				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 			);
