@@ -12,7 +12,6 @@ struct EmbarkJourneyView: View {
     // MARK: - Properties
     var buttonTapped: () -> Void
 
-    
     // MARK: - Body
     var body: some View {
         ZStack {

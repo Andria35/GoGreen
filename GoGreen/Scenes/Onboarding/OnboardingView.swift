@@ -9,14 +9,14 @@ import SwiftUI
 
 struct OnboardingView: View {
     
+    // MARK: - Properties
     enum TabViewTabs {
         case welcomeView
         case discoverPlantView
         case embarkJourneyView
     }
-    
-    @State var selectedTab: TabViewTabs = .welcomeView
     var dismissTabView: () -> Void
+    @State var selectedTab: TabViewTabs = .welcomeView
     
     // MARK: - Body
     var body: some View {
