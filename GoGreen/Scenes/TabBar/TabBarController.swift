@@ -17,6 +17,31 @@ final class TabBarController: UITabBarController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupOnboarding()
+    }
+    
+    // MARK: - Setup Onboarding
+    private func setupOnboarding() {
+        let hasShownOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKeys.hasShownOnboarding)
+        if !hasShownOnboarding {
+            presentOnboardingView()
+        }
+    }
+    
+    private func presentOnboardingView() {
+        let onboardingView = OnboardingView(dismissTabView: { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.hasShownOnboarding)
+        })
+        
+        let hostingController = UIHostingController(rootView: onboardingView)
+        hostingController.modalPresentationStyle = .fullScreen
+        
+        present(hostingController, animated: true, completion: nil)
+    }
+    
     // MARK: - Tab Setup
     private func setupTabs() {
         let contentViewHostingController = createHostingController(title: "Home", image: UIImage(systemName: "house"), rootView: ContentView())
