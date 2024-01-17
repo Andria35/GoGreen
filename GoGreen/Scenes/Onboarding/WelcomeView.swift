@@ -13,7 +13,7 @@ struct WelcomeView: View {
     var body: some View {
         ZStack {
             
-            Image("OnboardingImage")
+            Image("OnboardingWelcomeImage")
                 .resizable()
                 .ignoresSafeArea()
             
@@ -38,6 +38,7 @@ extension WelcomeView {
         VStack(alignment: .leading, spacing: 20) {
             Text("Welcome")
                 .font(.system(size: 64))
+                .fontWeight(.bold)
             
             VStack(alignment: .leading, spacing: 0) {
                 Text("we’re glad that that")

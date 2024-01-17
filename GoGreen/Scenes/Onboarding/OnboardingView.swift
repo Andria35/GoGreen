@@ -11,7 +11,7 @@ struct OnboardingView: View {
     var body: some View {
         TabView {
             WelcomeView()
-            Text("Hey2")
+            DiscoverPlantView()
             Text("Hey3")
         }
         .ignoresSafeArea()
