@@ -12,11 +12,7 @@ struct WelcomeView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
-            
-            Image("OnboardingWelcomeImage")
-                .resizable()
-                .ignoresSafeArea()
-            
+            welcomeImage
             VStack {
                 welcomeTextVStack
                 Spacer()
@@ -32,6 +28,13 @@ struct WelcomeView: View {
 
 // MARK: - Components
 extension WelcomeView {
+    
+    // MARK: - WelcomeImage
+    private var welcomeImage: some View {
+        Image("OnboardingWelcomeImage")
+            .resizable()
+            .ignoresSafeArea()
+    }
     
     // MARK: - WelcomeTextVStack
     private var welcomeTextVStack: some View {

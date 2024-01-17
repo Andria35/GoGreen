@@ -8,30 +8,17 @@
 import SwiftUI
 
 struct DiscoverPlantView: View {
+    
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color.onboardingBackgroundColor
                 .ignoresSafeArea()
             VStack {
-                Image("OnboardingDiscoverPlantImage")
-                    .resizable()
-                    .frame(height: 136)
-                    .frame(maxWidth: .infinity)
-                VStack(spacing: 0) {
-                    Text("Discover Your Type")
-                    Text("Of Plant")
-                }
-                .font(.largeTitle)
-                .foregroundStyle(Color.onboardingTitleColor)
-                .fontWeight(.semibold)
-                .padding()
+                discoverYourPlantImage
+                discoverYourTypeVStack
+                tipsNTricksVStack
                 
-                VStack {
-                    Text("Tips N Trick to grow a")
-                    Text("healthy plant")
-                }
-                .font(.title2)
-                .foregroundStyle(Color.onboardingTitleColor)
                 Spacer()
                 
                 OnboardingButtonComponentView(title: "Continue") {
@@ -45,6 +32,41 @@ struct DiscoverPlantView: View {
     }
 }
 
+// MARK: - Components
+extension DiscoverPlantView {
+    
+    // MARK: - DiscoverYourPlantImage
+    private var discoverYourPlantImage: some View {
+        Image("OnboardingDiscoverPlantImage")
+            .resizable()
+            .frame(height: 136)
+            .frame(maxWidth: .infinity)
+    }
+    
+    // MARK: - DiscoverYourTypeVStack
+    private var discoverYourTypeVStack: some View {
+        VStack(spacing: 0) {
+            Text("Discover Your Type")
+            Text("Of Plant")
+        }
+        .font(.largeTitle)
+        .foregroundStyle(Color.onboardingTitleColor)
+        .fontWeight(.semibold)
+        .padding()
+    }
+    
+    // MARK: - TipsNTricksVStack
+    private var tipsNTricksVStack: some View {
+        VStack {
+            Text("Tips N Trick to grow a")
+            Text("healthy plant")
+        }
+        .font(.title2)
+        .foregroundStyle(Color.onboardingTitleColor)
+    }
+}
+
+// MARK: - Preview
 #Preview {
     DiscoverPlantView()
 }

@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
+    // MARK: - Body
     var body: some View {
         TabView {
             WelcomeView()
             DiscoverPlantView()
-            Text("Hey3")
+            EmbarkJourneyView()
         }
         .ignoresSafeArea()
         .tabViewStyle(.page)
     }
 }
 
+// MARK: - Preview
 #Preview {
     OnboardingView()
 }
