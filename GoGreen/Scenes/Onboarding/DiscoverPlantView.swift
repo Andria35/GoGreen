@@ -9,6 +9,10 @@ import SwiftUI
 
 struct DiscoverPlantView: View {
     
+    // MARK: - Properties
+    var buttonTapped: () -> Void
+
+    
     // MARK: - Body
     var body: some View {
         ZStack {
@@ -22,7 +26,7 @@ struct DiscoverPlantView: View {
                 Spacer()
                 
                 OnboardingButtonComponentView(title: "Continue") {
-                    print("Yayy")
+                    buttonTapped()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
@@ -68,5 +72,5 @@ extension DiscoverPlantView {
 
 // MARK: - Preview
 #Preview {
-    DiscoverPlantView()
+    DiscoverPlantView(buttonTapped: {})
 }

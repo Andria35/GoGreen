@@ -9,6 +9,10 @@ import SwiftUI
 
 struct EmbarkJourneyView: View {
     
+    // MARK: - Properties
+    var buttonTapped: () -> Void
+
+    
     // MARK: - Body
     var body: some View {
         ZStack {
@@ -21,7 +25,7 @@ struct EmbarkJourneyView: View {
                 Spacer()
                 
                 OnboardingButtonComponentView(title: "Lets go!") {
-                    print("hey")
+                    buttonTapped()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
@@ -68,5 +72,5 @@ extension EmbarkJourneyView {
 
 // MARK: - Preview
 #Preview {
-    EmbarkJourneyView()
+    EmbarkJourneyView(buttonTapped: {})
 }

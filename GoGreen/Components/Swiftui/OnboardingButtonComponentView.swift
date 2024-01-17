@@ -15,6 +15,9 @@ struct OnboardingButtonComponentView: View {
     
     var body: some View {
         Button(action: {
+            withAnimation {
+                action()
+            }
         }, label: {
             Text(title)
                 .font(.title)
