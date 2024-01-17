@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyGardenViewController: UIViewController {
+final class MyGardenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

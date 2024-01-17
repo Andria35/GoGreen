@@ -19,6 +19,8 @@
 		10595A932B57D40100419366 /* DiscoverPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A922B57D40100419366 /* DiscoverPlantView.swift */; };
 		10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A942B57E55700419366 /* EmbarkJourneyView.swift */; };
 		10595A972B58124800419366 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A962B58124800419366 /* UserDefaultsKeys.swift */; };
+		10595A992B58720400419366 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A982B58720400419366 /* HomeViewModel.swift */; };
+		10595A9B2B58745400419366 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A9A2B58745400419366 /* Plant.swift */; };
 		1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */; };
 		1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1062DB102B567FA3001B5AEE /* SceneDelegate.swift */; };
 		1062DB182B567FA4001B5AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1062DB172B567FA4001B5AEE /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		10595A922B57D40100419366 /* DiscoverPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPlantView.swift; sourceTree = "<group>"; };
 		10595A942B57E55700419366 /* EmbarkJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbarkJourneyView.swift; sourceTree = "<group>"; };
 		10595A962B58124800419366 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		10595A982B58720400419366 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		10595A9A2B58745400419366 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		1062DB0B2B567FA3001B5AEE /* GoGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1062DB0E2B567FA3001B5AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1062DB102B567FA3001B5AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			children = (
 				101B0EDA2B5729FA0074B0E6 /* ContentView.swift */,
 				101B0ED52B5721160074B0E6 /* HomeView.swift */,
+				10595A982B58720400419366 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		1062DB252B569496001B5AEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				10595A9A2B58745400419366 /* Plant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
 				10595A8A2B57379D00419366 /* Color.swift in Sources */,
 				101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */,
+				10595A9B2B58745400419366 /* Plant.swift in Sources */,
 				10595A882B57372A00419366 /* WelcomeView.swift in Sources */,
 				10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */,
 				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,
@@ -300,6 +307,7 @@
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
+				10595A992B58720400419366 /* HomeViewModel.swift in Sources */,
 				10595A932B57D40100419366 /* DiscoverPlantView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
