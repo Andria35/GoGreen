@@ -9,6 +9,8 @@ import SwiftUI
 import NetworkManager
 
 struct ContentView: View {
+    
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             HomeView(viewModel: HomeViewModel(networkManager: NetworkManager()))
@@ -16,6 +18,7 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }

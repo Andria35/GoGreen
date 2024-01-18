@@ -30,6 +30,7 @@
 		10E442482B59185300E54334 /* PlantComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442472B59185300E54334 /* PlantComponentViewModel.swift */; };
 		10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442492B59193800E54334 /* PlantMockData.swift */; };
 		10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */; };
+		10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424D2B59578500E54334 /* PlantFamilies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		10E442472B59185300E54334 /* PlantComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantComponentViewModel.swift; sourceTree = "<group>"; };
 		10E442492B59193800E54334 /* PlantMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantMockData.swift; sourceTree = "<group>"; };
 		10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentView.swift; sourceTree = "<group>"; };
+		10E4424D2B59578500E54334 /* PlantFamilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				10595A9A2B58745400419366 /* Plant.swift */,
+				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */,
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
+				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,
 				10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 				10595A992B58720400419366 /* HomeViewModel.swift in Sources */,

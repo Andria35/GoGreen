@@ -19,12 +19,30 @@ final class PlantComponentViewModel: ObservableObject {
     init(plant: Plant, networkManager: APIServices) {
         self.plant = plant
         self.networkManager = networkManager
-        
         Task {
-            await fetchImage(urlString: plant.imageURL)
+            await fetchImage(urlString: plant.imageURL ?? "")
         }
     }
     
+    // MARK: - Methods
+    func formatPlantName() -> String {
+        // names with "or" will get formatted
+        guard let plantName = plant.commonName else { return ""}
+        let delimiter = "or"
+        let components = plantName.components(separatedBy: delimiter)
+        let stringWithoutPrefix = components.last ?? plantName
+        
+        // names with char.count > 20 will get formatted
+        let maxLength = 20
+        let formattedString: String
+
+        if stringWithoutPrefix.count > maxLength {
+            formattedString = String(stringWithoutPrefix.prefix(maxLength)) + "..."
+        } else {
+            formattedString = stringWithoutPrefix
+        }
+        return formattedString
+    }
     
     // MARK: - Api Calls
     private func fetchImage(urlString: String) async{
@@ -37,5 +55,4 @@ final class PlantComponentViewModel: ObservableObject {
             print(error)
         }
     }
-    
 }

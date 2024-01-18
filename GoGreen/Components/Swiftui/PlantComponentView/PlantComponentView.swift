@@ -10,8 +10,10 @@ import NetworkManager
 
 struct PlantComponentView: View {
     
+    // MARK: - Properties
     @StateObject var viewModel: PlantComponentViewModel
     
+    // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottom) {
             viewModel.plantImage
@@ -22,7 +24,7 @@ struct PlantComponentView: View {
                 .background(Color.homeViewSecondaryColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
-            Text(viewModel.plant.commonName)
+            Text(viewModel.formatPlantName())
                 .padding(.top)
                 .padding(.bottom, 8)
                 .font(.callout)
@@ -31,6 +33,7 @@ struct PlantComponentView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     PlantComponentView(viewModel: PlantComponentViewModel(plant: PlantMockData.plant, networkManager: NetworkManager()))
 }
