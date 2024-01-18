@@ -26,8 +26,8 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - API Calls
     private func fetchPlants() async {
-        let apiKey = "sk-uJGW65a7e81bd87753815"
-        let urlString = "https://perenual.com/api/species-list?key=\(apiKey)"
+        let apiKey = "oeFJyqfUxBwv_s2Pg_DmjFCFVHZ53xsrbhPRPqi8YBc"
+        let urlString = "https://trefle.io/api/v1/plants/search?q=rose&token=\(apiKey)"
         do {
             let plantsResponse: PlantsResponse = try await networkManager.fetchData(fromURL: urlString)
             await MainActor.run {

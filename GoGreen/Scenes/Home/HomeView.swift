@@ -26,7 +26,7 @@ struct HomeView: View {
                     .font(.title2)
                     .padding()
                     .frame(height: 60)
-                    .background(Color.homeViewTextfieldBackgroundColor)
+                    .background(Color.homeViewSecondaryColor)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 Button(action: {
@@ -37,6 +37,10 @@ struct HomeView: View {
                         .foregroundStyle(.blue)
                 })
             }
+            
+            PlantFamilyComponentView(plants: viewModel.plants)
+            
+            
             Spacer()
             
         }

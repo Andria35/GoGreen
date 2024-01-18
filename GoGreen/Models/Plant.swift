@@ -8,70 +8,69 @@
 import Foundation
 
 // MARK: - PlantsResponse
-struct PlantsResponse: Codable {
+struct PlantsResponse: Decodable {
     let data: [Plant]
+    let links: PlantsResponseLinks
+    let meta: Meta
 }
 
 // MARK: - Datum
-struct Plant: Codable {
+struct Plant: Decodable, Identifiable {
     let id: Int
-    let commonName: String
-    let scientificName, otherName: [String]
-    let cycle: Cycle
-    let watering: Watering
-    let sunlight: [Sunlight]
-    let defaultImage: DefaultImage?
+    let commonName, slug, scientificName: String
+    let year: Int
+    let bibliography, author: String
+    let status: Status
+    let rank: Rank
+    let familyCommonName: String?
+    let genusID: Int
+    let imageURL: String
+    let synonyms: [String]
+    let genus, family: String
+    let links: DatumLinks
 
     enum CodingKeys: String, CodingKey {
         case id
         case commonName = "common_name"
+        case slug
         case scientificName = "scientific_name"
-        case otherName = "other_name"
-        case cycle, watering, sunlight
-        case defaultImage = "default_image"
+        case year, bibliography, author, status, rank
+        case familyCommonName = "family_common_name"
+        case genusID = "genus_id"
+        case imageURL = "image_url"
+        case synonyms, genus, family, links
     }
 }
 
-enum Cycle: String, Codable {
-    case perennial = "Perennial"
-}
-
-// MARK: - DefaultImage
-struct DefaultImage: Codable {
-    let license: Int
-    let licenseName: LicenseName
-    let licenseURL: String
-    let originalURL, regularURL, mediumURL, smallURL: String
-    let thumbnail: String
+// MARK: - DatumLinks
+struct DatumLinks: Decodable {
+    let linksSelf, plant, genus: String
 
     enum CodingKeys: String, CodingKey {
-        case license
-        case licenseName = "license_name"
-        case licenseURL = "license_url"
-        case originalURL = "original_url"
-        case regularURL = "regular_url"
-        case mediumURL = "medium_url"
-        case smallURL = "small_url"
-        case thumbnail
+        case linksSelf = "self"
+        case plant, genus
     }
 }
 
-enum LicenseName: String, Codable {
-    case attributionLicense = "Attribution License"
-    case attributionShareAlike30UnportedCCBYSA30 = "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)"
-    case attributionShareAlikeLicense = "Attribution-ShareAlike License"
-    case cc010UniversalCC010PublicDomainDedication = "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+enum Rank: String, Decodable {
+    case species = "species"
 }
 
-enum Sunlight: String, Codable {
-    case filteredShade = "filtered shade"
-    case fullSun = "full sun"
-    case partShade = "part shade"
-    case partSunPartShade = "part sun/part shade"
-    case sunlightFullSun = "Full sun"
+enum Status: String, Decodable {
+    case accepted = "accepted"
 }
 
-enum Watering: String, Codable {
-    case average = "Average"
-    case frequent = "Frequent"
+// MARK: - PlantsResponseLinks
+struct PlantsResponseLinks: Decodable {
+    let linksSelf, first, next, last: String
+
+    enum CodingKeys: String, CodingKey {
+        case linksSelf = "self"
+        case first, next, last
+    }
+}
+
+// MARK: - Meta
+struct Meta: Decodable {
+    let total: Int
 }
