@@ -12,7 +12,10 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: - Properties
     let networkManager: APIServices
+    @Published var textfieldText: String = ""
     @Published var plantFamilies: PlantFamilies = PlantFamilies(roses: [], sunflowers: [], jasmines: [], daisies: [], irises: [])
+    @Published var searchResult: [Plant] = []
+    
     
     // MARK: - FamilyOfPlants
     enum FamilyOfPlants: String {
@@ -31,10 +34,19 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Methods
+    func plantsFamilyIsEmpty() -> Bool {
+        if plantFamilies.daisies.isEmpty && plantFamilies.roses.isEmpty && plantFamilies.irises.isEmpty && plantFamilies.jasmines.isEmpty && plantFamilies.sunflowers.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: - API Calls
-    private func fetchPlants(familyOfPlants: FamilyOfPlants ) async throws -> [Plant] {
+    private func fetchPlants(by parameter: String) async throws -> [Plant] {
         let apiKey = "oeFJyqfUxBwv_s2Pg_DmjFCFVHZ53xsrbhPRPqi8YBc"
-        let urlString = "https://trefle.io/api/v1/plants/search?q=\(familyOfPlants.rawValue)&token=\(apiKey)"
+        let urlString = "https://trefle.io/api/v1/plants/search?q=\(parameter)&token=\(apiKey)"
         do {
             let plantsResponse: PlantsResponse = try await networkManager.fetchData(fromURL: urlString)
             return plantsResponse.data
@@ -43,12 +55,31 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    func fetchPlantsByTextfieldResult() async {
+        do {
+            let plants = try await fetchPlants(by: textfieldText)
+            await MainActor.run {
+                self.searchResult = plants
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func fetchPlantsByFamily(familyOfPlants: FamilyOfPlants ) async throws -> [Plant] {
+        do {
+            return try await fetchPlants(by: familyOfPlants.rawValue)
+        } catch {
+            throw error
+        }
+    }
+    
     private func fetchPlantFamilies() async {
-        async let fetchRoses = fetchPlants(familyOfPlants: .rose)
-        async let fetchSunflowers = fetchPlants(familyOfPlants: .sunflower)
-        async let fetchJasmines = fetchPlants(familyOfPlants: .jasmine)
-        async let fetchDaisies = fetchPlants(familyOfPlants: .daisy)
-        async let fetchIrises = fetchPlants(familyOfPlants: .iris)
+        async let fetchRoses = fetchPlantsByFamily(familyOfPlants: .rose)
+        async let fetchSunflowers = fetchPlantsByFamily(familyOfPlants: .sunflower)
+        async let fetchJasmines = fetchPlantsByFamily(familyOfPlants: .jasmine)
+        async let fetchDaisies = fetchPlantsByFamily(familyOfPlants: .daisy)
+        async let fetchIrises = fetchPlantsByFamily(familyOfPlants: .iris)
         
         let (roses, sunflowers, jasmines, daisies, irises) = await (try? fetchRoses, try? fetchSunflowers, try? fetchJasmines, try? fetchDaisies, try? fetchIrises)
         await MainActor.run {

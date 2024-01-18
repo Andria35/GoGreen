@@ -31,6 +31,7 @@
 		10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442492B59193800E54334 /* PlantMockData.swift */; };
 		10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */; };
 		10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424D2B59578500E54334 /* PlantFamilies.swift */; };
+		10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		10E442492B59193800E54334 /* PlantMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantMockData.swift; sourceTree = "<group>"; };
 		10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentView.swift; sourceTree = "<group>"; };
 		10E4424D2B59578500E54334 /* PlantFamilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilies.swift; sourceTree = "<group>"; };
+		10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +125,7 @@
 			children = (
 				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
 				10E442442B59181100E54334 /* PlantComponentView */,
-				10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */,
+				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
 			);
 			path = Swiftui;
 			sourceTree = "<group>";
@@ -240,6 +242,15 @@
 			path = PlantComponentView;
 			sourceTree = "<group>";
 		};
+		10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */ = {
+			isa = PBXGroup;
+			children = (
+				10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */,
+				10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */,
+			);
+			path = PlantFamilyComponentView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -328,6 +339,7 @@
 				10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */,
 				10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */,
 				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,
+				10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */,
 				10595A972B58124800419366 /* UserDefaultsKeys.swift in Sources */,
 				101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */,
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,

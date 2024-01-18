@@ -14,8 +14,7 @@ struct PlantFamilyComponentView: View {
     private let gridLayout: [GridItem] = [
         GridItem(.fixed(300))
     ]
-    let plants: [Plant]
-    let sectionTitle: SectionTitles
+    @ObservedObject var viewModel: PlantFamilyComponentViewModel
     
     // MARK: - SectionTitles
     enum SectionTitles: String {
@@ -28,7 +27,6 @@ struct PlantFamilyComponentView: View {
     
     // MARK: - Body
     var body: some View {
-        
         VStack(spacing: 0) {
             sectionTitleText
             ScrollView(.horizontal) {
@@ -43,7 +41,7 @@ extension PlantFamilyComponentView {
     
     // MARK: - SectionTitleText
     private var sectionTitleText: some View {
-        Text(sectionTitle.rawValue.capitalized)
+        Text(viewModel.sectionTitle?.rawValue.capitalized ?? "")
             .frame(maxWidth: .infinity, alignment: .leading)
             .font(.title)
             .fontWeight(.semibold)
@@ -52,13 +50,14 @@ extension PlantFamilyComponentView {
     // MARK: - PlantFamilyHGrid
     private var plantFamilyHGrid: some View {
         LazyHGrid(rows: gridLayout) {
-            ForEach(plants) { plant in
+            ForEach(viewModel.filteredPlants) { plant in
                 PlantComponentView(viewModel: PlantComponentViewModel(plant: plant, networkManager: NetworkManager()))
             }
         }
+
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PlantFamilyComponentView(plants: [PlantMockData.plant], sectionTitle: .jasmines)
+    PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: [PlantMockData.plant], sectionTitle: .daisies))
 }

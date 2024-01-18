@@ -27,7 +27,7 @@ final class PlantComponentViewModel: ObservableObject {
     // MARK: - Methods
     func formatPlantName() -> String {
         // names with "or" will get formatted
-        guard let plantName = plant.commonName else { return ""}
+        guard let plantName = plant.commonName else { return "No info about name"}
         let delimiter = "or"
         let components = plantName.components(separatedBy: delimiter)
         let stringWithoutPrefix = components.last ?? plantName
