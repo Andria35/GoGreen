@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlowerRecognitionViewController: UIViewController {
+final class FlowerRecognitionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import NetworkManager
 
 struct ContentView: View {
+    
+    // MARK: - Body
     var body: some View {
-        Text("Content View")
+        NavigationStack {
+            HomeView(viewModel: HomeViewModel(networkManager: NetworkManager()))
+        }
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }
