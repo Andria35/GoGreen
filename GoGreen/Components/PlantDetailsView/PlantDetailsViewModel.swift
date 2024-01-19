@@ -15,6 +15,7 @@ final class PlantDetailsViewModel: ObservableObject {
     let networkManager: APIServices
     @Published var plantImage = Image(systemName: "photo")
     @Published var plantDetails: PlantDetails?
+    
     // MARK: - Initialization
     init(id: Int, networkManager: APIServices) {
         self.id = id

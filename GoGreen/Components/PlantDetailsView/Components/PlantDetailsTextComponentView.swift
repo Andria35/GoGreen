@@ -15,17 +15,19 @@ struct PlantDetailsTextComponentView: View {
     
     // MARK: - Body
     var body: some View {
-        HStack {
-            Text(description.capitalized)
+        HStack(alignment: .top) {
+            Text(description.capitalized + ":")
                 .opacity(0.7)
             Text(feature.capitalized)
+                .lineLimit(3)
+
         }
         .font(.title3)
         .fontWeight(.semibold)
-        .lineLimit(0)
     }
 }
 
+// MARK: - Preview
 #Preview {
     PlantDetailsTextComponentView(description: "Name", feature: "Roses")
 }

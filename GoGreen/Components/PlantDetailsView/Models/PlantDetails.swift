@@ -15,12 +15,14 @@ struct PlantDetailsResponse: Codable {
 // MARK: - DataClass
 struct PlantDetails: Codable {
     let id: Int
-    let commonName, scientificName: String
-    let imageURL: String
-    let year: Int
-    let bibliography, author: String
-    let observations: String
-    let mainSpecies: MainSpecies
+    let commonName: String?
+    let  scientificName: String?
+    let imageURL: String?
+    let year: Int?
+    let bibliography: String?
+    let author: String?
+    let observations: String?
+    let mainSpecies: MainSpecies?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -36,8 +38,8 @@ struct PlantDetails: Codable {
 
 // MARK: - MainSpecies
 struct MainSpecies: Codable {
-    let genus: String
-    let family: String
-    let edible: Bool
+    let genus: String?
+    let family: String?
+    let edible: Bool?
 }
 
