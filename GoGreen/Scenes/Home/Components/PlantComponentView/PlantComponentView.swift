@@ -12,6 +12,7 @@ struct PlantComponentView: View {
     
     // MARK: - Properties
     @StateObject var viewModel: PlantComponentViewModel
+    @EnvironmentObject var router: Router
     
     // MARK: - Body
     var body: some View {
@@ -29,6 +30,9 @@ struct PlantComponentView: View {
                 .padding(.bottom, 8)
                 .font(.title3)
                 .fontWeight(.medium)
+        }
+        .onTapGesture {
+            router.navigate(to: .plantDetailsView(id: viewModel.plant.id))
         }
     }
 }
