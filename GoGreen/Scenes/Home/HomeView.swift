@@ -12,6 +12,7 @@ struct HomeView: View {
     
     // MARK: - Properties
     @StateObject var viewModel: HomeViewModel
+    @State var liveScan: Bool = false
     
     // MARK: - Body
     var body: some View {
@@ -24,25 +25,17 @@ struct HomeView: View {
                     ProgressView()
                 } else {
                     if viewModel.textfieldText.isEmpty {
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.roses, sectionTitle: .roses))
-                        
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.daisies, sectionTitle: .daisies))
-                        
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.irises, sectionTitle: .irises))
-                        
-                        
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.jasmines, sectionTitle: .jasmines))
-                        
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.sunflowers, sectionTitle: .sunflowers))
+                        plantFamilyComponentViews
                     } else {
                         PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.searchResult, sectionTitle: nil))
                     }
                 }
-                
-                
             }
             .padding()
         }
+        .sheet(isPresented: $liveScan, content: {
+            LiveTextFromCameraScanView(liveScan: $liveScan, scannedText: $viewModel.textfieldText, fetchPlantsByTextfield: viewModel.fetchPlantsByTextfieldResult)
+        })
     }
 }
 
@@ -62,9 +55,7 @@ extension HomeView {
     private var searchBarHStack: some View {
         HStack {
             TextField("Search Plants", text: $viewModel.textfieldText, onCommit: {
-                Task {
-                    await viewModel.fetchPlantsByTextfieldResult()
-                }
+                viewModel.fetchPlantsByTextfieldResult()
             })
             .font(.title2)
             .padding()
@@ -73,12 +64,23 @@ extension HomeView {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Button(action: {
-                
+                liveScan.toggle()
             }, label: {
                 Image(systemName: "qrcode.viewfinder")
                     .font(.largeTitle)
                     .foregroundStyle(.blue)
             })
+        }
+    }
+    
+    // MARK: - PlantFamilyComponentVStack
+    private var plantFamilyComponentViews: some View {
+        Group {
+            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.roses, sectionTitle: .roses))
+            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.daisies, sectionTitle: .daisies))
+            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.irises, sectionTitle: .irises))
+            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.jasmines, sectionTitle: .jasmines))
+            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.plantFamilies.sunflowers, sectionTitle: .sunflowers))
         }
     }
 }

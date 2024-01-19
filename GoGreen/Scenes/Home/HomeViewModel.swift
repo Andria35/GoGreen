@@ -55,14 +55,16 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func fetchPlantsByTextfieldResult() async {
-        do {
-            let plants = try await fetchPlants(by: textfieldText)
-            await MainActor.run {
-                self.searchResult = plants
+    func fetchPlantsByTextfieldResult() {
+        Task {
+            do {
+                let plants = try await fetchPlants(by: textfieldText)
+                await MainActor.run {
+                    self.searchResult = plants
+                }
+            } catch {
+                print(error)
             }
-        } catch {
-            print(error)
         }
     }
     

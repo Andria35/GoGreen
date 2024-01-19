@@ -32,6 +32,8 @@
 		10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */; };
 		10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4424D2B59578500E54334 /* PlantFamilies.swift */; };
 		10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */; };
+		10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */; };
+		10E442582B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		10E4424B2B594BB700E54334 /* PlantFamilyComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentView.swift; sourceTree = "<group>"; };
 		10E4424D2B59578500E54334 /* PlantFamilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilies.swift; sourceTree = "<group>"; };
 		10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentViewModel.swift; sourceTree = "<group>"; };
+		10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTextFromCameraScanView.swift; sourceTree = "<group>"; };
+		10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerViewControllerRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		101B0ECC2B5720180074B0E6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				10E442542B5A70AB00E54334 /* Scanner */,
 				101B0EDA2B5729FA0074B0E6 /* ContentView.swift */,
 				101B0ED52B5721160074B0E6 /* HomeView.swift */,
 				10595A982B58720400419366 /* HomeViewModel.swift */,
@@ -251,6 +256,15 @@
 			path = PlantFamilyComponentView;
 			sourceTree = "<group>";
 		};
+		10E442542B5A70AB00E54334 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */,
+				10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,10 +344,12 @@
 				101B0ED22B5720650074B0E6 /* FlowerRecognitionViewController.swift in Sources */,
 				101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */,
 				10E442482B59185300E54334 /* PlantComponentViewModel.swift in Sources */,
+				10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */,
 				10E442462B59184000E54334 /* PlantComponentView.swift in Sources */,
 				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
 				10595A8A2B57379D00419366 /* Color.swift in Sources */,
 				101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */,
+				10E442582B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift in Sources */,
 				10595A9B2B58745400419366 /* Plant.swift in Sources */,
 				10595A882B57372A00419366 /* WelcomeView.swift in Sources */,
 				10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */,
@@ -492,9 +508,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87CWSKX54K;
+				DEVELOPMENT_TEAM = K36T666ZM6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -520,9 +537,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87CWSKX54K;
+				DEVELOPMENT_TEAM = K36T666ZM6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
