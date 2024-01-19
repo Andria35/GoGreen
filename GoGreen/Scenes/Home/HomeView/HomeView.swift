@@ -33,7 +33,7 @@ struct HomeView: View {
             }
             .padding()
         }
-        .sheet(isPresented: $liveScan, content: {
+        .fullScreenCover(isPresented: $liveScan, content: {
             LiveTextFromCameraScanView(liveScan: $liveScan, scannedText: $viewModel.textfieldText, fetchPlantsByTextfield: viewModel.fetchPlantsByTextfieldResult)
         })
     }

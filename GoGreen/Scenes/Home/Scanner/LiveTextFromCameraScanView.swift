@@ -19,20 +19,14 @@ struct LiveTextFromCameraScanView: View {
     var body: some View {
         VStack {
             DataScannerViewControllerRepresentable(scannedText: $scannedText, liveScan: $liveScan, fetchPlantsByTextfield: fetchPlantsByTextfield)
+                .ignoresSafeArea()
             
             Text("Capture Text")
             Button("Cancel") {
                 dismiss()
             }.buttonStyle(.borderedProminent)
         }
-        .padding()
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Capture Text")
-                    .font(.title3)
-                    .fontWeight(.bold)
-            }
-        }
+        .padding(.bottom)
     }
 }
 

@@ -98,10 +98,11 @@
 		101B0ECC2B5720180074B0E6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				10E442542B5A70AB00E54334 /* Scanner */,
 				101B0EDA2B5729FA0074B0E6 /* ContentView.swift */,
-				101B0ED52B5721160074B0E6 /* HomeView.swift */,
-				10595A982B58720400419366 /* HomeViewModel.swift */,
+				10E4425C2B5A927B00E54334 /* HomeView */,
+				10E4425A2B5A8FAB00E54334 /* Components */,
+				10E442592B5A8F9E00E54334 /* Models */,
+				10E442542B5A70AB00E54334 /* Scanner */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -121,18 +122,9 @@
 				10595A872B57372A00419366 /* WelcomeView.swift */,
 				10595A922B57D40100419366 /* DiscoverPlantView.swift */,
 				10595A942B57E55700419366 /* EmbarkJourneyView.swift */,
+				10E4425B2B5A901000E54334 /* Components */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		10595A8B2B573A0B00419366 /* Swiftui */ = {
-			isa = PBXGroup;
-			children = (
-				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
-				10E442442B59181100E54334 /* PlantComponentView */,
-				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
-			);
-			path = Swiftui;
 			sourceTree = "<group>";
 		};
 		1062DB022B567FA3001B5AEE = {
@@ -191,7 +183,6 @@
 		1062DB242B569479001B5AEE /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				10595A8B2B573A0B00419366 /* Swiftui */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,8 +190,6 @@
 		1062DB252B569496001B5AEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				10595A9A2B58745400419366 /* Plant.swift */,
-				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +252,41 @@
 				10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */,
 			);
 			path = Scanner;
+			sourceTree = "<group>";
+		};
+		10E442592B5A8F9E00E54334 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10595A9A2B58745400419366 /* Plant.swift */,
+				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		10E4425A2B5A8FAB00E54334 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				10E442442B59181100E54334 /* PlantComponentView */,
+				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		10E4425B2B5A901000E54334 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		10E4425C2B5A927B00E54334 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				101B0ED52B5721160074B0E6 /* HomeView.swift */,
+				10595A982B58720400419366 /* HomeViewModel.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

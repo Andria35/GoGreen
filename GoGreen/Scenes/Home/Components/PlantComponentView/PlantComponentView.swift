@@ -27,7 +27,7 @@ struct PlantComponentView: View {
             Text(viewModel.formatPlantName())
                 .padding(.top)
                 .padding(.bottom, 8)
-                .font(.callout)
+                .font(.title3)
                 .fontWeight(.medium)
         }
     }
