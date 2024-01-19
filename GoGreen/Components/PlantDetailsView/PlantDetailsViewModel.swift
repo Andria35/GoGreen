@@ -14,8 +14,7 @@ final class PlantDetailsViewModel: ObservableObject {
     let id: Int
     let networkManager: APIServices
     @Published var plantImage = Image(systemName: "photo")
-    @Published var plantDetails: PlantDetails = PlantDetails(id: 0, commonName: "", scientificName: "", imageURL: "", year: 0, bibliography: "", author: "", observations: "", mainSpecies: MainSpecies(genus: "", family: "", edible: false))
-    
+    @Published var plantDetails: PlantDetails?
     // MARK: - Initialization
     init(id: Int, networkManager: APIServices) {
         self.id = id
@@ -23,7 +22,7 @@ final class PlantDetailsViewModel: ObservableObject {
         
         Task {
             await fetchPlantDetails()
-            print(plantDetails.commonName)
+            await fetchImage(urlString: plantDetails?.imageURL ?? "")
         }
     }
     
