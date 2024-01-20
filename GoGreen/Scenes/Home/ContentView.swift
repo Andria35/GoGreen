@@ -10,11 +10,21 @@ import NetworkManager
 
 struct ContentView: View {
     
+    // MARK: - Properties
+    @StateObject var router = Router()
+    
     // MARK: - Body
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $router.navigationPath) {
             HomeView(viewModel: HomeViewModel(networkManager: NetworkManager()))
+                .navigationDestination(for: Router.Destination.self) { destination in
+                    switch destination {
+                    case .plantDetailsView(let id):
+                        PlantDetailsView(viewModel: PlantDetailsViewModel(id: id, networkManager: NetworkManager()))
+                    }
+                }
         }
+        .environmentObject(router)
     }
 }
 
