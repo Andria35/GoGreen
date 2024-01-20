@@ -12,6 +12,7 @@
 		101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED52B5721160074B0E6 /* HomeView.swift */; };
 		101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED82B5722C00074B0E6 /* TabBarController.swift */; };
 		101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0EDA2B5729FA0074B0E6 /* ContentView.swift */; };
+		1049A7EC2B5C41F200F5A86E /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */; };
 		10595A862B5734FC00419366 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A852B5734FC00419366 /* OnboardingView.swift */; };
 		10595A882B57372A00419366 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A872B57372A00419366 /* WelcomeView.swift */; };
 		10595A8A2B57379D00419366 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A892B57379D00419366 /* Color.swift */; };
@@ -48,6 +49,7 @@
 		101B0ED52B5721160074B0E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		101B0ED82B5722C00074B0E6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101B0EDA2B5729FA0074B0E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		10595A852B5734FC00419366 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		10595A872B57372A00419366 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		10595A892B57379D00419366 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				1062DB272B5694B7001B5AEE /* Helpers */,
 				1062DB292B5695BE001B5AEE /* Resources */,
 				1062DB1C2B567FA4001B5AEE /* Info.plist */,
+				1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */,
 			);
 			path = GoGreen;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */,
 				10595A972B58124800419366 /* UserDefaultsKeys.swift in Sources */,
 				101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */,
+				1049A7EC2B5C41F200F5A86E /* FlowerClassifier.mlmodel in Sources */,
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
