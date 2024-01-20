@@ -12,7 +12,7 @@ struct PlantDetailsResponse: Codable {
     let data: PlantDetails
 }
 
-// MARK: - DataClass
+// MARK: - PlantDetails
 struct PlantDetails: Codable {
     let id: Int
     let commonName: String?

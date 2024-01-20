@@ -12,7 +12,7 @@ struct PlantsResponse: Decodable {
     let data: [Plant]
 }
 
-// MARK: - Datum
+// MARK: - Plant
 struct Plant: Decodable, Identifiable {
     let id: Int
     let commonName: String?

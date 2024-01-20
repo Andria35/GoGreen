@@ -16,7 +16,6 @@ struct PlantDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                
                 viewModel.plantImage
                     .resizable()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
