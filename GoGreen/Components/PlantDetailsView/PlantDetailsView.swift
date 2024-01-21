@@ -14,30 +14,40 @@ struct PlantDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                viewModel.plantImage
-                    .resizable()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .aspectRatio(contentMode: .fit)
-                Divider()
-                plantDetailsTextComponentsVStack
-            }
-            .padding()
+        if viewModel.plantDetails != nil {
             
-        }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Details")
-                    .font(.headline)
-                    .fontWeight(.semibold)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    plantImage
+                    Divider()
+                    plantDetailsTextComponentsVStack
+                }
+                .padding()
+                
             }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Details")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                }
+            }
+            
         }
     }
 }
 
 // MARK: - Components
 extension PlantDetailsView {
+    
+    // MARK: - PlantImage
+    private var plantImage: some View {
+        viewModel.plantImage
+            .resizable()
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .aspectRatio(contentMode: .fit)
+    }
+    
     // MARK: - PlantDetailsTextComponentsVStack
     private var plantDetailsTextComponentsVStack: some View {
         VStack(alignment: .leading) {
