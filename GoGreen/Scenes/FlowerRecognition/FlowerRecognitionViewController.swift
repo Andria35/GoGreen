@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
+    private let viewModel = FlowerRecognitionViewModel()
+    
     // MARK: - UI Components
     private let cameraButton: UIButton = {
         let button = UIButton()
@@ -56,7 +60,7 @@ final class FlowerRecognitionViewController: UIViewController {
     
     private func setupImagePicker() {
         imagePicker.delegate = self
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
         imagePicker.sourceType = .camera
     }
     // MARK: - Setup Constraints
@@ -72,8 +76,12 @@ extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINa
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            print(pickedImage.size)
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            guard let convertedCIImage = CIImage(image: userPickedImage) else {
+                fatalError("Cannot convert to ciImage")
+            }
+            viewModel.detect(image: convertedCIImage)
         }
         
         picker.dismiss(animated: true, completion: nil)
