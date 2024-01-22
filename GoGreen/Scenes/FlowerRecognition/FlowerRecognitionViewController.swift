@@ -12,11 +12,8 @@ import NetworkManager
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
-    private let viewModel = FlowerRecognitionViewModel(networkManager: NetworkManager())
-    lazy var hostingController: UIHostingController<PlantDetailsView> = {
-        let hostingController = UIHostingController(rootView: PlantDetailsView(viewModel: PlantDetailsViewModel(id: nil, networkManager: NetworkManager())))
-        return hostingController
-    }()
+    private let viewModel: FlowerRecognitionViewModel
+    private let alertManager: Alerting
     
     // MARK: - UI Components
     private let cameraButton: UIButton = {
@@ -29,14 +26,33 @@ final class FlowerRecognitionViewController: UIViewController {
     
     private let imagePicker = UIImagePickerController()
     
+    lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
+        let hostingController = UIHostingController(
+            rootView: PlantDetailsView(
+                viewModel: PlantDetailsViewModel(
+                    id: nil, networkManager: NetworkManager())))
+        return hostingController
+    }()
+    
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupConstraints()
         setupDelegates()
     }
+    
+    // MARK: - Initialization
+    init(viewModel: FlowerRecognitionViewModel, alertManager: Alerting) {
+        self.viewModel = viewModel
+        self.alertManager = alertManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Setup UI
     private func setupUI() {
         setupBackground()
@@ -48,20 +64,18 @@ final class FlowerRecognitionViewController: UIViewController {
     private func setupSubviews() {
         view.addSubview(cameraButton)
         
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.didMove(toParent: self)
+        addChild(flowerDetailsHostingController)
+        view.addSubview(flowerDetailsHostingController.view)
+        flowerDetailsHostingController.didMove(toParent: self)
     }
     
     private func setupBackground() {
         view.backgroundColor = .systemBackground
     }
     
-    
     private func setupCameraButton() {
         let cameraBarButtonItem = UIBarButtonItem(customView: cameraButton)
         navigationItem.rightBarButtonItem = cameraBarButtonItem
-        
         cameraButton.addAction(UIAction(handler: { [weak self] action in
             guard let self else { return }
             present(self.imagePicker, animated: true)
@@ -69,27 +83,29 @@ final class FlowerRecognitionViewController: UIViewController {
     }
     
     private func setupImagePicker() {
-        imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .camera
     }
+    
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        hostingController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-
+        setupFlowerDetailsHostingControllerConstraints()
     }
     
+    private func setupFlowerDetailsHostingControllerConstraints() {
+        flowerDetailsHostingController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        flowerDetailsHostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        flowerDetailsHostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        flowerDetailsHostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        flowerDetailsHostingController.view.translatesAutoresizingMaskIntoConstraints = false
+    }
     
+    // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
+        imagePicker.delegate = self
     }
-    // MARK: - Class Methods
 }
-
 
 // MARK: - ImagePickerDelegate
 extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -97,7 +113,6 @@ extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINa
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            
             viewModel.detectPlant(image: userPickedImage)
         }
         
@@ -107,8 +122,11 @@ extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINa
 
 // MARK: - FlowerRecognitionViewModelDelegate
 extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
+    func displayFlowerRecognitionFailedAlert() {
+        alertManager.displayAlert(message: "There was a problem recognising this image", buttonTitle: "Ok", vc: self)
+    }
+    
     func fetchCompleted(plant: Plant) {
-        hostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
-         
+        flowerDetailsHostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }

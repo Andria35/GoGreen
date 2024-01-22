@@ -28,7 +28,7 @@
 		1062DB1B2B567FA4001B5AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1062DB192B567FA4001B5AEE /* LaunchScreen.storyboard */; };
 		1062DB2C2B569608001B5AEE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1062DB2B2B569608001B5AEE /* NetworkManager */; };
 		1075A6202B5D20320025922C /* FlowerRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075A61F2B5D20320025922C /* FlowerRecognitionViewModel.swift */; };
-		1075A6222B5D241C0025922C /* CustomUIImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075A6212B5D241C0025922C /* CustomUIImagePicker.swift */; };
+		1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075A6252B5EBDAC0025922C /* AlertManager.swift */; };
 		107652FE2B5AAE03005F7E4B /* PlantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */; };
 		107653002B5AAE0F005F7E4B /* PlantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */; };
 		107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653022B5AE373005F7E4B /* PlantDetails.swift */; };
@@ -68,7 +68,7 @@
 		1062DB1A2B567FA4001B5AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1062DB1C2B567FA4001B5AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1075A61F2B5D20320025922C /* FlowerRecognitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecognitionViewModel.swift; sourceTree = "<group>"; };
-		1075A6212B5D241C0025922C /* CustomUIImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImagePicker.swift; sourceTree = "<group>"; };
+		1075A6252B5EBDAC0025922C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsView.swift; sourceTree = "<group>"; };
 		107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewModel.swift; sourceTree = "<group>"; };
 		107653022B5AE373005F7E4B /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
@@ -205,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				107652FC2B5AADE1005F7E4B /* PlantDetailsView */,
-				1075A6212B5D241C0025922C /* CustomUIImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -213,6 +212,7 @@
 		1062DB252B569496001B5AEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				10595A9A2B58745400419366 /* Plant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,6 +238,7 @@
 		1062DB282B5694C1001B5AEE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1075A6252B5EBDAC0025922C /* AlertManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -316,7 +317,6 @@
 		10E442592B5A8F9E00E54334 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				10595A9A2B58745400419366 /* Plant.swift */,
 				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
 			);
 			path = Models;
@@ -443,11 +443,11 @@
 				10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */,
 				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,
 				10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */,
-				1075A6222B5D241C0025922C /* CustomUIImagePicker.swift in Sources */,
 				10595A972B58124800419366 /* UserDefaultsKeys.swift in Sources */,
 				101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */,
 				1049A7EC2B5C41F200F5A86E /* FlowerClassifier.mlmodel in Sources */,
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
+				1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
 				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,

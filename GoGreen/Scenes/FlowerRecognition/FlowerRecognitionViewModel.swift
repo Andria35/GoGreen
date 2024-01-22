@@ -12,6 +12,7 @@ import NetworkManager
 
 protocol FlowerRecognitionViewModelDelegate: AnyObject {
     func fetchCompleted(plant: Plant)
+    func displayFlowerRecognitionFailedAlert()
 }
 
 final class FlowerRecognitionViewModel {
@@ -19,28 +20,28 @@ final class FlowerRecognitionViewModel {
     // MARK: - Properties
     let networkManager: APIServices
     weak var delegate: FlowerRecognitionViewModelDelegate? = nil
-
     
     // MARK: - Initialization
     init(networkManager: APIServices) {
         self.networkManager = networkManager
     }
     
-    // MARK: - Methods
-    
     // MARK: - Image Classification
     func detectPlant(image: UIImage) {
         
-        guard let convertedCIImage = CIImage(image: image) else { return }
-        
+        guard let convertedCIImage = CIImage(image: image) else {
+            delegate?.displayFlowerRecognitionFailedAlert()
+            return
+        }
         guard let model = try? VNCoreMLModel(for: FlowerClassifier(configuration: MLModelConfiguration()).model) else {
+            delegate?.displayFlowerRecognitionFailedAlert()
             return
         }
         
         let request = VNCoreMLRequest(model: model) { [weak self] request, error in
             guard let self else { return }
+            
             let classification = request.results?.first as? VNClassificationObservation
-            print(classification?.identifier ?? "")
             Task {
                 await self.fetchPlants(by: classification?.identifier ?? "")
             }
@@ -51,7 +52,8 @@ final class FlowerRecognitionViewModel {
         do {
             try handler.perform([request])
         } catch {
-            print("Error")
+            delegate?.displayFlowerRecognitionFailedAlert()
+            print(error)
         }
     }
     
@@ -67,8 +69,8 @@ final class FlowerRecognitionViewModel {
                 }
             }
         } catch {
+            delegate?.displayFlowerRecognitionFailedAlert()
             print(error)
         }
     }
-
 }

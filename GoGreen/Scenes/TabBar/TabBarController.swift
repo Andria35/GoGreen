@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import NetworkManager
 
 final class TabBarController: UITabBarController {
     
@@ -45,7 +46,7 @@ final class TabBarController: UITabBarController {
     // MARK: - Tab Setup
     private func setupTabs() {
         let contentViewHostingController = createHostingController(title: "Home", image: UIImage(systemName: "house"), rootView: ContentView())
-        let flowerRecognitionViewController = createNavigationController(title: "Flower Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController())
+        let flowerRecognitionViewController = createNavigationController(title: "Flower Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController(viewModel: FlowerRecognitionViewModel(networkManager: NetworkManager()), alertManager: AlertManager()))
         let myGardenViewController = createNavigationController(title: "My Garden", image: UIImage(systemName: "leaf"), viewController: MyGardenViewController())
         
         setViewControllers([contentViewHostingController, flowerRecognitionViewController, myGardenViewController],

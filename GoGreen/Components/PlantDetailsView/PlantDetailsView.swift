@@ -23,7 +23,6 @@ struct PlantDetailsView: View {
                     plantDetailsTextComponentsVStack
                 }
                 .padding()
-                
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -33,6 +32,8 @@ struct PlantDetailsView: View {
                 }
             }
             
+        } else {
+            noFlowerInfoVStack
         }
     }
 }
@@ -85,11 +86,21 @@ extension PlantDetailsView {
         }
     }
     
+    // MARK: - NoFlowerInfoVStack
+    private var noFlowerInfoVStack: some View {
+        VStack {
+            Image(systemName: "leaf")
+            Text("No Flower Info")
+        }
+        .font(.largeTitle)
+        .fontWeight(.bold)
+    }
+    
 }
 
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        PlantDetailsView(viewModel: PlantDetailsViewModel(id: 143205, networkManager: NetworkManager()))
+        PlantDetailsView(viewModel: PlantDetailsViewModel(id: nil, networkManager: NetworkManager()))
     }
 }
