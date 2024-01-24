@@ -76,6 +76,7 @@ final class FlowerRecognitionViewController: UIViewController {
     private func setupCameraButton() {
         let cameraBarButtonItem = UIBarButtonItem(customView: cameraButton)
         navigationItem.rightBarButtonItem = cameraBarButtonItem
+        
         cameraButton.addAction(UIAction(handler: { [weak self] action in
             guard let self else { return }
             present(self.imagePicker, animated: true)

@@ -35,6 +35,9 @@
 		107653072B5AE8DC005F7E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653062B5AE8DC005F7E4B /* Router.swift */; };
 		107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */; };
 		1076530C2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */; };
+		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
+		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
+		10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */; };
 		10E442462B59184000E54334 /* PlantComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442452B59184000E54334 /* PlantComponentView.swift */; };
 		10E442482B59185300E54334 /* PlantComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442472B59185300E54334 /* PlantComponentViewModel.swift */; };
 		10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442492B59193800E54334 /* PlantMockData.swift */; };
@@ -75,6 +78,9 @@
 		107653062B5AE8DC005F7E4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsMockData.swift; sourceTree = "<group>"; };
 		1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsTextComponentView.swift; sourceTree = "<group>"; };
+		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
+		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
+		10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlant.swift; sourceTree = "<group>"; };
 		10E442452B59184000E54334 /* PlantComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantComponentView.swift; sourceTree = "<group>"; };
 		10E442472B59185300E54334 /* PlantComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantComponentViewModel.swift; sourceTree = "<group>"; };
 		10E442492B59193800E54334 /* PlantMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantMockData.swift; sourceTree = "<group>"; };
@@ -100,7 +106,10 @@
 		101B0ECA2B571FFD0074B0E6 /* MyGarden */ = {
 			isa = PBXGroup;
 			children = (
+				10B54C382B611C7C00DFF3C0 /* TableViewCell */,
 				101B0ED32B5720800074B0E6 /* MyGardenViewController.swift */,
+				10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */,
+				10B54C3D2B6121CC00DFF3C0 /* Models */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -287,6 +296,22 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		10B54C382B611C7C00DFF3C0 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		10B54C3D2B6121CC00DFF3C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		10E442442B59181100E54334 /* PlantComponentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101B0ED22B5720650074B0E6 /* FlowerRecognitionViewController.swift in Sources */,
+				10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */,
 				101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */,
 				10E442482B59185300E54334 /* PlantComponentViewModel.swift in Sources */,
 				107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */,
@@ -439,6 +465,7 @@
 				10595A9B2B58745400419366 /* Plant.swift in Sources */,
 				10595A882B57372A00419366 /* WelcomeView.swift in Sources */,
 				1075A6202B5D20320025922C /* FlowerRecognitionViewModel.swift in Sources */,
+				10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */,
 				10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */,
 				10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */,
 				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,
@@ -451,6 +478,7 @@
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
 				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,
+				10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */,
 				107652FE2B5AAE03005F7E4B /* PlantDetailsView.swift in Sources */,
 				10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */,
 				107653072B5AE8DC005F7E4B /* Router.swift in Sources */,
