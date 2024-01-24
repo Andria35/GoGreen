@@ -13,7 +13,7 @@ final class MyGardenViewController: UIViewController {
     private var myPlants: [MyPlant] = [MyPlant(name: "Ficus", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficusss", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficussssss", image: UIImage(systemName: "photo")!)]
     
     // MARK: - UI Components
-    private let addNewFlowerButton: UIButton = {
+    private let addNewPlantButton: UIButton = {
         let button = UIButton()
         let cameraImage = UIImage(systemName: "plus")
         button.setImage(cameraImage, for: .normal)
@@ -48,18 +48,19 @@ final class MyGardenViewController: UIViewController {
     }
     
     private func setupSubViews() {
-        view.addSubview(addNewFlowerButton)
+        view.addSubview(addNewPlantButton)
         view.addSubview(tableView)
     }
     
     private func setupaddNewFlowerButton() {
-        let addNewFlowerBarButtonItem = UIBarButtonItem(customView: addNewFlowerButton)
+        let addNewFlowerBarButtonItem = UIBarButtonItem(customView: addNewPlantButton)
         navigationItem.rightBarButtonItem = addNewFlowerBarButtonItem
         
-//        cameraButton.addAction(UIAction(handler: { [weak self] action in
-//            guard let self else { return }
-//            present(self.imagePicker, animated: true)
-//        }), for: .touchUpInside)
+        addNewPlantButton.addAction(UIAction(handler: { [weak self] action in
+            guard let self else { return }
+            let addNewMyPlantViewController = AddNewMyPlantViewController()
+            present(addNewMyPlantViewController, animated: true)
+        }), for: .touchUpInside)
     }
     
     private func setupTableView() {
