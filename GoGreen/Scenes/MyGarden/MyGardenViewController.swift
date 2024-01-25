@@ -65,7 +65,6 @@ final class MyGardenViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
-//        tableView.delegate = self
         tableView.register(MyPlantTableViewCell.self, forCellReuseIdentifier: MyPlantTableViewCell.cellID)
     }
 

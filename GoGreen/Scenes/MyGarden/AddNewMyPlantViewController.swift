@@ -263,4 +263,10 @@ extension AddNewMyPlantViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textViewPlaceholderLabel.isHidden = true
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textViewPlaceholderLabel.isHidden = false
+        }
+    }
 }

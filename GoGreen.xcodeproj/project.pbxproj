@@ -35,6 +35,7 @@
 		107653072B5AE8DC005F7E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653062B5AE8DC005F7E4B /* Router.swift */; };
 		107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */; };
 		1076530C2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */; };
+		108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E4FFD2B62842400D37AC4 /* NotificationManager.swift */; };
 		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
 		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
 		10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */; };
@@ -79,6 +80,7 @@
 		107653062B5AE8DC005F7E4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsMockData.swift; sourceTree = "<group>"; };
 		1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsTextComponentView.swift; sourceTree = "<group>"; };
+		108E4FFD2B62842400D37AC4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
 		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
 		10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlant.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				1075A6252B5EBDAC0025922C /* AlertManager.swift */,
+				108E4FFD2B62842400D37AC4 /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				107652FE2B5AAE03005F7E4B /* PlantDetailsView.swift in Sources */,
 				10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */,
 				107653072B5AE8DC005F7E4B /* Router.swift in Sources */,
+				108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 				10595A992B58720400419366 /* HomeViewModel.swift in Sources */,
 				10595A932B57D40100419366 /* DiscoverPlantView.swift in Sources */,
