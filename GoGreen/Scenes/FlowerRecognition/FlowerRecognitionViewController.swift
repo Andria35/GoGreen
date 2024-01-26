@@ -16,13 +16,7 @@ final class FlowerRecognitionViewController: UIViewController {
     private let alertManager: Alerting
     
     // MARK: - UI Components
-    private let cameraButton: UIButton = {
-        let button = UIButton()
-        let cameraImage = UIImage(systemName: "camera.fill")
-        button.setImage(cameraImage, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    lazy private var cameraButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
     
     private let imagePicker = UIImagePickerController()
     
@@ -76,11 +70,10 @@ final class FlowerRecognitionViewController: UIViewController {
     private func setupCameraButton() {
         let cameraBarButtonItem = UIBarButtonItem(customView: cameraButton)
         navigationItem.rightBarButtonItem = cameraBarButtonItem
-        
-        cameraButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self else { return }
-            present(self.imagePicker, animated: true)
-        }), for: .touchUpInside)
+    }
+    
+    private func cameraButtonTapped() {
+        present(imagePicker, animated: true)
     }
     
     private func setupImagePicker() {

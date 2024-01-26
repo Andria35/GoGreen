@@ -13,13 +13,7 @@ final class MyGardenViewController: UIViewController {
     private var myPlants: [MyPlant] = [MyPlant(name: "Ficus", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficusss", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficussssss", image: UIImage(systemName: "photo")!)]
     
     // MARK: - UI Components
-    private let addNewPlantButton: UIButton = {
-        let button = UIButton()
-        let cameraImage = UIImage(systemName: "plus")
-        button.setImage(cameraImage, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    lazy private var addNewPlantButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -38,7 +32,7 @@ final class MyGardenViewController: UIViewController {
     // MARK: - Setup UI
     private func setupUI() {
         setupBackground()
-        setupaddNewFlowerButton()
+        setupAddNewFlowerButton()
         setupTableView()
         setupSubViews()
     }
@@ -52,15 +46,14 @@ final class MyGardenViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-    private func setupaddNewFlowerButton() {
+    private func setupAddNewFlowerButton() {
         let addNewFlowerBarButtonItem = UIBarButtonItem(customView: addNewPlantButton)
         navigationItem.rightBarButtonItem = addNewFlowerBarButtonItem
-        
-        addNewPlantButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self else { return }
-            let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager())
-            navigationController?.pushViewController(addNewMyPlantViewController, animated: true)
-        }), for: .touchUpInside)
+    }
+    
+    private func addNewFlowerButtonTapped() {
+        let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager())
+        navigationController?.pushViewController(addNewMyPlantViewController, animated: true)
     }
     
     private func setupTableView() {
@@ -82,8 +75,6 @@ final class MyGardenViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
     }
-    
-    // MARK: - Class Methods
 }
 
 // MARK: - Table View Datasource

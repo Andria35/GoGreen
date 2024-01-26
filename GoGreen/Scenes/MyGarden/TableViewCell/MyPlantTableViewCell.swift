@@ -22,20 +22,9 @@ class MyPlantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private let plantImageView: UIImageView = {
-        let image = UIImageView()
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        return image
-    }()
+    private let plantImageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: 150, width: 150)
     
-    private let plantLabel: UILabel = {
-        let label = UILabel()
-//        label.font = UIFont.
-//        label.textColor = .darkText
-        label.numberOfLines = 0
-        return label
-    }()
+    private let plantNameLabel: UILabel = CustomUILabel(customText: nil, fontSize: .medium, customNumberOfLines: 0)
     
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -55,13 +44,13 @@ class MyPlantTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        plantLabel.text = nil
+        plantNameLabel.text = nil
         plantImageView.image = nil
     }
     
     // MARK: - Configure
     func configure(with model: MyPlant) {
-        plantLabel.text = model.name
+        plantNameLabel.text = model.name
         plantImageView.image = model.image
     }
     
@@ -75,7 +64,7 @@ class MyPlantTableViewCell: UITableViewCell {
     private func setUpSubViews() {
         addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(plantImageView)
-        horizontalStackView.addArrangedSubview(plantLabel)
+        horizontalStackView.addArrangedSubview(plantNameLabel)
     }
     
     private func setupConstraints() {
@@ -86,7 +75,5 @@ class MyPlantTableViewCell: UITableViewCell {
             horizontalStackView.rightAnchor.constraint(equalTo: self.rightAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
         ])
-        plantImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        plantImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
 }

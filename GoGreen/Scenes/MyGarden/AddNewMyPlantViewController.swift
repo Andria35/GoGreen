@@ -14,7 +14,6 @@ class AddNewMyPlantViewController: UIViewController {
     var notificationDays = 0
     let notificationManager: Notifying
 
-    
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -30,14 +29,7 @@ class AddNewMyPlantViewController: UIViewController {
         return stackView
     }()
     
-    private let myPlantImageView: UIImageView = {
-        let image = UIImageView()
-        image.layer.cornerRadius = 10
-        image.clipsToBounds = true
-        image.image = UIImage(systemName: "photo")
-        image.tintColor = .systemGray
-        return image
-    }()
+    private let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: .systemGray, height: 300, width: nil)
     
     private let addPhotoHorizontalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -47,89 +39,21 @@ class AddNewMyPlantViewController: UIViewController {
         return stackView
     }()
     
-    private let takePhotoButton: UIButton = {
-        let button = UIButton()
-        let takePhotoImage = UIImage(systemName: "camera.fill")
-        button.setImage(takePhotoImage, for: .normal)
-        return button
-    }()
-    
-    private let choosePhotoFromLibraryButton: UIButton = {
-        let button = UIButton()
-        let choosePhotoImage = UIImage(systemName: "photo.on.rectangle")
-        button.setImage(choosePhotoImage, for: .normal)
-        return button
-    }()
-    
-    private let myPlantNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Plant Name"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.layer.cornerRadius = 10
-        textField.layer.borderWidth = 0.5
-        textField.layer.masksToBounds = true
-        textField.layer.borderColor = UIColor.systemGray.cgColor
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.size.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-        return textField
-    }()
-    
-    private let myPlantDescriptionTextView: UITextView = {
-        let textView = UITextView()
-        textView.layer.cornerRadius = 16
-        textView.layer.borderWidth = 1
-        textView.layer.masksToBounds = true
-        textView.layer.borderColor = UIColor.systemGray.cgColor
-        return textView
-    }()
-    
-    private let textViewPlaceholderLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Enter Plant Description(Optional)"
-        label.textColor = .systemGray.withAlphaComponent(0.5)
-        return label
-    }()
-    
-    private let saveButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Save", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        button.backgroundColor = .systemGreen
-        button.layer.cornerRadius = 15
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let setupFloweringReminderLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Set Up Flowering Reminder(Optional):"
-        return label
-    }()
-        
-    private let notificationTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Notification"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.layer.cornerRadius = 10
-        textField.layer.borderWidth = 0.5
-        textField.layer.masksToBounds = true
-        textField.layer.borderColor = UIColor.systemGray.cgColor
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.size.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-        return textField
-    }()
-    
-    private var notificationPickerView: UIPickerView = {
-        let pickerView = UIPickerView()
-        return pickerView
-    }()
+    lazy private var takePhotoButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: takePhotoButtonTapped)
 
-
+    lazy private var choosePhotoFromLibraryButton = CustomUIButton(title: nil, image: UIImage(systemName: "photo.on.rectangle"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: choosePhotoFromLibraryButtonTapped)
+    
+    private let myPlantNameTextField = CustomUITextField(placeholder: "Plant Name")
+    
+    private let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
+    
+    lazy private var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGreen, fontSize: .big, isRounded: true, height: 65, width: nil, customAction: saveButtonTapped)
+    
+    private let setupFloweringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
+        
+    private let notificationTextField = CustomUITextField(placeholder: "Notification")
+    
+    private var notificationPickerView = UIPickerView()
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
@@ -138,7 +62,6 @@ class AddNewMyPlantViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
-//        UNUserNotificationCenter.setBadgeCoun
         notificationManager.requestAuthorization()
     }
     
@@ -156,9 +79,6 @@ class AddNewMyPlantViewController: UIViewController {
     private func setupUI() {
         setupBackground()
         setupSubViews()
-        setupTakePhotoButton()
-        setupChoosePhotoFromLibraryButton()
-        setupSaveButton()
         setupNotificationTextField()
     }
     
@@ -180,7 +100,7 @@ class AddNewMyPlantViewController: UIViewController {
         
         verticalStackView.addArrangedSubview(makeDividerLine())
         verticalStackView.addArrangedSubview(myPlantDescriptionTextView)
-        myPlantDescriptionTextView.addSubview(textViewPlaceholderLabel)
+                
         verticalStackView.addArrangedSubview(saveButton)
     }
     
@@ -191,27 +111,16 @@ class AddNewMyPlantViewController: UIViewController {
         addPhotoHorizontalStackView.addArrangedSubview(UIView())
     }
     
-    private func setupTakePhotoButton() {
-        takePhotoButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self else { return }
-            self.showCamera()
-        }), for: .touchUpInside)
+    private func takePhotoButtonTapped() {
+        showCamera()
+    }
+    
+    private func choosePhotoFromLibraryButtonTapped() {
+        showPhotoLibrary()
+    }
         
-    }
-    
-    private func setupChoosePhotoFromLibraryButton() {
-        choosePhotoFromLibraryButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self = self else { return }
-            self.showPhotoLibrary()
-        }), for: .touchUpInside)
-    }
-    
-    private func setupSaveButton() {
-        saveButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self = self else { return }
-            
-            notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
-        }), for: .touchUpInside)
+    private func saveButtonTapped() {
+        notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
     }
     
     private func setupNotificationTextField() {
@@ -222,13 +131,6 @@ class AddNewMyPlantViewController: UIViewController {
     private func setupConstraints() {
         setupScrollViewConstraints()
         setupVerticalStackViewConstraints()
-        setupMyPlantImageViewConstraints()
-        setupMyPlantNameTextFieldConstraints()
-        setupNotificationTextFieldConstraints()
-        setupMyPlantDescriptionTextViewConstraints()
-        setupTextViewPlaceholderLabelConstraints()
-        setupSaveButtonConstraints()
-        
     }
     
     private func setupScrollViewConstraints() {
@@ -249,32 +151,7 @@ class AddNewMyPlantViewController: UIViewController {
             verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10)
         ])
     }
-    
-    private func setupMyPlantImageViewConstraints() {
-        myPlantImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-    }
-    
-    private func setupMyPlantNameTextFieldConstraints() {
-        myPlantNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    private func setupMyPlantDescriptionTextViewConstraints() {
-        myPlantDescriptionTextView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-    }
-    
-    private func setupTextViewPlaceholderLabelConstraints() {
-        textViewPlaceholderLabel.topAnchor.constraint(equalTo: myPlantDescriptionTextView.topAnchor, constant: 10).isActive = true
-        textViewPlaceholderLabel.leadingAnchor.constraint(equalTo: myPlantDescriptionTextView.leadingAnchor, constant: 10).isActive = true
-    }
-    
-    private func setupSaveButtonConstraints() {
-        saveButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
-    }
-    
-    private func setupNotificationTextFieldConstraints() {
-        notificationTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
+        
     // MARK: - Setup Delegates
     private func setupDelegates() {
         myPlantDescriptionTextView.delegate = self
@@ -321,12 +198,13 @@ extension AddNewMyPlantViewController: UIImagePickerControllerDelegate, UINaviga
 // MARK: - TextView Delegate
 extension AddNewMyPlantViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textViewPlaceholderLabel.isHidden = true
+        myPlantDescriptionTextView.hidePlaceholderLabel()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textViewPlaceholderLabel.isHidden = false
+            myPlantDescriptionTextView.unhidePlaceholderLabel()
+
         }
     }
 }
