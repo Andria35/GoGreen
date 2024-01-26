@@ -48,6 +48,8 @@
 		108E501C2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E501B2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift */; };
 		108E501E2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E501D2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift */; };
 		108E50212B64239700D37AC4 /* MyGardenViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50202B64239700D37AC4 /* MyGardenViewController+TableView.swift */; };
+		108E50242B64246700D37AC4 /* FlowerRecognitionViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50232B64246700D37AC4 /* FlowerRecognitionViewController+ImagePicker.swift */; };
+		108E50262B6424AE00D37AC4 /* FlowerRecognitionViewController+FlowerRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50252B6424AE00D37AC4 /* FlowerRecognitionViewController+FlowerRecognitionViewModel.swift */; };
 		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
 		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
 		10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */; };
@@ -105,6 +107,8 @@
 		108E501B2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+TextView.swift"; sourceTree = "<group>"; };
 		108E501D2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+PickerView.swift"; sourceTree = "<group>"; };
 		108E50202B64239700D37AC4 /* MyGardenViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGardenViewController+TableView.swift"; sourceTree = "<group>"; };
+		108E50232B64246700D37AC4 /* FlowerRecognitionViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowerRecognitionViewController+ImagePicker.swift"; sourceTree = "<group>"; };
+		108E50252B6424AE00D37AC4 /* FlowerRecognitionViewController+FlowerRecognitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowerRecognitionViewController+FlowerRecognitionViewModel.swift"; sourceTree = "<group>"; };
 		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
 		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
 		10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlant.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			children = (
 				101B0ED12B5720650074B0E6 /* FlowerRecognitionViewController.swift */,
 				1075A61F2B5D20320025922C /* FlowerRecognitionViewModel.swift */,
+				108E50222B64244800D37AC4 /* Extensions */,
 			);
 			path = FlowerRecognition;
 			sourceTree = "<group>";
@@ -426,6 +431,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		108E50222B64244800D37AC4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				108E50232B64246700D37AC4 /* FlowerRecognitionViewController+ImagePicker.swift */,
+				108E50252B6424AE00D37AC4 /* FlowerRecognitionViewController+FlowerRecognitionViewModel.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		10B54C382B611C7C00DFF3C0 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +639,8 @@
 				107653072B5AE8DC005F7E4B /* Router.swift in Sources */,
 				108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */,
 				108E50122B640A3600D37AC4 /* ImagePickerManager.swift in Sources */,
+				108E50262B6424AE00D37AC4 /* FlowerRecognitionViewController+FlowerRecognitionViewModel.swift in Sources */,
+				108E50242B64246700D37AC4 /* FlowerRecognitionViewController+ImagePicker.swift in Sources */,
 				108E50152B6411D600D37AC4 /* CustomUIDividerLine.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 				10595A992B58720400419366 /* HomeViewModel.swift in Sources */,

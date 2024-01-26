@@ -46,15 +46,16 @@ final class AddNewMyPlantViewController: UIViewController {
     
     private let myPlantNameTextField = CustomUITextField(placeholder: "Plant Name")
     
+    let notificationTextField = CustomUITextField(placeholder: "Notification")
+    
+    private var notificationPickerView = UIPickerView()
+    
     let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
     
     lazy private var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGreen, fontSize: .big, isRounded: true, height: 65, width: nil, customAction: saveButtonTapped)
     
-    private let setupFloweringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
+    private let setupWateringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
         
-    let notificationTextField = CustomUITextField(placeholder: "Notification")
-    
-    private var notificationPickerView = UIPickerView()
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
@@ -95,7 +96,7 @@ final class AddNewMyPlantViewController: UIViewController {
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(myPlantNameTextField)
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
-        verticalStackView.addArrangedSubview(setupFloweringReminderLabel)
+        verticalStackView.addArrangedSubview(setupWateringReminderLabel)
         verticalStackView.addArrangedSubview(notificationTextField)
         
         verticalStackView.addArrangedSubview(CustomUIDividerLine())

@@ -12,8 +12,8 @@ import NetworkManager
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
-    private let viewModel: FlowerRecognitionViewModel
-    private let alertManager: Alerting
+    let viewModel: FlowerRecognitionViewModel
+    let alertManager: Alerting
     private let imagePickerManager: ImagePicking
     
     // MARK: - UI Components
@@ -91,29 +91,5 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
-    }
-}
-
-// MARK: - ImagePickerDelegate
-extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            viewModel.detectPlant(image: userPickedImage)
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - FlowerRecognitionViewModelDelegate
-extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
-    func displayFlowerRecognitionFailedAlert() {
-        alertManager.displayAlert(message: "There was a problem recognising this image", buttonTitle: "Ok", vc: self)
-    }
-    
-    func fetchCompleted(plant: Plant) {
-        flowerDetailsHostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }
