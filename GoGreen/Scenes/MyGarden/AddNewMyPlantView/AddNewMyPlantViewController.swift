@@ -7,11 +7,11 @@
 
 import UIKit
 
-class AddNewMyPlantViewController: UIViewController {
+final class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
-    private let pickerViewValues = Array(0...100)
-    private var notificationDays = 0
+    let pickerViewValues = Array(0...100)
+    var notificationDays = 0
     private let notificationManager: Notifying
     private let imagePickerManager: ImagePicking
 
@@ -30,7 +30,7 @@ class AddNewMyPlantViewController: UIViewController {
         return stackView
     }()
     
-    private let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: .systemGray, height: 300, width: nil)
+    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: .systemGray, height: 300, width: nil)
     
     private let addPhotoHorizontalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -46,20 +46,19 @@ class AddNewMyPlantViewController: UIViewController {
     
     private let myPlantNameTextField = CustomUITextField(placeholder: "Plant Name")
     
-    private let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
+    let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
     
     lazy private var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGreen, fontSize: .big, isRounded: true, height: 65, width: nil, customAction: saveButtonTapped)
     
     private let setupFloweringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
         
-    private let notificationTextField = CustomUITextField(placeholder: "Notification")
+    let notificationTextField = CustomUITextField(placeholder: "Notification")
     
     private var notificationPickerView = UIPickerView()
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
         setupConstraints()
         setupDelegates()
@@ -93,7 +92,6 @@ class AddNewMyPlantViewController: UIViewController {
         scrollView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(myPlantImageView)
         verticalStackView.addArrangedSubview(addPhotoHorizontalStackView)
-        setupAddPhotoHorizontalStackViewSubviews()
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(myPlantNameTextField)
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
@@ -104,8 +102,9 @@ class AddNewMyPlantViewController: UIViewController {
         verticalStackView.addArrangedSubview(myPlantDescriptionTextView)
                 
         verticalStackView.addArrangedSubview(saveButton)
+        setupAddPhotoHorizontalStackViewSubviews()
     }
-    
+        
     private func setupAddPhotoHorizontalStackViewSubviews() {
         addPhotoHorizontalStackView.addArrangedSubview(UIView())
         addPhotoHorizontalStackView.addArrangedSubview(takePhotoButton)
@@ -158,52 +157,5 @@ class AddNewMyPlantViewController: UIViewController {
     private func setupDelegates() {
         myPlantDescriptionTextView.delegate = self
         notificationPickerView.delegate = self
-    }    
-}
-
-// MARK: - ImagePicker Delegate
-extension AddNewMyPlantViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[.editedImage] as? UIImage {
-            myPlantImageView.image = pickedImage
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - TextView Delegate
-extension AddNewMyPlantViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        myPlantDescriptionTextView.hidePlaceholderLabel()
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            myPlantDescriptionTextView.unhidePlaceholderLabel()
-
-        }
-    }
-}
-
-// MARK: - PickerView Delegate and DataSource
-extension AddNewMyPlantViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        pickerViewValues.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        "\(pickerViewValues[row])"
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        notificationDays = pickerViewValues[row]
-        let day = notificationDays == 1 ? "Day" : "Days"
-        notificationTextField.text = "Repeat Every \(notificationDays) " + day
-        notificationTextField.resignFirstResponder()
     }
 }
