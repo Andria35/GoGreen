@@ -47,6 +47,7 @@
 		108E501A2B641FCD00D37AC4 /* AddNewMyPlantViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50192B641FCD00D37AC4 /* AddNewMyPlantViewController+ImagePicker.swift */; };
 		108E501C2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E501B2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift */; };
 		108E501E2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E501D2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift */; };
+		108E50212B64239700D37AC4 /* MyGardenViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50202B64239700D37AC4 /* MyGardenViewController+TableView.swift */; };
 		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
 		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
 		10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */; };
@@ -103,6 +104,7 @@
 		108E50192B641FCD00D37AC4 /* AddNewMyPlantViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 		108E501B2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+TextView.swift"; sourceTree = "<group>"; };
 		108E501D2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+PickerView.swift"; sourceTree = "<group>"; };
+		108E50202B64239700D37AC4 /* MyGardenViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGardenViewController+TableView.swift"; sourceTree = "<group>"; };
 		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
 		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
 		10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlant.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			children = (
 				101B0ED32B5720800074B0E6 /* MyGardenViewController.swift */,
 				10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */,
+				108E501F2B64237600D37AC4 /* Extensions */,
 			);
 			path = MyGardenView;
 			sourceTree = "<group>";
@@ -411,6 +414,14 @@
 				108E50192B641FCD00D37AC4 /* AddNewMyPlantViewController+ImagePicker.swift */,
 				108E501B2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift */,
 				108E501D2B6420B900D37AC4 /* AddNewMyPlantViewController+PickerView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		108E501F2B64237600D37AC4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				108E50202B64239700D37AC4 /* MyGardenViewController+TableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -593,6 +604,7 @@
 				108E500D2B63F51400D37AC4 /* CustomUILabel.swift in Sources */,
 				10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */,
 				108E501C2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift in Sources */,
+				108E50212B64239700D37AC4 /* MyGardenViewController+TableView.swift in Sources */,
 				10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */,
 				10595A952B57E55700419366 /* EmbarkJourneyView.swift in Sources */,
 				10595A8D2B573A2300419366 /* OnboardingButtonComponentView.swift in Sources */,

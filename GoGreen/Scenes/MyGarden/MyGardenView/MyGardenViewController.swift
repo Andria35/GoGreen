@@ -10,7 +10,7 @@ import UIKit
 final class MyGardenViewController: UIViewController {
 
     // MARK: - Class Properties
-    private var myPlants: [MyPlant] = [MyPlant(name: "Ficus", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficusss", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficussssss", image: UIImage(systemName: "photo")!)]
+    var myPlants: [MyPlant] = [MyPlant(name: "Ficus", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficusss", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficussssss", image: UIImage(systemName: "photo")!)]
     
     // MARK: - UI Components
     lazy private var addNewPlantButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
@@ -74,23 +74,5 @@ final class MyGardenViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
-    }
-}
-
-// MARK: - Table View Datasource
-extension MyGardenViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myPlants.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        let myPlant = myPlants[indexPath.row]
-        cell = tableView.dequeueReusableCell(withIdentifier: MyPlantTableViewCell.cellID, for: indexPath)
-        if let cell = cell as? MyPlantTableViewCell {
-            cell.configure(with: myPlant)
-        }
-        return cell
     }
 }
