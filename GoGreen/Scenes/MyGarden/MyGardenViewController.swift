@@ -52,7 +52,7 @@ final class MyGardenViewController: UIViewController {
     }
     
     private func addNewFlowerButtonTapped() {
-        let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager())
+        let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager(), imagePickerManager: ImagePickerManager())
         navigationController?.pushViewController(addNewMyPlantViewController, animated: true)
     }
     

@@ -10,9 +10,10 @@ import UIKit
 class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
-    let pickerViewValues = Array(0...100)
-    var notificationDays = 0
-    let notificationManager: Notifying
+    private let pickerViewValues = Array(0...100)
+    private var notificationDays = 0
+    private let notificationManager: Notifying
+    private let imagePickerManager: ImagePicking
 
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -66,8 +67,9 @@ class AddNewMyPlantViewController: UIViewController {
     }
     
     // MARK: - Initialization
-    init(notificationManager: Notifying) {
+    init(notificationManager: Notifying, imagePickerManager: ImagePicking) {
         self.notificationManager = notificationManager
+        self.imagePickerManager = imagePickerManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -112,11 +114,13 @@ class AddNewMyPlantViewController: UIViewController {
     }
     
     private func takePhotoButtonTapped() {
-        showCamera()
+//        showCamera()
+        imagePickerManager.showCamera(viewController: self)
     }
     
     private func choosePhotoFromLibraryButtonTapped() {
-        showPhotoLibrary()
+//        showPhotoLibrary()
+        imagePickerManager.showPhotoLibrary(viewController: self)
     }
         
     private func saveButtonTapped() {

@@ -13,7 +13,7 @@ protocol Notifying {
     func scheduleNotifications(for name: String, repeatIn days: Double)
 }
 
-class NotificationManager: Notifying {
+final class NotificationManager: Notifying {
     
     static let shared = NotificationManager()
     

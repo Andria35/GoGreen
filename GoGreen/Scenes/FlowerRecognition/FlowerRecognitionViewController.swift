@@ -14,12 +14,11 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Class Properties
     private let viewModel: FlowerRecognitionViewModel
     private let alertManager: Alerting
+    private let imagePickerManager: ImagePicking
     
     // MARK: - UI Components
     lazy private var cameraButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
-    
-    private let imagePicker = UIImagePickerController()
-    
+        
     lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
         let hostingController = UIHostingController(
             rootView: PlantDetailsView(
@@ -37,9 +36,10 @@ final class FlowerRecognitionViewController: UIViewController {
     }
     
     // MARK: - Initialization
-    init(viewModel: FlowerRecognitionViewModel, alertManager: Alerting) {
+    init(viewModel: FlowerRecognitionViewModel, alertManager: Alerting, imagePickerManager: ImagePicking) {
         self.viewModel = viewModel
         self.alertManager = alertManager
+        self.imagePickerManager = imagePickerManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,7 +52,6 @@ final class FlowerRecognitionViewController: UIViewController {
         setupBackground()
         setupSubviews()
         setupCameraButton()
-        setupImagePicker()
     }
     
     private func setupSubviews() {
@@ -73,14 +72,9 @@ final class FlowerRecognitionViewController: UIViewController {
     }
     
     private func cameraButtonTapped() {
-        present(imagePicker, animated: true)
+        imagePickerManager.showCamera(viewController: self)
     }
-    
-    private func setupImagePicker() {
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .camera
-    }
-    
+        
     // MARK: - Setup Constraints
     private func setupConstraints() {
         setupFlowerDetailsHostingControllerConstraints()
@@ -97,7 +91,6 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
-        imagePicker.delegate = self
     }
 }
 
