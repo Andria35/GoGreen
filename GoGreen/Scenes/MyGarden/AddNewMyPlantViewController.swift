@@ -10,6 +10,11 @@ import UIKit
 class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
+    let pickerViewValues = Array(0...100)
+    var notificationDays = 0
+    let notificationManager: Notifying
+
+    
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -65,7 +70,6 @@ class AddNewMyPlantViewController: UIViewController {
         textField.layer.masksToBounds = true
         textField.layer.borderColor = UIColor.systemGray.cgColor
         
-        // Add left padding to the text field
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.size.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
@@ -77,8 +81,7 @@ class AddNewMyPlantViewController: UIViewController {
         textView.layer.cornerRadius = 16
         textView.layer.borderWidth = 1
         textView.layer.masksToBounds = true
-        textView.layer.backgroundColor = UIColor.white.cgColor
-        textView.layer.borderColor = UIColor.gray.cgColor
+        textView.layer.borderColor = UIColor.systemGray.cgColor
         return textView
     }()
     
@@ -99,6 +102,33 @@ class AddNewMyPlantViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let setupFloweringReminderLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Set Up Flowering Reminder(Optional):"
+        return label
+    }()
+        
+    private let notificationTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Notification"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.5
+        textField.layer.masksToBounds = true
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.size.height))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+        return textField
+    }()
+    
+    private var notificationPickerView: UIPickerView = {
+        let pickerView = UIPickerView()
+        return pickerView
+    }()
+
 
     
     // MARK: - ViewLifeCycles
@@ -108,7 +138,20 @@ class AddNewMyPlantViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
+//        UNUserNotificationCenter.setBadgeCoun
+        notificationManager.requestAuthorization()
     }
+    
+    // MARK: - Initialization
+    init(notificationManager: Notifying) {
+        self.notificationManager = notificationManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Setup UI
     private func setupUI() {
         setupBackground()
@@ -116,6 +159,7 @@ class AddNewMyPlantViewController: UIViewController {
         setupTakePhotoButton()
         setupChoosePhotoFromLibraryButton()
         setupSaveButton()
+        setupNotificationTextField()
     }
     
     private func setupBackground() {
@@ -130,6 +174,10 @@ class AddNewMyPlantViewController: UIViewController {
         setupAddPhotoHorizontalStackViewSubviews()
         verticalStackView.addArrangedSubview(makeDividerLine())
         verticalStackView.addArrangedSubview(myPlantNameTextField)
+        verticalStackView.addArrangedSubview(makeDividerLine())
+        verticalStackView.addArrangedSubview(setupFloweringReminderLabel)
+        verticalStackView.addArrangedSubview(notificationTextField)
+        
         verticalStackView.addArrangedSubview(makeDividerLine())
         verticalStackView.addArrangedSubview(myPlantDescriptionTextView)
         myPlantDescriptionTextView.addSubview(textViewPlaceholderLabel)
@@ -161,8 +209,13 @@ class AddNewMyPlantViewController: UIViewController {
     private func setupSaveButton() {
         saveButton.addAction(UIAction(handler: { [weak self] action in
             guard let self = self else { return }
-            print("Save Button Tapped")
+            
+            notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
         }), for: .touchUpInside)
+    }
+    
+    private func setupNotificationTextField() {
+        notificationTextField.inputView = notificationPickerView
     }
     
     // MARK: - Setup Constraints
@@ -171,9 +224,11 @@ class AddNewMyPlantViewController: UIViewController {
         setupVerticalStackViewConstraints()
         setupMyPlantImageViewConstraints()
         setupMyPlantNameTextFieldConstraints()
+        setupNotificationTextFieldConstraints()
         setupMyPlantDescriptionTextViewConstraints()
         setupTextViewPlaceholderLabelConstraints()
         setupSaveButtonConstraints()
+        
     }
     
     private func setupScrollViewConstraints() {
@@ -216,9 +271,14 @@ class AddNewMyPlantViewController: UIViewController {
         saveButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
     }
     
+    private func setupNotificationTextFieldConstraints() {
+        notificationTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
     // MARK: - Setup Delegates
     private func setupDelegates() {
         myPlantDescriptionTextView.delegate = self
+        notificationPickerView.delegate = self
     }
     
     // MARK: - Class Methods
@@ -268,5 +328,27 @@ extension AddNewMyPlantViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             textViewPlaceholderLabel.isHidden = false
         }
+    }
+}
+
+// MARK: - PickerView Delegate and DataSource
+extension AddNewMyPlantViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        pickerViewValues.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        "\(pickerViewValues[row])"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        notificationDays = pickerViewValues[row]
+        let day = notificationDays == 1 ? "Day" : "Days"
+        notificationTextField.text = "Repeat Every \(notificationDays) " + day
+        notificationTextField.resignFirstResponder()
     }
 }

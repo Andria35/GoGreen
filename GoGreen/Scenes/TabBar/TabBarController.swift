@@ -23,6 +23,7 @@ final class TabBarController: UITabBarController {
         setupOnboarding()
     }
     
+    
     // MARK: - Setup Onboarding
     private func setupOnboarding() {
         let hasShownOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKeys.hasShownOnboarding)

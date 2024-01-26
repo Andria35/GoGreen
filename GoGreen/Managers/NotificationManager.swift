@@ -8,7 +8,14 @@
 import Foundation
 import UserNotifications
 
-class NotificationManager {
+protocol Notifying {
+    func requestAuthorization()
+    func scheduleNotifications(for name: String, repeatIn days: Double)
+}
+
+class NotificationManager: Notifying {
+    
+    static let shared = NotificationManager()
     
     func requestAuthorization() {
         
@@ -29,9 +36,16 @@ class NotificationManager {
         content.sound = .default
         content.badge = 1
         
-        let dateComponents = DateComponents()
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: days * 24 * 60 * 60, repeats: true)
+        var timeInterval: Double = 0
+        var testRepeat = true
+        
+        if days == 0 {
+            timeInterval = 5
+            testRepeat = false
+        } else {
+            timeInterval = days * 24 * 60 * 60
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: testRepeat)
         
         let request = UNNotificationRequest(
             identifier: UUID().uuidString,

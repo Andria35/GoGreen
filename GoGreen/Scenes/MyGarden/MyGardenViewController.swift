@@ -58,7 +58,7 @@ final class MyGardenViewController: UIViewController {
         
         addNewPlantButton.addAction(UIAction(handler: { [weak self] action in
             guard let self else { return }
-            let addNewMyPlantViewController = AddNewMyPlantViewController()
+            let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager())
             navigationController?.pushViewController(addNewMyPlantViewController, animated: true)
         }), for: .touchUpInside)
     }

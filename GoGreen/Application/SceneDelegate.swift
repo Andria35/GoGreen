@@ -20,5 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     }
     
+    // Reset the notification Badge Count
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        UNUserNotificationCenter.current().setBadgeCount(0, withCompletionHandler: nil)
+    }
+    
 }
 
