@@ -94,13 +94,13 @@ class AddNewMyPlantViewController: UIViewController {
         verticalStackView.addArrangedSubview(myPlantImageView)
         verticalStackView.addArrangedSubview(addPhotoHorizontalStackView)
         setupAddPhotoHorizontalStackViewSubviews()
-        verticalStackView.addArrangedSubview(makeDividerLine())
+        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(myPlantNameTextField)
-        verticalStackView.addArrangedSubview(makeDividerLine())
+        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(setupFloweringReminderLabel)
         verticalStackView.addArrangedSubview(notificationTextField)
         
-        verticalStackView.addArrangedSubview(makeDividerLine())
+        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(myPlantDescriptionTextView)
                 
         verticalStackView.addArrangedSubview(saveButton)
@@ -114,12 +114,10 @@ class AddNewMyPlantViewController: UIViewController {
     }
     
     private func takePhotoButtonTapped() {
-//        showCamera()
         imagePickerManager.showCamera(viewController: self)
     }
     
     private func choosePhotoFromLibraryButtonTapped() {
-//        showPhotoLibrary()
         imagePickerManager.showPhotoLibrary(viewController: self)
     }
         
@@ -160,32 +158,7 @@ class AddNewMyPlantViewController: UIViewController {
     private func setupDelegates() {
         myPlantDescriptionTextView.delegate = self
         notificationPickerView.delegate = self
-    }
-    
-    // MARK: - Class Methods
-    private func showCamera() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    private func showPhotoLibrary() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    private func makeDividerLine() -> UIView {
-        let dividerLine = UIView()
-        dividerLine.backgroundColor = UIColor.systemGray.withAlphaComponent(0.5)
-        dividerLine.translatesAutoresizingMaskIntoConstraints = false
-        dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        return dividerLine
-    }
+    }    
 }
 
 // MARK: - ImagePicker Delegate

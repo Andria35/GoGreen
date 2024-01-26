@@ -43,6 +43,7 @@
 		108E500D2B63F51400D37AC4 /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E500C2B63F51400D37AC4 /* CustomUILabel.swift */; };
 		108E50102B63F61200D37AC4 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E500F2B63F61200D37AC4 /* FontSize.swift */; };
 		108E50122B640A3600D37AC4 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50112B640A3600D37AC4 /* ImagePickerManager.swift */; };
+		108E50152B6411D600D37AC4 /* CustomUIDividerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50142B6411D600D37AC4 /* CustomUIDividerLine.swift */; };
 		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
 		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
 		10B54C3F2B6121E200DFF3C0 /* MyPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */; };
@@ -95,6 +96,7 @@
 		108E500C2B63F51400D37AC4 /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
 		108E500F2B63F61200D37AC4 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		108E50112B640A3600D37AC4 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		108E50142B6411D600D37AC4 /* CustomUIDividerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIDividerLine.swift; sourceTree = "<group>"; };
 		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
 		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
 		10B54C3E2B6121E200DFF3C0 /* MyPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlant.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		1062DB242B569479001B5AEE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				108E50132B6411AF00D37AC4 /* CustomUIDividerLine */,
 				108E500B2B63F4F600D37AC4 /* CustomUILabel */,
 				108E50082B63E2F900D37AC4 /* CustomUIButton */,
 				108E50052B63D97100D37AC4 /* CustomUIImageView */,
@@ -369,6 +372,14 @@
 				108E500F2B63F61200D37AC4 /* FontSize.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		108E50132B6411AF00D37AC4 /* CustomUIDividerLine */ = {
+			isa = PBXGroup;
+			children = (
+				108E50142B6411D600D37AC4 /* CustomUIDividerLine.swift */,
+			);
+			path = CustomUIDividerLine;
 			sourceTree = "<group>";
 		};
 		10B54C382B611C7C00DFF3C0 /* TableViewCell */ = {
@@ -566,6 +577,7 @@
 				107653072B5AE8DC005F7E4B /* Router.swift in Sources */,
 				108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */,
 				108E50122B640A3600D37AC4 /* ImagePickerManager.swift in Sources */,
+				108E50152B6411D600D37AC4 /* CustomUIDividerLine.swift in Sources */,
 				1062DB112B567FA3001B5AEE /* SceneDelegate.swift in Sources */,
 				10595A992B58720400419366 /* HomeViewModel.swift in Sources */,
 				10595A932B57D40100419366 /* DiscoverPlantView.swift in Sources */,
