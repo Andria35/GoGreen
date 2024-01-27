@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol AddNewMyPlantViewControllerDelegate: AnyObject {
+    func saveTapped(name: String)
+}
+
+
 final class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
@@ -14,6 +19,7 @@ final class AddNewMyPlantViewController: UIViewController {
     var notificationDays = 0
     private let notificationManager: Notifying
     private let imagePickerManager: ImagePicking
+    weak var delegate: AddNewMyPlantViewControllerDelegate?
 
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -122,7 +128,9 @@ final class AddNewMyPlantViewController: UIViewController {
     }
         
     private func saveButtonTapped() {
-        notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
+//        notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
+        delegate?.saveTapped(name: myPlantNameTextField.text ?? "")
+        navigationController?.popViewController(animated: true)
     }
     
     private func setupNotificationTextField() {

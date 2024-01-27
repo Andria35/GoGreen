@@ -30,6 +30,6 @@ struct OnboardingButtonComponentView: View {
         })    }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
+#Preview {
     OnboardingButtonComponentView(title: "Hey", action: {})
 }

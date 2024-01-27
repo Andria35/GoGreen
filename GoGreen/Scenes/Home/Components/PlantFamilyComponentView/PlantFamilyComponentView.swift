@@ -58,6 +58,6 @@ extension PlantFamilyComponentView {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
+#Preview {
     PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: [PlantMockData.plant], sectionTitle: .daisies))
 }

@@ -10,7 +10,8 @@ import UIKit
 final class MyGardenViewController: UIViewController {
 
     // MARK: - Class Properties
-    var myPlants: [MyPlant] = [MyPlant(name: "Ficus", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficusss", image: UIImage(systemName: "photo")!),MyPlant(name: "Ficussssss", image: UIImage(systemName: "photo")!)]
+    var myPlants: [MyPlant] = []
+    let viewModel = MyGardenViewModel()
     
     // MARK: - UI Components
     lazy private var addNewPlantButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
@@ -27,6 +28,8 @@ final class MyGardenViewController: UIViewController {
         
         setupUI()
         setupConstraints()
+        setupDelegates()
+        viewModel.viewDidLoad()
     }
     
     // MARK: - Setup UI
@@ -53,6 +56,7 @@ final class MyGardenViewController: UIViewController {
     
     private func addNewFlowerButtonTapped() {
         let addNewMyPlantViewController = AddNewMyPlantViewController(notificationManager: NotificationManager(), imagePickerManager: ImagePickerManager())
+        addNewMyPlantViewController.delegate = self
         navigationController?.pushViewController(addNewMyPlantViewController, animated: true)
     }
     
@@ -75,4 +79,26 @@ final class MyGardenViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
     }
+    
+    // MARK: - Setup Delegates
+    private func setupDelegates() {
+        viewModel.delegate = self
+    }
+}
+
+// MARK: - MyGardenViewModelDelegate
+extension MyGardenViewController: MyGardenViewModelDelegate {
+    func fetchComplete(myPlants: [MyPlant]) {
+        self.myPlants = myPlants
+        tableView.reloadData()
+    }
+}
+
+extension MyGardenViewController: AddNewMyPlantViewControllerDelegate {
+    func saveTapped(name: String) {
+        viewModel.addMyPlant(name: name)
+        tableView.reloadData()
+    }
+    
+    
 }
