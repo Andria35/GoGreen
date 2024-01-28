@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AddNewMyPlantViewControllerDelegate: AnyObject {
-    func saveTapped(name: String)
-}
-
 
 final class AddNewMyPlantViewController: UIViewController {
 

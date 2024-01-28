@@ -8,10 +8,6 @@
 import Foundation
 import CoreData
 
-protocol MyGardenViewModelDelegate: AnyObject {
-    func fetchComplete(myPlants: [MyPlant])
-}
-
 final class MyGardenViewModel {
     
     // MARK: - Class Properties

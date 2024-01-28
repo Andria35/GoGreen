@@ -16,7 +16,7 @@ final class MyGardenViewController: UIViewController {
     // MARK: - UI Components
     lazy private var addNewPlantButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -86,19 +86,4 @@ final class MyGardenViewController: UIViewController {
     }
 }
 
-// MARK: - MyGardenViewModelDelegate
-extension MyGardenViewController: MyGardenViewModelDelegate {
-    func fetchComplete(myPlants: [MyPlant]) {
-        self.myPlants = myPlants
-        tableView.reloadData()
-    }
-}
 
-extension MyGardenViewController: AddNewMyPlantViewControllerDelegate {
-    func saveTapped(name: String) {
-        viewModel.addMyPlant(name: name)
-        tableView.reloadData()
-    }
-    
-    
-}
