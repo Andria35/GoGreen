@@ -10,13 +10,12 @@ import UserNotifications
 
 protocol Notifying {
     func requestAuthorization()
-    func scheduleNotifications(for name: String, repeatIn days: Double)
+    func scheduleNotifications(for name: String, repeatIn days: Double, with identifier: String)
+    func cancelNotification(with identifier: String) 
 }
 
 final class NotificationManager: Notifying {
-    
-    static let shared = NotificationManager()
-    
+        
     func requestAuthorization() {
         
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -29,7 +28,7 @@ final class NotificationManager: Notifying {
         }
     }
     
-    func scheduleNotifications(for name: String, repeatIn days: Double) {
+    func scheduleNotifications(for name: String, repeatIn days: Double, with identifier: String) {
         let content = UNMutableNotificationContent()
         content.title = "Plant needs Watering!!"
         content.subtitle = "Water \(name.capitalized)"
@@ -48,10 +47,14 @@ final class NotificationManager: Notifying {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: testRepeat)
         
         let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
+            identifier: identifier,
             content: content,
             trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func cancelNotification(with identifier: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 }

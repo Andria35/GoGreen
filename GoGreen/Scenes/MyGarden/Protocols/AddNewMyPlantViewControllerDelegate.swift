@@ -8,5 +8,5 @@
 import UIKit
 
 protocol AddNewMyPlantViewControllerDelegate: AnyObject {
-    func saveTapped(myPlantName: String?, myPlantImage: UIImage?, myPlantDescription: String?)
+    func saveTapped(myPlantName: String?, myPlantImage: UIImage?, myPlantDescription: String?, notificationRepeatDays: Double)
 }

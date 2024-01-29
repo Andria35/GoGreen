@@ -22,8 +22,8 @@ extension AddNewMyPlantViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        notificationDays = Double(pickerViewValues[row])
-        let day = notificationDays == 1 ? "Day" : "Days"
+        notificationRepeatDays = Double(pickerViewValues[row])
+        let day = notificationRepeatDays == 1 ? "Day" : "Days"
         notificationTextField.text = "Repeat Every \(pickerViewValues[row]) " + day
         notificationTextField.resignFirstResponder()
     }

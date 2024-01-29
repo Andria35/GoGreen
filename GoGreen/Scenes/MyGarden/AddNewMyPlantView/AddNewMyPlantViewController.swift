@@ -12,8 +12,7 @@ final class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
     let pickerViewValues = Array(0...100)
-    var notificationDays: Double = 0
-    private let notificationManager: Notifying
+    var notificationRepeatDays: Double = 0
     private let imagePickerManager: ImagePicking
     weak var delegate: AddNewMyPlantViewControllerDelegate?
 
@@ -65,12 +64,12 @@ final class AddNewMyPlantViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
-        notificationManager.requestAuthorization()
+//        notificationManager.requestAuthorization()
     }
     
     // MARK: - Initialization
     init(notificationManager: Notifying, imagePickerManager: ImagePicking) {
-        self.notificationManager = notificationManager
+//        self.notificationManager = notificationManager
         self.imagePickerManager = imagePickerManager
         super.init(nibName: nil, bundle: nil)
     }
@@ -124,8 +123,7 @@ final class AddNewMyPlantViewController: UIViewController {
     }
         
     private func saveButtonTapped() {
-        notificationManager.scheduleNotifications(for: myPlantNameTextField.text ?? "", repeatIn: notificationDays)
-        delegate?.saveTapped(myPlantName: myPlantNameTextField.text, myPlantImage: myPlantImageView.image, myPlantDescription: myPlantDescriptionTextView.text)
+        delegate?.saveTapped(myPlantName: myPlantNameTextField.text, myPlantImage: myPlantImageView.image, myPlantDescription: myPlantDescriptionTextView.text, notificationRepeatDays: notificationRepeatDays)
         navigationController?.popViewController(animated: true)
     }
     
@@ -163,5 +161,6 @@ final class AddNewMyPlantViewController: UIViewController {
         myPlantDescriptionTextView.delegate = self
         notificationPickerView.delegate = self
         myPlantNameTextField.delegate = self
+        notificationTextField.delegate = self
     }
 }

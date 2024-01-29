@@ -15,10 +15,12 @@ final class MyGardenViewModel {
     let container: NSPersistentContainer
     weak var delegate: MyGardenViewModelDelegate?
     let localFileManager: LocalFileManaging
+    let notificationManager: Notifying
     
     // MARK: - Initialization
-    init(localFileManager: LocalFileManaging) {
+    init(localFileManager: LocalFileManaging, notificationManager: Notifying) {
         self.localFileManager = localFileManager
+        self.notificationManager = notificationManager
         container = NSPersistentContainer(name: "PlantsContainer")
         container.loadPersistentStores { description, error in
             if let error {
@@ -32,20 +34,28 @@ final class MyGardenViewModel {
     // MARK: - Methods
     func viewDidLoad() {
         fetchMyPlants()
+        notificationManager.requestAuthorization()
     }
     
-    func saveMyPlantLocally(name: String?, image: UIImage?, description: String?) {
+    func saveMyPlantLocally(name: String?, image: UIImage?, description: String?, notificationRepeatDays: Double) {
         guard let name,
             let image,
             !name.isEmpty else {
             print("No Name")
             return
         }
-        let imagePath = UUID().uuidString
+        let plantId = UUID().uuidString
+        notificationManager.scheduleNotifications(for: name, repeatIn: notificationRepeatDays, with: plantId)
         
-        localFileManager.saveImage(image: image, name: imagePath)
-        addMyPlant(name: name, description: description, imagePath: imagePath)
-        
+        localFileManager.saveImage(image: image, name: plantId)
+        addMyPlant(name: name, description: description, imagePath: plantId)
+    }
+    
+    func deleteMyPlantLocally(with index: Int) {
+        guard let plantID = myPlants[index].plantID else { return }
+        notificationManager.cancelNotification(with: plantID)
+        localFileManager.deleteImage(name: plantID)
+        deleteMyPlant(index: index)
     }
     
     func getImageFromImagePath(imagePath: String) -> UIImage? {
@@ -53,7 +63,7 @@ final class MyGardenViewModel {
     }
     
     // MARK: - Core Data Methods
-    func fetchMyPlants() {
+    private func fetchMyPlants() {
         let request = NSFetchRequest<MyPlant>(entityName: "MyPlant")
         
         do {
@@ -64,16 +74,16 @@ final class MyGardenViewModel {
         }
     }
     
-    func addMyPlant(name: String?, description: String?, imagePath: String) {
+    private func addMyPlant(name: String?, description: String?, imagePath: String) {
         let newMyPlant = MyPlant(context: container.viewContext)
         newMyPlant.name = name
-        newMyPlant.imagePath = imagePath
+        newMyPlant.plantID = imagePath
         newMyPlant.plantDescription = description
         saveData()
     }
     
-    func deleteMyPlant(indexSet: IndexSet) {
-        guard let index = indexSet.first else { return }
+    private func deleteMyPlant(index: Int) {
+//        guard let index = indexSet.first else { return }
         let entity = myPlants[index]
         container.viewContext.delete(entity)
         saveData()

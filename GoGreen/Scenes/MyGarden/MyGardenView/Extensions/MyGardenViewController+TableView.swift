@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - TableView Datasource
-extension MyGardenViewController: UITableViewDataSource {
+extension MyGardenViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myPlants.count
@@ -19,8 +19,29 @@ extension MyGardenViewController: UITableViewDataSource {
         let myPlant = myPlants[indexPath.row]
         cell = tableView.dequeueReusableCell(withIdentifier: MyPlantTableViewCell.cellID, for: indexPath)
         if let cell = cell as? MyPlantTableViewCell {
-            cell.configure(name: myPlant.name ?? "", image: viewModel.getImageFromImagePath(imagePath: myPlant.imagePath ?? ""))
+            cell.configure(name: myPlant.name ?? "", image: viewModel.getImageFromImagePath(imagePath: myPlant.plantID ?? ""))
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            viewModel.deleteMyPlantLocally(with: indexPath.row)
+
+            tableView.endUpdates()
+            
+            tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
     }
 }
