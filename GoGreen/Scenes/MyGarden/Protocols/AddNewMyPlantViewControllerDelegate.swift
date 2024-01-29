@@ -5,8 +5,8 @@
 //  Created by Andria Inasaridze on 27.01.24.
 //
 
-import Foundation
+import UIKit
 
 protocol AddNewMyPlantViewControllerDelegate: AnyObject {
-    func saveTapped(name: String)
+    func saveTapped(myPlantName: String?, myPlantImage: UIImage?, myPlantDescription: String?)
 }

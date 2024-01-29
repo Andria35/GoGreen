@@ -9,8 +9,8 @@ import UIKit
 
 // MARK: - AddNewMyPlantViewControllerDelegate
 extension MyGardenViewController: AddNewMyPlantViewControllerDelegate {
-    func saveTapped(name: String) {
-        viewModel.addMyPlant(name: name)
+    func saveTapped(myPlantName: String?, myPlantImage: UIImage?, myPlantDescription: String?) {
+        viewModel.saveMyPlantLocally(name: myPlantName, image: myPlantImage, description: myPlantDescription)
         tableView.reloadData()
     }
 }

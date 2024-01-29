@@ -19,7 +19,7 @@ extension MyGardenViewController: UITableViewDataSource {
         let myPlant = myPlants[indexPath.row]
         cell = tableView.dequeueReusableCell(withIdentifier: MyPlantTableViewCell.cellID, for: indexPath)
         if let cell = cell as? MyPlantTableViewCell {
-            cell.configure(with: myPlant)
+            cell.configure(name: myPlant.name ?? "", image: viewModel.getImageFromImagePath(imagePath: myPlant.imagePath ?? ""))
         }
         return cell
     }

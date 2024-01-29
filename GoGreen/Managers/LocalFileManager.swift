@@ -7,16 +7,24 @@
 
 import UIKit
 
-final class LocalFileManager {
+protocol LocalFileManaging {
+    func saveImage(image: UIImage, name: String)
+    func getImage(name: String) -> UIImage?
+    func deleteImage(name: String)
+}
+
+final class LocalFileManager: LocalFileManaging {
     
+    // MARK: - Class Properties
     let folderName = "MyApp_Images"
     
+    // MARK: - Initialization
     init() {
         createFolderIfNeeded()
     }
     
+    // MARK: - Methods
     private func createFolderIfNeeded() {
-        
         guard
             let path = FileManager
                 .default
@@ -37,7 +45,7 @@ final class LocalFileManager {
         }
     }
     
-    func deleteFolder() {
+    private func deleteFolder() {
         
         guard
             let path = FileManager
@@ -55,7 +63,7 @@ final class LocalFileManager {
         } catch {
             print("Error Deleting Folder. \(error)")
         }
-
+        
     }
     
     func saveImage(image: UIImage, name: String) {
@@ -101,7 +109,7 @@ final class LocalFileManager {
         } catch {
             print("Error Deleting Image. \(error)")
         }
-
+        
     }
     
     private func getPathForImage(name: String) -> URL? {
@@ -116,6 +124,6 @@ final class LocalFileManager {
             return nil
         }
         return path
-
+        
     }
 }

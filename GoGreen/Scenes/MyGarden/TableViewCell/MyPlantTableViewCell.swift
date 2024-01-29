@@ -49,9 +49,9 @@ class MyPlantTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configure
-    func configure(with model: MyPlant) {
-        plantNameLabel.text = model.name
-        plantImageView.image = UIImage(systemName: "photo")
+    func configure(name: String, image: UIImage?) {
+        plantNameLabel.text = name
+        plantImageView.image = image
     }
     
     private func setupView() {

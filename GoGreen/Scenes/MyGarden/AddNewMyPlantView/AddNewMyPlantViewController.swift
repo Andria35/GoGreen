@@ -12,7 +12,7 @@ final class AddNewMyPlantViewController: UIViewController {
 
     // MARK: - Class Properties
     let pickerViewValues = Array(0...100)
-    var notificationDays = 0
+    var notificationDays: Double = 0
     private let notificationManager: Notifying
     private let imagePickerManager: ImagePicking
     weak var delegate: AddNewMyPlantViewControllerDelegate?
@@ -46,7 +46,7 @@ final class AddNewMyPlantViewController: UIViewController {
 
     lazy private var choosePhotoFromLibraryButton = CustomUIButton(title: nil, image: UIImage(systemName: "photo.on.rectangle"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: choosePhotoFromLibraryButtonTapped)
     
-    private let myPlantNameTextField = CustomUITextField(placeholder: "Plant Name")
+    let myPlantNameTextField = CustomUITextField(placeholder: "Plant Name")
     
     let notificationTextField = CustomUITextField(placeholder: "Notification")
     
@@ -54,7 +54,7 @@ final class AddNewMyPlantViewController: UIViewController {
     
     let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
     
-    lazy private var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGreen, fontSize: .big, isRounded: true, height: 65, width: nil, customAction: saveButtonTapped)
+    lazy var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGray, fontSize: .big, isRounded: true, isEnabled: false, height: 65, width: nil, customAction: saveButtonTapped)
     
     private let setupWateringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
         
@@ -124,8 +124,8 @@ final class AddNewMyPlantViewController: UIViewController {
     }
         
     private func saveButtonTapped() {
-//        notificationManager.scheduleNotifications(for: "Ficus", repeatIn: 0)
-        delegate?.saveTapped(name: myPlantNameTextField.text ?? "")
+        notificationManager.scheduleNotifications(for: myPlantNameTextField.text ?? "", repeatIn: notificationDays)
+        delegate?.saveTapped(myPlantName: myPlantNameTextField.text, myPlantImage: myPlantImageView.image, myPlantDescription: myPlantDescriptionTextView.text)
         navigationController?.popViewController(animated: true)
     }
     
@@ -162,5 +162,6 @@ final class AddNewMyPlantViewController: UIViewController {
     private func setupDelegates() {
         myPlantDescriptionTextView.delegate = self
         notificationPickerView.delegate = self
+        myPlantNameTextField.delegate = self
     }
 }

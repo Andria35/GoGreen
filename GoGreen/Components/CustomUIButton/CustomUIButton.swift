@@ -13,13 +13,13 @@ final class CustomUIButton: UIButton {
     var customAction: () -> Void
     
     // MARK: - Initialization
-    init(title: String?,image: UIImage?, customBackgroundColor: UIColor?, fontSize: FontSize?, isRounded: Bool, height: CGFloat?, width: CGFloat?, customAction: @escaping () -> Void) {
+    init(title: String?,image: UIImage?, customBackgroundColor: UIColor?, fontSize: FontSize?, isRounded: Bool, isEnabled: Bool = true, height: CGFloat?, width: CGFloat?, customAction: @escaping () -> Void) {
         
         self.customAction = customAction
         
         super.init(frame: .zero)
         
-        setupUI(title: title, image: image, customBackgroundColor: customBackgroundColor, fontSize: fontSize, isRounded: isRounded)
+        setupUI(title: title, image: image, customBackgroundColor: customBackgroundColor, fontSize: fontSize, isRounded: isRounded, isEnabled: isEnabled)
         setupConstraints(height: height, width: width)
         setupAction()
         
@@ -30,11 +30,12 @@ final class CustomUIButton: UIButton {
     }
     
     // MARK: - Setup UI
-    private func setupUI(title: String?,image: UIImage?, customBackgroundColor: UIColor?, fontSize: FontSize?, isRounded: Bool) {
+    private func setupUI(title: String?,image: UIImage?, customBackgroundColor: UIColor?, fontSize: FontSize?, isRounded: Bool, isEnabled: Bool) {
         setImage(image, for: .normal)
         setTitle(title, for: .normal)
         layer.cornerRadius = isRounded ? 15 : 0
         layer.masksToBounds = true
+        self.isEnabled = isEnabled
         
         backgroundColor = customBackgroundColor
         

@@ -5,7 +5,7 @@
 //  Created by Andria Inasaridze on 24.01.24.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 final class MyGardenViewModel {
@@ -14,9 +14,11 @@ final class MyGardenViewModel {
     var myPlants: [MyPlant] = []
     let container: NSPersistentContainer
     weak var delegate: MyGardenViewModelDelegate?
+    let localFileManager: LocalFileManaging
     
     // MARK: - Initialization
-    init() {
+    init(localFileManager: LocalFileManaging) {
+        self.localFileManager = localFileManager
         container = NSPersistentContainer(name: "PlantsContainer")
         container.loadPersistentStores { description, error in
             if let error {
@@ -32,6 +34,24 @@ final class MyGardenViewModel {
         fetchMyPlants()
     }
     
+    func saveMyPlantLocally(name: String?, image: UIImage?, description: String?) {
+        guard let name,
+            let image,
+            !name.isEmpty else {
+            print("No Name")
+            return
+        }
+        let imagePath = UUID().uuidString
+        
+        localFileManager.saveImage(image: image, name: imagePath)
+        addMyPlant(name: name, description: description, imagePath: imagePath)
+        
+    }
+    
+    func getImageFromImagePath(imagePath: String) -> UIImage? {
+        localFileManager.getImage(name: imagePath)
+    }
+    
     // MARK: - Core Data Methods
     func fetchMyPlants() {
         let request = NSFetchRequest<MyPlant>(entityName: "MyPlant")
@@ -44,9 +64,11 @@ final class MyGardenViewModel {
         }
     }
     
-    func addMyPlant(name: String) {
+    func addMyPlant(name: String?, description: String?, imagePath: String) {
         let newMyPlant = MyPlant(context: container.viewContext)
         newMyPlant.name = name
+        newMyPlant.imagePath = imagePath
+        newMyPlant.plantDescription = description
         saveData()
     }
     
