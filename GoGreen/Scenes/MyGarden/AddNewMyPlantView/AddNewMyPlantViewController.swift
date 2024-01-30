@@ -64,12 +64,10 @@ final class AddNewMyPlantViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
-//        notificationManager.requestAuthorization()
     }
     
     // MARK: - Initialization
     init(notificationManager: Notifying, imagePickerManager: ImagePicking) {
-//        self.notificationManager = notificationManager
         self.imagePickerManager = imagePickerManager
         super.init(nibName: nil, bundle: nil)
     }

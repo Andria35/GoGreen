@@ -57,6 +57,7 @@
 		108E50322B651ABD00D37AC4 /* AddNewMyPlantViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50312B651ABD00D37AC4 /* AddNewMyPlantViewControllerDelegate.swift */; };
 		108E50342B66E71400D37AC4 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50332B66E71400D37AC4 /* LocalFileManager.swift */; };
 		108E50382B67D01C00D37AC4 /* AddNewMyPlantViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50372B67D01C00D37AC4 /* AddNewMyPlantViewController+TextField.swift */; };
+		108E503B2B6839AE00D37AC4 /* MyPlantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E503A2B6839AE00D37AC4 /* MyPlantDetailsViewController.swift */; };
 		10B54C372B61128000DFF3C0 /* MyGardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */; };
 		10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */; };
 		10B54C432B612F4600DFF3C0 /* AddNewMyPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B54C422B612F4600DFF3C0 /* AddNewMyPlantViewController.swift */; };
@@ -122,6 +123,7 @@
 		108E50312B651ABD00D37AC4 /* AddNewMyPlantViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMyPlantViewControllerDelegate.swift; sourceTree = "<group>"; };
 		108E50332B66E71400D37AC4 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		108E50372B67D01C00D37AC4 /* AddNewMyPlantViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMyPlantViewController+TextField.swift"; sourceTree = "<group>"; };
+		108E503A2B6839AE00D37AC4 /* MyPlantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantDetailsViewController.swift; sourceTree = "<group>"; };
 		10B54C362B61128000DFF3C0 /* MyGardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewModel.swift; sourceTree = "<group>"; };
 		10B54C392B611CAD00DFF3C0 /* MyPlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantTableViewCell.swift; sourceTree = "<group>"; };
 		10B54C422B612F4600DFF3C0 /* AddNewMyPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMyPlantViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				10B54C382B611C7C00DFF3C0 /* TableViewCell */,
 				108E50162B64164100D37AC4 /* MyGardenView */,
 				108E50172B64166700D37AC4 /* AddNewMyPlantView */,
+				108E50392B68395E00D37AC4 /* MyPlantDetailsView */,
 				108E502E2B651A7000D37AC4 /* Protocols */,
 				10B54C3D2B6121CC00DFF3C0 /* Models */,
 			);
@@ -466,6 +469,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		108E50392B68395E00D37AC4 /* MyPlantDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				108E503A2B6839AE00D37AC4 /* MyPlantDetailsViewController.swift */,
+			);
+			path = MyPlantDetailsView;
+			sourceTree = "<group>";
+		};
 		10B54C382B611C7C00DFF3C0 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +658,7 @@
 				1075A6202B5D20320025922C /* FlowerRecognitionViewModel.swift in Sources */,
 				108E500D2B63F51400D37AC4 /* CustomUILabel.swift in Sources */,
 				10B54C3A2B611CAD00DFF3C0 /* MyPlantTableViewCell.swift in Sources */,
+				108E503B2B6839AE00D37AC4 /* MyPlantDetailsViewController.swift in Sources */,
 				108E501C2B64205B00D37AC4 /* AddNewMyPlantViewController+TextView.swift in Sources */,
 				108E50212B64239700D37AC4 /* MyGardenViewController+TableView.swift in Sources */,
 				10E4424A2B59193800E54334 /* PlantMockData.swift in Sources */,

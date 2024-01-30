@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPlantTableViewCell: UITableViewCell {
+final class MyPlantTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     static let cellID = "MyPlantCell"
@@ -22,7 +22,7 @@ class MyPlantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-   lazy private var plantImageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: nil, width: 150)
+   lazy private var plantImageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: 150, width: 150)
     
     private let plantNameLabel: UILabel = CustomUILabel(customText: nil, fontSize: .medium, customNumberOfLines: 0)
     
@@ -68,12 +68,12 @@ class MyPlantTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            horizontalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             horizontalStackView.leftAnchor.constraint(equalTo: self.leftAnchor),
             horizontalStackView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
         ])
+        
     }
 }

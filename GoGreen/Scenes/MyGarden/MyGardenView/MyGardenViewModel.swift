@@ -83,7 +83,6 @@ final class MyGardenViewModel {
     }
     
     private func deleteMyPlant(index: Int) {
-//        guard let index = indexSet.first else { return }
         let entity = myPlants[index]
         container.viewContext.delete(entity)
         saveData()
