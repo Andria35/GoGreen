@@ -10,6 +10,10 @@ import UIKit
 final class MyPlantDetailsViewController: UIViewController {
     
     // MARK: - Class Properties
+    var myPlantID: String?
+    weak var delegate: MyPlantDetailsViewControllerDelegate?
+    let animationManager: Animating
+    
     
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -34,23 +38,34 @@ final class MyPlantDetailsViewController: UIViewController {
         return stackView
     }()
     
-    private let nameLabel = CustomUILabel(customText: "Name: ", fontSize: .medium, customNumberOfLines: 1)
+    private let nameLabel = CustomUILabel(customText: "Name: ", fontSize: .medium, customNumberOfLines: 1, alpha: 0.5)
     
     private let myPlantNameLabel = CustomUILabel(customText: "ficus", fontSize: .medium, customNumberOfLines: 1)
     
     private let descriptionVerticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 5
         return stackView
     }()
     
-    private let descriptionLabel = CustomUILabel(customText: "Description:", fontSize: .medium, customNumberOfLines: 1)
+    private let descriptionLabel = CustomUILabel(customText: "Description:", fontSize: .medium, customNumberOfLines: 1, alpha: 0.5)
     
     private let myPlantDescriptionLabel = CustomUILabel(customText: "blabla", fontSize: .medium, customNumberOfLines: 0)
     
-
+    private let buttonsHorizontalStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    lazy private var copyButton = CustomUIButton(title: "Copy", image: nil, customBackgroundColor: .systemBlue, fontSize: .big, isRounded: true, height: 50, width: nil, customAction: copyButtonTapped)
+    
+    lazy private var shareButton = CustomUIButton(title: "Share", image: nil, customBackgroundColor: .systemBlue, fontSize: .big, isRounded: true, height: 50, width: nil, customAction: shareButtonTapped)
+    
+    lazy private var deleteButton = CustomUIButton(title: "Delete", image: nil, customBackgroundColor: .systemRed, fontSize: .big, isRounded: true, height: 50, width: nil, customAction: deleteButtonTapped)
     
 
     // MARK: - ViewLifeCycles
@@ -59,6 +74,16 @@ final class MyPlantDetailsViewController: UIViewController {
         
         setupUI()
         setupConstraints()
+    }
+    
+    // MARK: - Initialization
+    init(animationManager: Animating) {
+        self.animationManager = animationManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Setup UI
@@ -85,8 +110,35 @@ final class MyPlantDetailsViewController: UIViewController {
         descriptionVerticalStackView.addArrangedSubview(descriptionLabel)
         descriptionVerticalStackView.addArrangedSubview(myPlantDescriptionLabel)
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
+        
+        verticalStackView.addArrangedSubview(buttonsHorizontalStack)
+        buttonsHorizontalStack.addArrangedSubview(deleteButton)
+        buttonsHorizontalStack.addArrangedSubview(copyButton)
+        buttonsHorizontalStack.addArrangedSubview(shareButton)
+
     }
     
+    private func deleteButtonTapped() {
+        delegate?.deletePressed(myPlantID: myPlantID ?? "")
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func copyButtonTapped() {
+        guard let plantName = myPlantNameLabel.text else { return }
+        UIPasteboard.general.string = plantName
+        
+        animationManager.successAnimation(viewController: self)
+    }
+    
+    private func shareButtonTapped() {
+        guard
+            let image = myPlantImageView.image else { return }
+        
+        let shareSheetViewController = UIActivityViewController(activityItems: [image],
+                                                                applicationActivities: nil)
+        
+        present(shareSheetViewController, animated: true)
+    }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
@@ -114,11 +166,14 @@ final class MyPlantDetailsViewController: UIViewController {
     }
     // MARK: - Class Methods
     func configureMyPlant(name: String?, description: String?, id: String?, image: UIImage?) {
-//        myPlant?.name = name
-//        myPlant?.plantDescription = description
-//        myPlant?.plantID = id
+        myPlantID = id
         myPlantNameLabel.text = name
         myPlantDescriptionLabel.text = description
         myPlantImageView.image = image
     }
+    
+    private func setupDelegates() {
+        
+    }
+    
 }

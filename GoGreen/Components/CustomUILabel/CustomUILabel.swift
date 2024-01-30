@@ -9,9 +9,10 @@ import UIKit
 
 class CustomUILabel: UILabel {
 
-    init(customText: String?, fontSize: FontSize?, customNumberOfLines: Int?) {
+    init(customText: String?, fontSize: FontSize?, customNumberOfLines: Int?, alpha: CGFloat = 1.0) {
         super.init(frame: .zero)
         text = customText
+        self.alpha = alpha
         
         if let customNumberOfLines {
             numberOfLines = customNumberOfLines

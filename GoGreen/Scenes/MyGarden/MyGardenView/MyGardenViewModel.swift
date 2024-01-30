@@ -51,11 +51,11 @@ final class MyGardenViewModel {
         addMyPlant(name: name, description: description, imagePath: plantId)
     }
     
-    func deleteMyPlantLocally(with index: Int) {
-        guard let plantID = myPlants[index].plantID else { return }
+    func deleteMyPlantLocally(with plantID: String) {
+//        guard let plantID = myPlants[index].plantID else { return }
         notificationManager.cancelNotification(with: plantID)
         localFileManager.deleteImage(name: plantID)
-        deleteMyPlant(index: index)
+        deleteMyPlant(with: plantID)
     }
     
     func getImageFromImagePath(imagePath: String) -> UIImage? {
@@ -82,8 +82,8 @@ final class MyGardenViewModel {
         saveData()
     }
     
-    private func deleteMyPlant(index: Int) {
-        let entity = myPlants[index]
+    private func deleteMyPlant(with plantID: String) {
+        guard let entity = myPlants.first(where: {$0.plantID == plantID}) else { return }
         container.viewContext.delete(entity)
         saveData()
     }

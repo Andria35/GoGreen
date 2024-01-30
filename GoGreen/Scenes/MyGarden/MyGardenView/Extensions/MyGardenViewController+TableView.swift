@@ -25,8 +25,8 @@ extension MyGardenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let myPlantDetailsViewController = MyPlantDetailsViewController()
-//        itemViewController.configureItem(item: songs[indexPath.row])
+        let myPlantDetailsViewController = MyPlantDetailsViewController(animationManager: AnimationManager())
+        myPlantDetailsViewController.delegate = self
         let myPlant = myPlants[indexPath.row]
         myPlantDetailsViewController.configureMyPlant(name: myPlant.name, description: myPlant.plantDescription, id: myPlant.plantID, image: viewModel.getImageFromImagePath(imagePath: myPlant.plantID ?? ""))
         navigationController?.pushViewController(myPlantDetailsViewController, animated: true)
