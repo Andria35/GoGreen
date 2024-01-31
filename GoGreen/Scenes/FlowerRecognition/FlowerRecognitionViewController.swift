@@ -12,20 +12,13 @@ import NetworkManager
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
-    private let viewModel: FlowerRecognitionViewModel
-    private let alertManager: Alerting
+    let viewModel: FlowerRecognitionViewModel
+    let alertManager: Alerting
+    private let imagePickerManager: ImagePicking
     
     // MARK: - UI Components
-    private let cameraButton: UIButton = {
-        let button = UIButton()
-        let cameraImage = UIImage(systemName: "camera.fill")
-        button.setImage(cameraImage, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let imagePicker = UIImagePickerController()
-    
+    lazy private var cameraButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
+        
     lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
         let hostingController = UIHostingController(
             rootView: PlantDetailsView(
@@ -43,9 +36,10 @@ final class FlowerRecognitionViewController: UIViewController {
     }
     
     // MARK: - Initialization
-    init(viewModel: FlowerRecognitionViewModel, alertManager: Alerting) {
+    init(viewModel: FlowerRecognitionViewModel, alertManager: Alerting, imagePickerManager: ImagePicking) {
         self.viewModel = viewModel
         self.alertManager = alertManager
+        self.imagePickerManager = imagePickerManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -58,7 +52,6 @@ final class FlowerRecognitionViewController: UIViewController {
         setupBackground()
         setupSubviews()
         setupCameraButton()
-        setupImagePicker()
     }
     
     private func setupSubviews() {
@@ -76,17 +69,12 @@ final class FlowerRecognitionViewController: UIViewController {
     private func setupCameraButton() {
         let cameraBarButtonItem = UIBarButtonItem(customView: cameraButton)
         navigationItem.rightBarButtonItem = cameraBarButtonItem
-        cameraButton.addAction(UIAction(handler: { [weak self] action in
-            guard let self else { return }
-            present(self.imagePicker, animated: true)
-        }), for: .touchUpInside)
     }
     
-    private func setupImagePicker() {
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .camera
+    private func cameraButtonTapped() {
+        imagePickerManager.showCamera(viewController: self)
     }
-    
+        
     // MARK: - Setup Constraints
     private func setupConstraints() {
         setupFlowerDetailsHostingControllerConstraints()
@@ -103,30 +91,5 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
-        imagePicker.delegate = self
-    }
-}
-
-// MARK: - ImagePickerDelegate
-extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            viewModel.detectPlant(image: userPickedImage)
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - FlowerRecognitionViewModelDelegate
-extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
-    func displayFlowerRecognitionFailedAlert() {
-        alertManager.displayAlert(message: "There was a problem recognising this image", buttonTitle: "Ok", vc: self)
-    }
-    
-    func fetchCompleted(plant: Plant) {
-        flowerDetailsHostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }
