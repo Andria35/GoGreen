@@ -56,7 +56,6 @@ final class AddNewMyPlantViewController: UIViewController {
     lazy var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGray, fontSize: .big, isRounded: true, isEnabled: false, height: 65, width: nil, customAction: saveButtonTapped)
     
     private let setupWateringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0)
-        
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
@@ -121,7 +120,12 @@ final class AddNewMyPlantViewController: UIViewController {
     }
         
     private func saveButtonTapped() {
-        delegate?.saveTapped(myPlantName: myPlantNameTextField.text, myPlantImage: myPlantImageView.image, myPlantDescription: myPlantDescriptionTextView.text, notificationRepeatDays: notificationRepeatDays)
+        delegate?.saveTapped(
+            myPlantName: myPlantNameTextField.text,
+            myPlantImage: myPlantImageView.image,
+            myPlantDescription: myPlantDescriptionTextView.text,
+            notificationRepeatDays: notificationRepeatDays)
+        
         navigationController?.popViewController(animated: true)
     }
     

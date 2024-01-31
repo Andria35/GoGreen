@@ -21,6 +21,7 @@ final class MyGardenViewModel {
     init(localFileManager: LocalFileManaging, notificationManager: Notifying) {
         self.localFileManager = localFileManager
         self.notificationManager = notificationManager
+        
         container = NSPersistentContainer(name: "PlantsContainer")
         container.loadPersistentStores { description, error in
             if let error {
@@ -31,7 +32,7 @@ final class MyGardenViewModel {
         }
     }
     
-    // MARK: - Methods
+    // MARK: - Class Methods
     func viewDidLoad() {
         fetchMyPlants()
         notificationManager.requestAuthorization()
@@ -39,8 +40,8 @@ final class MyGardenViewModel {
     
     func saveMyPlantLocally(name: String?, image: UIImage?, description: String?, notificationRepeatDays: Double) {
         guard let name,
-            let image,
-            !name.isEmpty else {
+              let image,
+              !name.isEmpty else {
             print("No Name")
             return
         }
@@ -52,7 +53,6 @@ final class MyGardenViewModel {
     }
     
     func deleteMyPlantLocally(with plantID: String) {
-//        guard let plantID = myPlants[index].plantID else { return }
         notificationManager.cancelNotification(with: plantID)
         localFileManager.deleteImage(name: plantID)
         deleteMyPlant(with: plantID)

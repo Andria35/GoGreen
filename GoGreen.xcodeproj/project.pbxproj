@@ -183,8 +183,6 @@
 			children = (
 				101B0EDA2B5729FA0074B0E6 /* ContentView.swift */,
 				10E4425C2B5A927B00E54334 /* HomeView */,
-				10E4425A2B5A8FAB00E54334 /* Components */,
-				10E442592B5A8F9E00E54334 /* Models */,
 				107653052B5AE8C6005F7E4B /* Navigation */,
 				10E442542B5A70AB00E54334 /* Scanner */,
 			);
@@ -275,6 +273,9 @@
 				108E50022B63C99F00D37AC4 /* CustomUITextView */,
 				108E4FFF2B63B79F00D37AC4 /* CustomUITextField */,
 				107652FC2B5AADE1005F7E4B /* PlantDetailsView */,
+				10E442442B59181100E54334 /* PlantComponentView */,
+				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
+				108E50422B6A45F700D37AC4 /* OnboardingButtonComponentView */,
 				108E500E2B63F60200D37AC4 /* Types */,
 			);
 			path = Components;
@@ -283,6 +284,8 @@
 		1062DB252B569496001B5AEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
+				108E50272B650B3600D37AC4 /* PlantsContainer.xcdatamodeld */,
 				10595A9A2B58745400419366 /* Plant.swift */,
 			);
 			path = Models;
@@ -486,6 +489,14 @@
 			path = MyPlantDetailsView;
 			sourceTree = "<group>";
 		};
+		108E50422B6A45F700D37AC4 /* OnboardingButtonComponentView */ = {
+			isa = PBXGroup;
+			children = (
+				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
+			);
+			path = OnboardingButtonComponentView;
+			sourceTree = "<group>";
+		};
 		10B54C382B611C7C00DFF3C0 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,7 +508,6 @@
 		10B54C3D2B6121CC00DFF3C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				108E50272B650B3600D37AC4 /* PlantsContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -529,27 +539,9 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
-		10E442592B5A8F9E00E54334 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		10E4425A2B5A8FAB00E54334 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				10E442442B59181100E54334 /* PlantComponentView */,
-				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		10E4425B2B5A901000E54334 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				10595A8C2B573A2300419366 /* OnboardingButtonComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

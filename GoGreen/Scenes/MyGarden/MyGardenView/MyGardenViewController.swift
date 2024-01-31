@@ -73,7 +73,6 @@ final class MyGardenViewController: UIViewController {
         tableView.register(MyPlantTableViewCell.self, forCellReuseIdentifier: MyPlantTableViewCell.cellID)
     }
 
-    
     // MARK: - Setup Constraints
     private func setupConstraints() {
        setUpTableViewConstraints()
@@ -95,5 +94,3 @@ final class MyGardenViewController: UIViewController {
         tableView.delegate = self
     }
 }
-
-

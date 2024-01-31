@@ -27,6 +27,4 @@ extension AddNewMyPlantViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    
 }

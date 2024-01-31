@@ -67,7 +67,6 @@ final class MyPlantDetailsViewController: UIViewController {
     
     lazy private var deleteButton = CustomUIButton(title: "Delete", image: nil, customBackgroundColor: .systemRed, fontSize: .big, isRounded: true, height: 50, width: nil, customAction: deleteButtonTapped)
     
-
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,20 +97,25 @@ final class MyPlantDetailsViewController: UIViewController {
     
     private func setupSubViews() {
         view.addSubview(scrollView)
+        
         scrollView.addSubview(verticalStackView)
+        
         verticalStackView.addArrangedSubview(myPlantImageView)
         verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(nameHorizontalStackView)
+        
         nameHorizontalStackView.addArrangedSubview(nameLabel)
         nameHorizontalStackView.addArrangedSubview(myPlantNameLabel)
-        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         
+        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(descriptionVerticalStackView)
+        
         descriptionVerticalStackView.addArrangedSubview(descriptionLabel)
         descriptionVerticalStackView.addArrangedSubview(myPlantDescriptionLabel)
-        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         
+        verticalStackView.addArrangedSubview(CustomUIDividerLine())
         verticalStackView.addArrangedSubview(buttonsHorizontalStack)
+        
         buttonsHorizontalStack.addArrangedSubview(deleteButton)
         buttonsHorizontalStack.addArrangedSubview(copyButton)
         buttonsHorizontalStack.addArrangedSubview(shareButton)
@@ -131,11 +135,11 @@ final class MyPlantDetailsViewController: UIViewController {
     }
     
     private func shareButtonTapped() {
-        guard
-            let image = myPlantImageView.image else { return }
+        guard let image = myPlantImageView.image else { return }
         
-        let shareSheetViewController = UIActivityViewController(activityItems: [image],
-                                                                applicationActivities: nil)
+        let shareSheetViewController = UIActivityViewController(
+            activityItems: [image],
+            applicationActivities: nil)
         
         present(shareSheetViewController, animated: true)
     }
@@ -164,6 +168,7 @@ final class MyPlantDetailsViewController: UIViewController {
             verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10)
         ])
     }
+    
     // MARK: - Class Methods
     func configureMyPlant(name: String?, description: String?, id: String?, image: UIImage?) {
         myPlantID = id
@@ -171,9 +176,4 @@ final class MyPlantDetailsViewController: UIViewController {
         myPlantDescriptionLabel.text = description
         myPlantImageView.image = image
     }
-    
-    private func setupDelegates() {
-        
-    }
-    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 final class MyPlantTableViewCell: UITableViewCell {
 
-    // MARK: - Properties
+    // MARK: - Class Properties
     static let cellID = "MyPlantCell"
     
     // MARK: - UI Components
@@ -22,16 +22,15 @@ final class MyPlantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-   lazy private var plantImageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: 150, width: 150)
+    private var plantImageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: 150, width: 150)
     
-    private let plantNameLabel: UILabel = CustomUILabel(customText: nil, fontSize: .medium, customNumberOfLines: 0)
+    private let plantNameLabel = CustomUILabel(customText: nil, fontSize: .medium, customNumberOfLines: 0)
     
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupView()
         setUpSubViews()
         setupConstraints()
     }
@@ -53,14 +52,7 @@ final class MyPlantTableViewCell: UITableViewCell {
         plantNameLabel.text = name
         plantImageView.image = image
     }
-    
-    private func setupView() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
-    }
-    
+        
     private func setUpSubViews() {
         addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(plantImageView)
