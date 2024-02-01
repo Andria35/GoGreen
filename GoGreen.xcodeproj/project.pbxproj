@@ -836,6 +836,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding plant stores near you, we need to know your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -866,6 +867,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding plant stores near you, we need to know your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
