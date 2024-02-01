@@ -12,6 +12,8 @@
 		101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED52B5721160074B0E6 /* HomeView.swift */; };
 		101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED82B5722C00074B0E6 /* TabBarController.swift */; };
 		101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0EDA2B5729FA0074B0E6 /* ContentView.swift */; };
+		103CED782B6B960000B41BFF /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CED772B6B960000B41BFF /* NearMeViewController.swift */; };
+		103CED7B2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */; };
 		1049A7EC2B5C41F200F5A86E /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */; };
 		10595A862B5734FC00419366 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A852B5734FC00419366 /* OnboardingView.swift */; };
 		10595A882B57372A00419366 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A872B57372A00419366 /* WelcomeView.swift */; };
@@ -80,6 +82,8 @@
 		101B0ED52B5721160074B0E6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		101B0ED82B5722C00074B0E6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101B0EDA2B5729FA0074B0E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		103CED772B6B960000B41BFF /* NearMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
+		103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeViewController+MapKit.swift"; sourceTree = "<group>"; };
 		1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		10595A852B5734FC00419366 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		10595A872B57372A00419366 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -163,7 +167,6 @@
 				108E50172B64166700D37AC4 /* AddNewMyPlantView */,
 				108E50392B68395E00D37AC4 /* MyPlantDetailsView */,
 				108E502E2B651A7000D37AC4 /* Protocols */,
-				10B54C3D2B6121CC00DFF3C0 /* Models */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -197,6 +200,23 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		103CED762B6B938400B41BFF /* NearMe */ = {
+			isa = PBXGroup;
+			children = (
+				103CED772B6B960000B41BFF /* NearMeViewController.swift */,
+				103CED792B6BC88400B41BFF /* Extensions */,
+			);
+			path = NearMe;
+			sourceTree = "<group>";
+		};
+		103CED792B6BC88400B41BFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		10595A842B5734D000419366 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +224,6 @@
 				10595A872B57372A00419366 /* WelcomeView.swift */,
 				10595A922B57D40100419366 /* DiscoverPlantView.swift */,
 				10595A942B57E55700419366 /* EmbarkJourneyView.swift */,
-				10E4425B2B5A901000E54334 /* Components */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -259,6 +278,7 @@
 				101B0ECC2B5720180074B0E6 /* Home */,
 				101B0ECB2B5720060074B0E6 /* FlowerRecognition */,
 				101B0ECA2B571FFD0074B0E6 /* MyGarden */,
+				103CED762B6B938400B41BFF /* NearMe */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -505,13 +525,6 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
-		10B54C3D2B6121CC00DFF3C0 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		10E442442B59181100E54334 /* PlantComponentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,13 +550,6 @@
 				10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */,
 			);
 			path = Scanner;
-			sourceTree = "<group>";
-		};
-		10E4425B2B5A901000E54334 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		10E4425C2B5A927B00E54334 /* HomeView */ = {
@@ -641,6 +647,7 @@
 				108E50012B63B7D000D37AC4 /* CustomUITextField.swift in Sources */,
 				107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */,
 				10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */,
+				103CED782B6B960000B41BFF /* NearMeViewController.swift in Sources */,
 				108E500A2B63E34100D37AC4 /* CustomUIButton.swift in Sources */,
 				108E502D2B651A3A00D37AC4 /* MyGardenViewController+AddNewMyPlantViewControllerDelegate.swift in Sources */,
 				10E442462B59184000E54334 /* PlantComponentView.swift in Sources */,
@@ -674,6 +681,7 @@
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				108E50292B650B3600D37AC4 /* PlantsContainer.xcdatamodeld in Sources */,
 				1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */,
+				103CED7B2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
 				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,
@@ -840,6 +848,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding plant stores near you, we need to know your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -870,6 +879,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GoGreen/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to scan images for search";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding plant stores near you, we need to know your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
