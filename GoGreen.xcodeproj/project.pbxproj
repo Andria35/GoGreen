@@ -13,6 +13,7 @@
 		101B0ED92B5722C00074B0E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0ED82B5722C00074B0E6 /* TabBarController.swift */; };
 		101B0EDB2B5729FA0074B0E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101B0EDA2B5729FA0074B0E6 /* ContentView.swift */; };
 		103CED782B6B960000B41BFF /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CED772B6B960000B41BFF /* NearMeViewController.swift */; };
+		103CED7B2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */; };
 		1049A7EC2B5C41F200F5A86E /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */; };
 		10595A862B5734FC00419366 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A852B5734FC00419366 /* OnboardingView.swift */; };
 		10595A882B57372A00419366 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10595A872B57372A00419366 /* WelcomeView.swift */; };
@@ -82,6 +83,7 @@
 		101B0ED82B5722C00074B0E6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		101B0EDA2B5729FA0074B0E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		103CED772B6B960000B41BFF /* NearMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeViewController.swift; sourceTree = "<group>"; };
+		103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeViewController+MapKit.swift"; sourceTree = "<group>"; };
 		1049A7EB2B5C41F200F5A86E /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		10595A852B5734FC00419366 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		10595A872B57372A00419366 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -202,8 +204,17 @@
 			isa = PBXGroup;
 			children = (
 				103CED772B6B960000B41BFF /* NearMeViewController.swift */,
+				103CED792B6BC88400B41BFF /* Extensions */,
 			);
 			path = NearMe;
+			sourceTree = "<group>";
+		};
+		103CED792B6BC88400B41BFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				103CED7A2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		10595A842B5734D000419366 /* Onboarding */ = {
@@ -670,6 +681,7 @@
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				108E50292B650B3600D37AC4 /* PlantsContainer.xcdatamodeld in Sources */,
 				1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */,
+				103CED7B2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
 				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,
