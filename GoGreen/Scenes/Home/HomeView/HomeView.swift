@@ -16,26 +16,31 @@ struct HomeView: View {
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack {
-                findNewPlantsText
-                searchBarHStack
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
+            ScrollView {
+                VStack {
+                    findNewPlantsText
+                    searchBarHStack
 
-                if viewModel.plantsFamilyIsEmpty() {
-                    ProgressView()
-                } else {
-                    if viewModel.textfieldText.isEmpty {
-                        plantFamilyComponentViews
+                    if viewModel.plantsFamilyIsEmpty() {
+                        ProgressView()
                     } else {
-                        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.searchResult, sectionTitle: nil))
+                        if viewModel.textfieldText.isEmpty {
+                            plantFamilyComponentViews
+                        } else {
+                            PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: viewModel.searchResult, sectionTitle: nil))
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
-        }
-        .fullScreenCover(isPresented: $liveScan, content: {
-            LiveTextFromCameraScanView(liveScan: $liveScan, scannedText: $viewModel.textfieldText, fetchPlantsByTextfield: viewModel.fetchPlantsByTextfieldResult)
+            .fullScreenCover(isPresented: $liveScan, content: {
+                LiveTextFromCameraScanView(liveScan: $liveScan, scannedText: $viewModel.textfieldText, fetchPlantsByTextfield: viewModel.fetchPlantsByTextfieldResult)
         })
+        }
     }
 }
 
