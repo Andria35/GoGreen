@@ -14,26 +14,39 @@ struct PlantDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        if viewModel.plantDetails != nil {
+        ZStack {
+            Color(UIColor.mainBackgroundColor ?? UIColor.systemBackground)
+                .ignoresSafeArea()
             
-            ScrollView {
-                VStack(alignment: .leading) {
-                    plantImage
-                    Divider()
-                    plantDetailsTextComponentsVStack
+            if viewModel.plantDetails != nil {
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        if let image = viewModel.plantImage {
+                            image
+                                .resizable()
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .aspectRatio(contentMode: .fit)
+                        } else {
+                            placeHolderImage
+                        }
+                        Divider()
+                        plantDetailsTextComponentsVStack
+                    }
+                    .padding()
                 }
-                .padding()
-            }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Details")
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("Details")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                    }
                 }
+                
+            } else {
+                noFlowerInfoVStack
             }
-            
-        } else {
-            noFlowerInfoVStack
+
         }
     }
 }
@@ -42,11 +55,16 @@ struct PlantDetailsView: View {
 extension PlantDetailsView {
     
     // MARK: - PlantImage
-    private var plantImage: some View {
-        viewModel.plantImage
+    private var placeHolderImage: some View {
+        Image(systemName: "photo")
             .resizable()
+            .opacity(0)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .aspectRatio(contentMode: .fit)
+            .overlay {
+                ProgressView()
+            }
+        
     }
     
     // MARK: - PlantDetailsTextComponentsVStack

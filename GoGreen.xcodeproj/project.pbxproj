@@ -74,6 +74,7 @@
 		10E442512B59AB8300E54334 /* PlantFamilyComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */; };
 		10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */; };
 		10E442582B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */; };
+		10FA5F532B6D218E00995C13 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA5F522B6D218E00995C13 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,7 @@
 		10E442502B59AB8300E54334 /* PlantFamilyComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFamilyComponentViewModel.swift; sourceTree = "<group>"; };
 		10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTextFromCameraScanView.swift; sourceTree = "<group>"; };
 		10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		10FA5F522B6D218E00995C13 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				10595A892B57379D00419366 /* Color.swift */,
+				10FA5F522B6D218E00995C13 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				108E50072B63D9B700D37AC4 /* CustomUIImageView.swift in Sources */,
 				108E50012B63B7D000D37AC4 /* CustomUITextField.swift in Sources */,
 				107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */,
+				10FA5F532B6D218E00995C13 /* UIColor.swift in Sources */,
 				10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */,
 				103CED782B6B960000B41BFF /* NearMeViewController.swift in Sources */,
 				108E500A2B63E34100D37AC4 /* CustomUIButton.swift in Sources */,

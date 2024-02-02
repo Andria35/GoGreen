@@ -23,7 +23,7 @@ struct PlantComponentView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .frame(width: 170, height: 200)
                     .padding(35)
-                    .background(Color.homeViewSecondaryColor)
+                    .background(Color(UIColor.secondaryBackgroundColor))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             } else {
                 placeholderImage
@@ -51,7 +51,7 @@ extension PlantComponentView {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .frame(width: 170, height: 200)
             .padding(35)
-            .background(Color.homeViewSecondaryColor)
+            .background(Color(UIColor.secondaryBackgroundColor))
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

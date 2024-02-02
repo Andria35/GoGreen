@@ -17,7 +17,7 @@ struct HomeView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color(UIColor.mainBackgroundColor ?? UIColor.systemBackground)
                 .ignoresSafeArea()
             
             ScrollView {
@@ -65,7 +65,7 @@ extension HomeView {
             .font(.title2)
             .padding()
             .frame(height: 60)
-            .background(Color.homeViewSecondaryColor)
+            .background(Color(UIColor.secondaryBackgroundColor))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Button(action: {
