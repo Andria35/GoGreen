@@ -12,6 +12,8 @@ protocol Alerting {
 }
 
 final class AlertManager: Alerting {
+    
+    // MARK: - Class Methods
     func displayAlert(message: String, buttonTitle: String, vc: UIViewController)
     {
         let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)

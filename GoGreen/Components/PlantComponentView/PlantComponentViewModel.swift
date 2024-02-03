@@ -13,7 +13,7 @@ final class PlantComponentViewModel: ObservableObject {
     // MARK: - Properties
     let plant: Plant
     let networkManager: APIServices
-    @Published var plantImage: Image = Image(systemName: "photo")
+    @Published var plantImage: Image?
     
     // MARK: - Initialization
     init(plant: Plant, networkManager: APIServices) {
@@ -32,7 +32,7 @@ final class PlantComponentViewModel: ObservableObject {
         let components = plantName.components(separatedBy: delimiter)
         let stringWithoutPrefix = components.last ?? plantName
         
-        // names with char.count > 15 will get formatted
+        // names with char.count > 20 will get formatted
         let maxLength = 20
         let formattedString: String
 

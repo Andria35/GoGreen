@@ -16,6 +16,7 @@ protocol Notifying {
 
 final class NotificationManager: Notifying {
         
+    // MARK: - Class Methods
     func requestAuthorization() {
         
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]

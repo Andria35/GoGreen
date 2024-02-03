@@ -15,7 +15,6 @@ struct DataScannerViewControllerRepresentable: UIViewControllerRepresentable {
     @Binding var liveScan: Bool
     var fetchPlantsByTextfield: () -> Void
 
-    
     // MARK: - Methods
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let viewController = DataScannerViewController(recognizedDataTypes: [.text()],

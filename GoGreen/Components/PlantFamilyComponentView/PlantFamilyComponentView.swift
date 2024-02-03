@@ -59,5 +59,8 @@ extension PlantFamilyComponentView {
 }
 
 #Preview {
-    PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: [PlantMockData.plant], sectionTitle: .daisies))
+    ZStack {
+        MainBackgroundComponentView()
+        PlantFamilyComponentView(viewModel: PlantFamilyComponentViewModel(plants: [PlantMockData.plant], sectionTitle: .daisies))
+    }
 }

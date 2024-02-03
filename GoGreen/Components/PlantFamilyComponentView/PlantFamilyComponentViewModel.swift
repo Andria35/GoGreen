@@ -26,7 +26,7 @@ final class PlantFamilyComponentViewModel: ObservableObject {
         case jasmines
         case sunflowers
     }
-
+    
     // MARK: - Initialization
     init(plants: [Plant], sectionTitle: SectionTitles?) {
         self.plants = plants

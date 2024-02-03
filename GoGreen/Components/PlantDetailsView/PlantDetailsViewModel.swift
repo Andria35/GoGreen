@@ -13,7 +13,7 @@ final class PlantDetailsViewModel: ObservableObject {
     // MARK: - Properties
     let id: Int?
     let networkManager: APIServices
-    @Published var plantImage = Image(systemName: "photo")
+    @Published var plantImage: Image?
     @Published var plantDetails: PlantDetails?
     
     // MARK: - Initialization

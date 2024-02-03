@@ -13,6 +13,7 @@ protocol Animating {
 
 final class AnimationManager: Animating {
     
+    // MARK: - Class Methods
     func successAnimation(viewController: UIViewController) {
         let checkmarkImageView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
         checkmarkImageView.tintColor = .green
