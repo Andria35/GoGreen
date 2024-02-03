@@ -29,8 +29,13 @@ final class NearMeViewController: UIViewController {
     // MARK: - Setup UI
     private func setupUI() {
         setupSubViews()
+        setupBackground()
         setupLocationManager()
         setupMapView()
+    }
+    
+    private func setupBackground() {
+        view.backgroundColor = UIColor.systemBackground
     }
     
     private func setupSubViews() {

@@ -14,7 +14,6 @@ final class MyPlantDetailsViewController: UIViewController {
     weak var delegate: MyPlantDetailsViewControllerDelegate?
     let animationManager: Animating
     
-    
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -51,7 +50,7 @@ final class MyPlantDetailsViewController: UIViewController {
     
     private let descriptionLabel = CustomUILabel(customText: "Description:", fontSize: .medium, customNumberOfLines: 1, alpha: 0.5)
     
-    private let myPlantDescriptionLabel = CustomUILabel(customText: "blabla", fontSize: .medium, customNumberOfLines: 0)
+    private let myPlantDescriptionLabel = CustomUILabel(customText: "", fontSize: .medium, customNumberOfLines: 0)
     
     private let buttonsHorizontalStack: UIStackView = {
        let stackView = UIStackView()
@@ -92,7 +91,7 @@ final class MyPlantDetailsViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.mainBackgroundColor
     }
     
     private func setupSubViews() {
