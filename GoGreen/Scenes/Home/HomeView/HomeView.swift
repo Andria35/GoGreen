@@ -17,9 +17,7 @@ struct HomeView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
-            Color(UIColor.mainBackgroundColor ?? UIColor.systemBackground)
-                .ignoresSafeArea()
-            
+            MainBackgroundComponentView()
             ScrollView {
                 VStack {
                     findNewPlantsText

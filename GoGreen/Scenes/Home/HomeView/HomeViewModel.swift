@@ -16,7 +16,6 @@ final class HomeViewModel: ObservableObject {
     @Published var plantFamilies: PlantFamilies = PlantFamilies(roses: [], sunflowers: [], jasmines: [], daisies: [], irises: [])
     @Published var searchResult: [Plant] = []
     
-    
     // MARK: - FamilyOfPlants
     enum FamilyOfPlants: String {
         case rose

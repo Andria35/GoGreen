@@ -32,7 +32,7 @@ final class PlantComponentViewModel: ObservableObject {
         let components = plantName.components(separatedBy: delimiter)
         let stringWithoutPrefix = components.last ?? plantName
         
-        // names with char.count > 15 will get formatted
+        // names with char.count > 20 will get formatted
         let maxLength = 20
         let formattedString: String
 

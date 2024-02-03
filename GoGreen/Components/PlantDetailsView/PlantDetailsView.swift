@@ -15,11 +15,8 @@ struct PlantDetailsView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
-            Color(UIColor.mainBackgroundColor ?? UIColor.systemBackground)
-                .ignoresSafeArea()
-            
+            MainBackgroundComponentView()
             if viewModel.plantDetails != nil {
-                
                 ScrollView {
                     VStack(alignment: .leading) {
                         if let image = viewModel.plantImage {
@@ -119,6 +116,6 @@ extension PlantDetailsView {
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        PlantDetailsView(viewModel: PlantDetailsViewModel(id: nil, networkManager: NetworkManager()))
+        PlantDetailsView(viewModel: PlantDetailsViewModel(id: 501, networkManager: NetworkManager()))
     }
 }

@@ -75,6 +75,7 @@
 		10E442562B5A70D900E54334 /* LiveTextFromCameraScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */; };
 		10E442582B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */; };
 		10FA5F532B6D218E00995C13 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA5F522B6D218E00995C13 /* UIColor.swift */; };
+		10FA5F572B6E707700995C13 /* MainBackgroundComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA5F562B6E707700995C13 /* MainBackgroundComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		10E442552B5A70D900E54334 /* LiveTextFromCameraScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTextFromCameraScanView.swift; sourceTree = "<group>"; };
 		10E442572B5A73F300E54334 /* DataScannerViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		10FA5F522B6D218E00995C13 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		10FA5F562B6E707700995C13 /* MainBackgroundComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,7 +296,9 @@
 				108E50052B63D97100D37AC4 /* CustomUIImageView */,
 				108E50022B63C99F00D37AC4 /* CustomUITextView */,
 				108E4FFF2B63B79F00D37AC4 /* CustomUITextField */,
+				10FA5F552B6E705B00995C13 /* MainBackgroundComponentView */,
 				107652FC2B5AADE1005F7E4B /* PlantDetailsView */,
+				10FA5F542B6E6F0400995C13 /* PlantDetailsTextComponentView */,
 				10E442442B59181100E54334 /* PlantComponentView */,
 				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
 				108E50422B6A45F700D37AC4 /* OnboardingButtonComponentView */,
@@ -306,6 +310,7 @@
 		1062DB252B569496001B5AEE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				107653022B5AE373005F7E4B /* PlantDetails.swift */,
 				10E4424D2B59578500E54334 /* PlantFamilies.swift */,
 				108E50272B650B3600D37AC4 /* PlantsContainer.xcdatamodeld */,
 				10595A9A2B58745400419366 /* Plant.swift */,
@@ -358,18 +363,8 @@
 			children = (
 				107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */,
 				107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */,
-				1076530A2B5AFEA0005F7E4B /* Components */,
-				107653012B5AE359005F7E4B /* Models */,
 			);
 			path = PlantDetailsView;
-			sourceTree = "<group>";
-		};
-		107653012B5AE359005F7E4B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				107653022B5AE373005F7E4B /* PlantDetails.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		107653052B5AE8C6005F7E4B /* Navigation */ = {
@@ -378,14 +373,6 @@
 				107653062B5AE8DC005F7E4B /* Router.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		1076530A2B5AFEA0005F7E4B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		108E4FFF2B63B79F00D37AC4 /* CustomUITextField */ = {
@@ -564,6 +551,22 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
+		10FA5F542B6E6F0400995C13 /* PlantDetailsTextComponentView */ = {
+			isa = PBXGroup;
+			children = (
+				1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */,
+			);
+			path = PlantDetailsTextComponentView;
+			sourceTree = "<group>";
+		};
+		10FA5F552B6E705B00995C13 /* MainBackgroundComponentView */ = {
+			isa = PBXGroup;
+			children = (
+				10FA5F562B6E707700995C13 /* MainBackgroundComponentView.swift */,
+			);
+			path = MainBackgroundComponentView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -659,6 +662,7 @@
 				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
 				1076530C2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift in Sources */,
 				10595A8A2B57379D00419366 /* Color.swift in Sources */,
+				10FA5F572B6E707700995C13 /* MainBackgroundComponentView.swift in Sources */,
 				10B54C432B612F4600DFF3C0 /* AddNewMyPlantViewController.swift in Sources */,
 				101B0ED62B5721160074B0E6 /* HomeView.swift in Sources */,
 				108E502B2B6519EC00D37AC4 /* MyGardenViewController+MyGardenViewModelDelegate.swift in Sources */,
