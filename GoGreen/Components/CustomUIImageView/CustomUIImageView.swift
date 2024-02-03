@@ -21,7 +21,8 @@ final class CustomUIImageView: UIImageView {
         
         layer.cornerRadius = 10
         clipsToBounds = true
-        tintColor = customTintColor
+        let secondaryTintColor = customTintColor?.withAlphaComponent(0.1)
+        tintColor = secondaryTintColor
         image = customImage
         
         setupConstraints()

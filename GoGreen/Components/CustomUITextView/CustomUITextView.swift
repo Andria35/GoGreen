@@ -29,6 +29,8 @@ final class CustomUITextView: UITextView {
         layer.borderWidth = 1
         layer.masksToBounds = true
         layer.borderColor = UIColor.systemGray.cgColor
+        backgroundColor = UIColor.secondaryBackgroundColor
+
         
         setupUI()
         setupConstraints()
