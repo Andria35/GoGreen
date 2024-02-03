@@ -17,7 +17,7 @@ final class AddNewMyPlantViewController: UIViewController {
     weak var delegate: AddNewMyPlantViewControllerDelegate?
 
     // MARK: - UI Components
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -53,7 +53,7 @@ final class AddNewMyPlantViewController: UIViewController {
     
     let myPlantDescriptionTextView = CustomUITextView(placeholder: "Enter Plant Description(Optional)")
     
-    lazy var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemBlue, fontSize: .big, isRounded: true, isEnabled: false, height: 65, width: nil, customAction: saveButtonTapped)
+    lazy var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGray, fontSize: .big, isRounded: true, isEnabled: false, height: 65, width: nil, customAction: saveButtonTapped)
     
     private let setupWateringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0, alpha: 0.8)
     
@@ -64,6 +64,7 @@ final class AddNewMyPlantViewController: UIViewController {
         setupConstraints()
         setupDelegates()
         setupToHideKeyboardOnTapOnView()
+        registerKeyboardNotifications()
     }
     
     // MARK: - Initialization

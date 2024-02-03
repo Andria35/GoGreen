@@ -14,7 +14,7 @@ extension AddNewMyPlantViewController: UITextFieldDelegate {
         if textField == myPlantNameTextField {
             
             if let text = myPlantNameTextField.text, !text.isEmpty {
-                saveButton.backgroundColor = .systemGreen
+                saveButton.backgroundColor = .systemBlue
                 saveButton.isEnabled = true
             } else {
                 saveButton.backgroundColor = .systemGray

@@ -11,6 +11,8 @@ import UIKit
 extension AddNewMyPlantViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         myPlantDescriptionTextView.hidePlaceholderLabel()
+//        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
+//        scrollView.setContentOffset(bottomOffset, animated: true)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
