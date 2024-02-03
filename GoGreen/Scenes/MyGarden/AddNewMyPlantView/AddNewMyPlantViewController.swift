@@ -63,6 +63,7 @@ final class AddNewMyPlantViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
+        setupToHideKeyboardOnTapOnView()
     }
     
     // MARK: - Initialization
