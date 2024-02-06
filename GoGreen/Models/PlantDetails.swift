@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - PlantDetailsResponse
-struct PlantDetailsResponse: Codable {
+struct PlantDetailsResponse: Decodable {
     let data: PlantDetails
 }
 
 // MARK: - PlantDetails
-struct PlantDetails: Codable {
+struct PlantDetails: Decodable {
     let id: Int
     let commonName: String?
     let  scientificName: String?

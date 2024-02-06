@@ -7,22 +7,12 @@
 
 import XCTest
 @testable import GoGreen
-@testable import NetworkManager
 
 final class HomeViewModelTests: XCTestCase {
 
-    var homeViewModel: HomeViewModel!
-    
-    override func setUpWithError() throws {
-        homeViewModel = HomeViewModel(networkManager: NetworkManager())
-    }
-
-    override func tearDownWithError() throws {
-        homeViewModel = nil
-    }
-    
     func testPlantsFamilyIsEmptyEmpty() {
         // Arrange
+        let homeViewModel = HomeViewModel(networkManager: MockNetworkManager())
         let plantFamilies: PlantFamilies = PlantFamilies(roses: [], sunflowers: [], jasmines: [], daisies: [], irises: [])
         homeViewModel.plantFamilies = plantFamilies
         
@@ -35,6 +25,7 @@ final class HomeViewModelTests: XCTestCase {
 
     func testPlantsFamilyIsEmptyNotEmpty() {
         // Arrange
+        let homeViewModel = HomeViewModel(networkManager: MockNetworkManager())
         let plantFamilies = PlantFamilies(roses: [PlantMockData.plant], sunflowers: [], jasmines: [], daisies: [], irises: [])
         homeViewModel.plantFamilies = plantFamilies
         
@@ -43,6 +34,47 @@ final class HomeViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertFalse(result, "Expected plant families not to be empty")
+    }
+    
+    func testInitializer() {
+        // Arrange
+        let expectation = XCTestExpectation(description: "Fetch plants")
+        let mockNetworkManager = MockNetworkManager()
+        let mockHomeViewModel = HomeViewModel(networkManager: mockNetworkManager)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            expectation.fulfill()
+        })
+        wait(for: [expectation], timeout: 5.0)
+        
+        // Act
+        let result = mockHomeViewModel.plantFamilies
+        
+        // Assert
+        XCTAssertEqual(result.daisies.count, 1)
+        XCTAssertEqual(result.irises.count, 1)
+        XCTAssertEqual(result.jasmines.count, 1)
+        XCTAssertEqual(result.roses.count, 1)
+        XCTAssertEqual(result.sunflowers.count, 1)
+        XCTAssertEqual(mockNetworkManager.fetchDataCallCounter, 5)
+    }
+    
+    func testFetchPlantsByTextfieldResult() {
+        // Arrange
+        let mockNetworkManager = MockNetworkManager()
+        let mockHomeViewModel = HomeViewModel(networkManager: mockNetworkManager)
+        
+        // Act
+        let expectation = XCTestExpectation(description: "Fetch searchResult")
+        mockHomeViewModel.fetchPlantsByTextfieldResult()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            expectation.fulfill()
+        })
+        wait(for: [expectation], timeout: 5.0)
+        let result = mockHomeViewModel.searchResult
+        
+        // Assert
+        XCTAssertEqual(result.count, 1)
+        XCTAssertEqual(mockNetworkManager.fetchDataCallCounter, 6)
     }
 
 }

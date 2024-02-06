@@ -39,6 +39,7 @@
 		1076530C2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076530B2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift */; };
 		1084F2642B725A8B00B22FD5 /* GoGreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F2632B725A8B00B22FD5 /* GoGreenTests.swift */; };
 		1084F26B2B725AE500B22FD5 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F26A2B725AE500B22FD5 /* HomeViewModelTests.swift */; };
+		1084F26D2B7277E800B22FD5 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F26C2B7277E800B22FD5 /* MockNetworkManager.swift */; };
 		108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E4FFD2B62842400D37AC4 /* NotificationManager.swift */; };
 		108E50012B63B7D000D37AC4 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50002B63B7D000D37AC4 /* CustomUITextField.swift */; };
 		108E50042B63C9C900D37AC4 /* CustomUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50032B63C9C900D37AC4 /* CustomUITextView.swift */; };
@@ -127,6 +128,7 @@
 		1084F2612B725A8B00B22FD5 /* GoGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1084F2632B725A8B00B22FD5 /* GoGreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoGreenTests.swift; sourceTree = "<group>"; };
 		1084F26A2B725AE500B22FD5 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		1084F26C2B7277E800B22FD5 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		108E4FFD2B62842400D37AC4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		108E50002B63B7D000D37AC4 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		108E50032B63C9C900D37AC4 /* CustomUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextView.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				1084F2632B725A8B00B22FD5 /* GoGreenTests.swift */,
 				1084F26A2B725AE500B22FD5 /* HomeViewModelTests.swift */,
+				1084F26C2B7277E800B22FD5 /* MockNetworkManager.swift */,
 			);
 			path = GoGreenTests;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1084F26D2B7277E800B22FD5 /* MockNetworkManager.swift in Sources */,
 				1084F2642B725A8B00B22FD5 /* GoGreenTests.swift in Sources */,
 				1084F26B2B725AE500B22FD5 /* HomeViewModelTests.swift in Sources */,
 			);
