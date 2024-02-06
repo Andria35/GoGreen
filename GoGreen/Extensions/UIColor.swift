@@ -9,5 +9,6 @@ import UIKit
 
 extension UIColor {
     static let mainBackgroundColor = UIColor(named: "BackgroundColor")
-    static let secondaryBackgroundColor = UIColor.white.withAlphaComponent(0.7)
+    static let secondaryBackgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+
 }
