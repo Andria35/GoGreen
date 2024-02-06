@@ -40,14 +40,14 @@ final class HomeViewModelTests: XCTestCase {
         // Arrange
         let expectation = XCTestExpectation(description: "Fetch plants")
         let mockNetworkManager = MockNetworkManager()
-        let mockHomeViewModel = HomeViewModel(networkManager: mockNetworkManager)
+        let homeViewModel = HomeViewModel(networkManager: mockNetworkManager)
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 5.0)
         
         // Act
-        let result = mockHomeViewModel.plantFamilies
+        let result = homeViewModel.plantFamilies
         
         // Assert
         XCTAssertEqual(result.daisies.count, 1)
@@ -61,16 +61,16 @@ final class HomeViewModelTests: XCTestCase {
     func testFetchPlantsByTextfieldResult() {
         // Arrange
         let mockNetworkManager = MockNetworkManager()
-        let mockHomeViewModel = HomeViewModel(networkManager: mockNetworkManager)
+        let homeViewModel = HomeViewModel(networkManager: mockNetworkManager)
         
         // Act
         let expectation = XCTestExpectation(description: "Fetch searchResult")
-        mockHomeViewModel.fetchPlantsByTextfieldResult()
+        homeViewModel.fetchPlantsByTextfieldResult()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 5.0)
-        let result = mockHomeViewModel.searchResult
+        let result = homeViewModel.searchResult
         
         // Assert
         XCTAssertEqual(result.count, 1)
