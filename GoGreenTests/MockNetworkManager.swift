@@ -26,9 +26,8 @@ class MockNetworkManager: APIServices {
     
     func fetchImage(fromURL urlString: String) async throws -> UIImage {
         fetchImageCallCounter += 1
-        if let image = UIImage(named: "photo") {
+        if let image = UIImage(systemName: "photo") {
             return image
-            
         } else {
             throw NSError(domain: "MockNetworkManager", code: 404, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch data"])
         }
