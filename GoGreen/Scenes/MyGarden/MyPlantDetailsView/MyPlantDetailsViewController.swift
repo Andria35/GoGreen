@@ -118,7 +118,6 @@ final class MyPlantDetailsViewController: UIViewController {
         buttonsHorizontalStack.addArrangedSubview(deleteButton)
         buttonsHorizontalStack.addArrangedSubview(copyButton)
         buttonsHorizontalStack.addArrangedSubview(shareButton)
-
     }
     
     private func deleteButtonTapped() {

@@ -53,7 +53,6 @@ final class MyPlantTableViewCell: UITableViewCell {
     
     private func setupCellUI() {
         self.backgroundColor = UIColor.mainBackgroundColor
-
     }
     
     // MARK: - Configure

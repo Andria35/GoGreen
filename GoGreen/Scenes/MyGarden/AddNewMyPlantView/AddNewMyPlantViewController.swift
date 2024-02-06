@@ -55,7 +55,7 @@ final class AddNewMyPlantViewController: UIViewController {
     
     lazy var saveButton = CustomUIButton(title: "Save", image: nil, customBackgroundColor: .systemGray, fontSize: .big, isRounded: true, isEnabled: false, height: 65, width: nil, customAction: saveButtonTapped)
     
-    private let setupWateringReminderLabel: UILabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0, alpha: 0.8)
+    private let setupWateringReminderLabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0, alpha: 0.8)
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
