@@ -18,6 +18,7 @@ final class CustomUITextField: UITextField {
         layer.borderWidth = 0.5
         layer.masksToBounds = true
         layer.borderColor = UIColor.systemGray.cgColor
+        backgroundColor = UIColor.secondaryBackgroundColor
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: frame.size.height))
         leftView = paddingView

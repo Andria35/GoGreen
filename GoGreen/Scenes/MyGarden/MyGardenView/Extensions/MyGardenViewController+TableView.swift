@@ -31,4 +31,8 @@ extension MyGardenViewController: UITableViewDataSource, UITableViewDelegate {
         myPlantDetailsViewController.configureMyPlant(name: myPlant.name, description: myPlant.plantDescription, id: myPlant.plantID, image: viewModel.getImageFromImagePath(imagePath: myPlant.plantID ?? ""))
         navigationController?.pushViewController(myPlantDetailsViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        160
+    }
 }

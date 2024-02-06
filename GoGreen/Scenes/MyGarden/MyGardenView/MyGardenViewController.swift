@@ -19,6 +19,8 @@ final class MyGardenViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = UIColor.mainBackgroundColor
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -50,7 +52,7 @@ final class MyGardenViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.mainBackgroundColor
     }
     
     private func setupSubViews() {
