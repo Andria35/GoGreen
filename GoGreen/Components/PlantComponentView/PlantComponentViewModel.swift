@@ -49,7 +49,7 @@ final class PlantComponentViewModel: ObservableObject {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)
             await MainActor.run {
-                plantImage =  Image(uiImage: image)
+                plantImage = Image(uiImage: image)
             }
         } catch {
             print(error)
