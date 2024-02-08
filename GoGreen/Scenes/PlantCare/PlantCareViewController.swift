@@ -10,7 +10,8 @@ import UIKit
 final class PlantCareViewController: UIViewController {
 
     // MARK: - Class Properties
-    private var plantCareVideos: [String] = ["", ""]
+    private var plantCareVideos: [PlantCareVideo] = []
+    private let viewModel: PlantCareViewModel
     
     // MARK: - UI Components
     private let collectionView: UICollectionView = {
@@ -30,6 +31,17 @@ final class PlantCareViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupDelegates()
+        viewModel.viewDidLoad()
+    }
+    
+    // MARK: - Initialization
+    init(viewModel: PlantCareViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Setup UI
@@ -68,6 +80,15 @@ final class PlantCareViewController: UIViewController {
     private func setupDelegates() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        viewModel.delegate = self
+    }
+}
+
+// MARK: - PlantCareViewModelDelegate
+extension PlantCareViewController: PlantCareViewModelDelegate {
+    func fetchComplete(plantCareVideos: [PlantCareVideo]) {
+        self.plantCareVideos = plantCareVideos
+        collectionView.reloadData()
     }
 }
 
@@ -81,7 +102,7 @@ extension PlantCareViewController: UICollectionViewDataSource {
         var cell = UICollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlantCareVideoCollectionViewCell.identifier, for: indexPath)
         if let cell = cell as? PlantCareVideoCollectionViewCell {
-            cell.configure()
+            cell.configure(plantCareVideo: plantCareVideos[indexPath.row])
         }
         return cell
     }

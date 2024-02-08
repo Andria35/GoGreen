@@ -50,7 +50,7 @@ final class TabBarController: UITabBarController {
         let flowerRecognitionNavigationController = createNavigationController(title: "Flower Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController(viewModel: FlowerRecognitionViewModel(networkManager: NetworkManager()), alertManager: AlertManager(), imagePickerManager: ImagePickerManager()))
         let myGardenNavigationController = createNavigationController(title: "My Garden", image: UIImage(systemName: "leaf"), viewController: MyGardenViewController(viewModel: MyGardenViewModel(localFileManager: LocalFileManager(), notificationManager: NotificationManager())))
         
-        let plantCareNavigationController = createNavigationController(title: "Plant Care", image: UIImage(systemName: "heart"), viewController: PlantCareViewController())
+        let plantCareNavigationController = createNavigationController(title: "Plant Care", image: UIImage(systemName: "heart"), viewController: PlantCareViewController(viewModel: PlantCareViewModel(networkManager: NetworkManager())))
         
         let nearMeNavigationController = createNavigationController(title: "Near Me", image: UIImage(systemName: "map"), viewController: NearMeViewController())
         

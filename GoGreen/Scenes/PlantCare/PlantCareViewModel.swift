@@ -5,4 +5,44 @@
 //  Created by Andria Inasaridze on 08.02.24.
 //
 
-import Foundation
+import UIKit
+import NetworkManager
+
+protocol PlantCareViewModelDelegate: AnyObject {
+    func fetchComplete(plantCareVideos: [PlantCareVideo])
+}
+
+final class PlantCareViewModel {
+    
+    // MARK: - Class Properties
+    let networkManager: APIServices
+    weak var delegate: PlantCareViewModelDelegate?
+    
+    // MARK: - Initialization
+    init(networkManager: APIServices) {
+        self.networkManager = networkManager
+    }
+    
+    // MARK: - LifeCycles
+    func viewDidLoad() {
+        Task {
+            await fetchPlantCareVideos()
+        }
+    }
+    
+    // MARK: - Class Methods
+    
+    // MARK: - API Calls
+    private func fetchPlantCareVideos() async {
+        let apiKey = "AIzaSyBMrT1Q6q-Q0ZCuLDCTpuYpdfoSN20wCaw"
+        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=plant%20care&type=video&maxResults=5&key=\(apiKey)"
+        do {
+            let plantCareVideoResponse: PlantCareVideoResponse = try await networkManager.fetchData(fromURL: urlString)
+            await MainActor.run {
+                delegate?.fetchComplete(plantCareVideos: plantCareVideoResponse.items)
+            }
+        } catch {
+            print(error)
+        }
+    }    
+}

@@ -6,36 +6,35 @@
 //
 
 import UIKit
+import NetworkManager
 
 final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Class Properties
     static let identifier = "PlantCareVideoCollectionViewCell"
+    private let viewModel: PlantCareVideoCollectionViewCellViewModel
     
     // MARK: - UI Components
     private let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = .red
         
         return stackView
     }()
     
-    private let imageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: nil, height: nil, width: nil)
+    private let imageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: nil, width: nil)
     
-    private let label = CustomUILabel(customText: "Test", fontSize: .small, customNumberOfLines: 0)
+    private let label = CustomUILabel(customText: "Test", fontSize: .small, customNumberOfLines: 1)
     
     // MARK: - Initialization
     override init(frame: CGRect) {
-        
-//        self.viewModel = MovieCollectionViewCellViewModel()
+        viewModel = PlantCareVideoCollectionViewCellViewModel(networkManager: NetworkManager())
         super.init(frame: frame)
-//        self.viewModel.updateData = self.updatePoster
-        imageView.backgroundColor = .blue
-
+        
         setupUI()
         setupConstraints()
+        setupDelegates()
     }
     
     required init?(coder: NSCoder) {
@@ -82,8 +81,21 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Class Methods
-    func configure() {
-        
+    func configure(plantCareVideo: PlantCareVideo) {
+        label.text = plantCareVideo.snippet?.title
+        viewModel.cellDidLoad(thumbnailURL: plantCareVideo.snippet?.thumbnails?.medium?.url ?? "")
     }
     
+    private func setupDelegates() {
+        viewModel.delegate = self
+    }
 }
+
+extension PlantCareVideoCollectionViewCell: PlantCareVideoCollectionViewCellViewModelDelegate {
+    func fetchComplete(image: UIImage) {
+        imageView.image = image
+    }
+    
+
+}
+
