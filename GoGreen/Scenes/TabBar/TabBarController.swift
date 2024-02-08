@@ -49,12 +49,16 @@ final class TabBarController: UITabBarController {
         let contentViewHostingController = createHostingController(title: "Home", image: UIImage(systemName: "house"), rootView: ContentView())
         let flowerRecognitionNavigationController = createNavigationController(title: "Flower Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController(viewModel: FlowerRecognitionViewModel(networkManager: NetworkManager()), alertManager: AlertManager(), imagePickerManager: ImagePickerManager()))
         let myGardenNavigationController = createNavigationController(title: "My Garden", image: UIImage(systemName: "leaf"), viewController: MyGardenViewController(viewModel: MyGardenViewModel(localFileManager: LocalFileManager(), notificationManager: NotificationManager())))
+        
+        let plantCareNavigationController = createNavigationController(title: "Plant Care", image: UIImage(systemName: "drop"), viewController: PlantCareViewController())
+        
         let nearMeNavigationController = createNavigationController(title: "Near Me", image: UIImage(systemName: "map"), viewController: NearMeViewController())
         
         setViewControllers(
             [contentViewHostingController,
              flowerRecognitionNavigationController,
              myGardenNavigationController,
+             plantCareNavigationController,
              nearMeNavigationController], animated: true)
     }
     
