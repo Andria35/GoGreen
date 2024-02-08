@@ -43,6 +43,7 @@
 		1084F26F2B72859D00B22FD5 /* PlantComponentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F26E2B72859D00B22FD5 /* PlantComponentViewModelTests.swift */; };
 		1084F2722B750A1800B22FD5 /* PlantCareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F2712B750A1800B22FD5 /* PlantCareViewController.swift */; };
 		1084F2742B750A2900B22FD5 /* PlantCareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F2732B750A2900B22FD5 /* PlantCareViewModel.swift */; };
+		1084F2772B75158400B22FD5 /* PlantCareVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084F2762B75158400B22FD5 /* PlantCareVideoCollectionViewCell.swift */; };
 		108E4FFE2B62842400D37AC4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E4FFD2B62842400D37AC4 /* NotificationManager.swift */; };
 		108E50012B63B7D000D37AC4 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50002B63B7D000D37AC4 /* CustomUITextField.swift */; };
 		108E50042B63C9C900D37AC4 /* CustomUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E50032B63C9C900D37AC4 /* CustomUITextView.swift */; };
@@ -135,6 +136,7 @@
 		1084F26E2B72859D00B22FD5 /* PlantComponentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantComponentViewModelTests.swift; sourceTree = "<group>"; };
 		1084F2712B750A1800B22FD5 /* PlantCareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareViewController.swift; sourceTree = "<group>"; };
 		1084F2732B750A2900B22FD5 /* PlantCareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareViewModel.swift; sourceTree = "<group>"; };
+		1084F2762B75158400B22FD5 /* PlantCareVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		108E4FFD2B62842400D37AC4 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		108E50002B63B7D000D37AC4 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		108E50032B63C9C900D37AC4 /* CustomUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextView.swift; sourceTree = "<group>"; };
@@ -427,10 +429,19 @@
 		1084F2702B7509DB00B22FD5 /* PlantCare */ = {
 			isa = PBXGroup;
 			children = (
+				1084F2752B75150E00B22FD5 /* CollectionViewCell */,
 				1084F2712B750A1800B22FD5 /* PlantCareViewController.swift */,
 				1084F2732B750A2900B22FD5 /* PlantCareViewModel.swift */,
 			);
 			path = PlantCare;
+			sourceTree = "<group>";
+		};
+		1084F2752B75150E00B22FD5 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1084F2762B75158400B22FD5 /* PlantCareVideoCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		108E4FFF2B63B79F00D37AC4 /* CustomUITextField */ = {
@@ -781,6 +792,7 @@
 				10595A862B5734FC00419366 /* OnboardingView.swift in Sources */,
 				108E50292B650B3600D37AC4 /* PlantsContainer.xcdatamodeld in Sources */,
 				1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */,
+				1084F2772B75158400B22FD5 /* PlantCareVideoCollectionViewCell.swift in Sources */,
 				103CED7B2B6BC8A400B41BFF /* NearMeViewController+MapKit.swift in Sources */,
 				1062DB0F2B567FA3001B5AEE /* AppDelegate.swift in Sources */,
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
