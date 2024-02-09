@@ -48,6 +48,9 @@ final class CustomUIButton: UIButton {
                 titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
             case .small:
                 titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+            case .extraSmall:
+                titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
+
             }
         }
     }

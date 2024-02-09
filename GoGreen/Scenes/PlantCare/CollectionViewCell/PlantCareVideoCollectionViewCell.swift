@@ -19,13 +19,16 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 10
         
         return stackView
     }()
     
     private let imageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: nil, width: nil)
     
-    private let label = CustomUILabel(customText: "Test", fontSize: .small, customNumberOfLines: 1)
+    private let label = CustomUILabel(customText: "Test", fontSize: .extraSmall, customNumberOfLines: 1)
+    
+    private let playImageView = CustomUIImageView(customImage: UIImage(systemName: "play.circle"), customTintColor: UIColor.secondaryBackgroundColor, opacity: 1, height: 50, width: 50)
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -50,12 +53,14 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup UI
     private func setupUI() {
-        setupBackground()
+        setupCell()
         setupSubViews()
     }
     
-    private func setupBackground() {
-        backgroundColor = .none
+    private func setupCell() {
+        backgroundColor = UIColor.secondaryBackgroundColor
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
     }
     
     private func setupSubViews() {
@@ -64,11 +69,14 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
         verticalStackView.addArrangedSubview(imageView)
         verticalStackView.addArrangedSubview(label)
         
+        imageView.addSubview(playImageView)
+        
     }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
         setupVerticalStackViewConstraints()
+        setupPlayImageViewConstraints()
     }
     
     private func setupVerticalStackViewConstraints() {
@@ -78,12 +86,21 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
             verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
+        verticalStackView.isLayoutMarginsRelativeArrangement = true
+        verticalStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    private func setupPlayImageViewConstraints() {
+        playImageView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+        playImageView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
     }
     
     // MARK: - Class Methods
     func configure(plantCareVideo: PlantCareVideo) {
         label.text = plantCareVideo.snippet?.title
-        viewModel.cellDidLoad(thumbnailURL: plantCareVideo.snippet?.thumbnails?.medium?.url ?? "")
+        if let urlString = plantCareVideo.snippet?.thumbnails?.medium?.url {
+            viewModel.cellDidLoad(thumbnailURL: urlString)
+        }
     }
     
     private func setupDelegates() {
@@ -91,11 +108,12 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - PlantCareVideoCollectionViewCellViewModelDelegate
 extension PlantCareVideoCollectionViewCell: PlantCareVideoCollectionViewCellViewModelDelegate {
     func fetchComplete(image: UIImage) {
         imageView.image = image
     }
     
-
+    
 }
 

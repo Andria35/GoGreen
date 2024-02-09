@@ -114,12 +114,18 @@ extension PlantCareViewController: UICollectionViewDataSource {
 extension PlantCareViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (view.frame.width / 2) - 10
+        let size = (collectionView.bounds.width / 2) - 5
         return CGSize(width: size, height: size)
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension PlantCareViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let videoViewController = VideoViewController(videoID: plantCareVideos[indexPath.row].id.videoID)
+        present(videoViewController, animated: true)
+//        navigationController?.pushViewController(videoViewController, animated: true)
+    }
     
 }
