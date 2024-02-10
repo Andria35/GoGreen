@@ -11,4 +11,5 @@ enum FontSize {
     case big
     case medium
     case small
+    case extraSmall
 }

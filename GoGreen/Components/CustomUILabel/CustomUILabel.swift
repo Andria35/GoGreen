@@ -26,6 +26,9 @@ class CustomUILabel: UILabel {
                 font = .systemFont(ofSize: 18, weight: .semibold)
             case .small:
                 font = .systemFont(ofSize: 16, weight: .semibold)
+            case .extraSmall:
+                font = .systemFont(ofSize: 12, weight: .medium)
+
             }
         }
     }
