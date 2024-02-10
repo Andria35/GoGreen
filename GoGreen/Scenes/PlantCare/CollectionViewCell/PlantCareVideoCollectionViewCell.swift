@@ -20,15 +20,14 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 10
-        
         return stackView
     }()
     
-    private let imageView = CustomUIImageView(customImage: nil, customTintColor: nil, height: nil, width: nil)
+    private let imageView = CustomUIImageView(customImage: nil, customTintColor: nil, opacity: 0.1, height: nil, width: nil)
     
-    private let label = CustomUILabel(customText: "Test", fontSize: .extraSmall, customNumberOfLines: 1)
+    private let label = CustomUILabel(customText: nil, fontSize: .extraSmall, customNumberOfLines: 2)
     
-    private let playImageView = CustomUIImageView(customImage: UIImage(systemName: "play.circle"), customTintColor: UIColor.secondaryBackgroundColor, opacity: 1, height: 50, width: 50)
+    private let playImageView = CustomUIImageView(customImage: UIImage(systemName: "play.circle"), customTintColor: UIColor.secondaryBackgroundColor, height: 50, width: 50)
     
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -110,10 +109,8 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
 
 // MARK: - PlantCareVideoCollectionViewCellViewModelDelegate
 extension PlantCareVideoCollectionViewCell: PlantCareVideoCollectionViewCellViewModelDelegate {
-    func fetchComplete(image: UIImage) {
+    func fetchCompleted(image: UIImage) {
         imageView.image = image
     }
-    
-    
 }
 

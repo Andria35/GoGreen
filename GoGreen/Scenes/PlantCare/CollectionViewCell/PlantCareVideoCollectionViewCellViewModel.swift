@@ -9,7 +9,7 @@ import UIKit
 import NetworkManager
 
 protocol PlantCareVideoCollectionViewCellViewModelDelegate: AnyObject {
-    func fetchComplete(image: UIImage)
+    func fetchCompleted(image: UIImage)
 }
 
 final class PlantCareVideoCollectionViewCellViewModel {
@@ -35,7 +35,7 @@ final class PlantCareVideoCollectionViewCellViewModel {
         do {
             let image = try await networkManager.fetchImage(fromURL: thumbnailURL)
             await MainActor.run {
-                delegate?.fetchComplete(image: image)
+                delegate?.fetchCompleted(image: image)
             }
         } catch {
             

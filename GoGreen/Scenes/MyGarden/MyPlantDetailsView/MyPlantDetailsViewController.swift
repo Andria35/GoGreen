@@ -29,7 +29,7 @@ final class MyPlantDetailsViewController: UIViewController {
         return stackView
     }()
     
-    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: nil, height: 300, width: nil)
+    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: nil, opacity: 0.1, height: 300, width: nil)
     
     private let nameHorizontalStackView: UIStackView = {
         let stackView = UIStackView()

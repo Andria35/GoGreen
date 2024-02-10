@@ -9,7 +9,7 @@ import UIKit
 import NetworkManager
 
 protocol PlantCareViewModelDelegate: AnyObject {
-    func fetchComplete(plantCareVideos: [PlantCareVideo])
+    func fetchCompleted(plantCareVideos: [PlantCareVideo])
 }
 
 final class PlantCareViewModel {
@@ -29,17 +29,15 @@ final class PlantCareViewModel {
             await fetchPlantCareVideos()
         }
     }
-    
-    // MARK: - Class Methods
-    
+        
     // MARK: - API Calls
     private func fetchPlantCareVideos() async {
         let apiKey = "AIzaSyBMrT1Q6q-Q0ZCuLDCTpuYpdfoSN20wCaw"
-        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=plant%20care&type=video&maxResults=5&key=\(apiKey)"
+        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=plant%20care&type=video&maxResults=20&key=\(apiKey)"
         do {
             let plantCareVideoResponse: PlantCareVideoResponse = try await networkManager.fetchData(fromURL: urlString)
             await MainActor.run {
-                delegate?.fetchComplete(plantCareVideos: plantCareVideoResponse.items)
+                delegate?.fetchCompleted(plantCareVideos: plantCareVideoResponse.items)
             }
         } catch {
             print(error)

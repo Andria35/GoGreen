@@ -14,7 +14,7 @@ final class CustomUIImageView: UIImageView {
     let width: CGFloat?
     
     // MARK: - Initialization
-    init(customImage: UIImage?, customTintColor: UIColor?, opacity:CGFloat = 0.1, height: CGFloat?, width: CGFloat?) {
+    init(customImage: UIImage?, customTintColor: UIColor?, opacity:CGFloat = 1, height: CGFloat?, width: CGFloat?) {
         self.height = height
         self.width = width
         super.init(frame: CGRect.zero)

@@ -8,17 +8,20 @@
 import UIKit
 import WebKit
 
-class VideoViewController: UIViewController {
+final class VideoViewController: UIViewController {
     
+    // MARK: - Class Properties
     let videoID: String
     
+    // MARK: - UI Components
     private let webView = WKWebView()
-
+    
+    // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(webView)
-
+        
         guard let url = URL(string: "https://www.youtube.com/embed/\(videoID)") else {
             return
         }
@@ -31,6 +34,7 @@ class VideoViewController: UIViewController {
         webView.frame = view.bounds
     }
     
+    // MARK: - Initialization
     init(videoID: String) {
         self.videoID = videoID
         

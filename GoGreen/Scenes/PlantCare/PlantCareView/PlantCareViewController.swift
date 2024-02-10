@@ -8,7 +8,7 @@
 import UIKit
 
 final class PlantCareViewController: UIViewController {
-
+    
     // MARK: - Class Properties
     private var plantCareVideos: [PlantCareVideo] = []
     private let viewModel: PlantCareViewModel
@@ -22,12 +22,11 @@ final class PlantCareViewController: UIViewController {
         collectionView.backgroundColor = .none
         return collectionView
     }()
-
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         setupConstraints()
         setupDelegates()
@@ -76,6 +75,7 @@ final class PlantCareViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5)
         ])
     }
+    
     // MARK: - Class Methods
     private func setupDelegates() {
         collectionView.dataSource = self
@@ -86,7 +86,7 @@ final class PlantCareViewController: UIViewController {
 
 // MARK: - PlantCareViewModelDelegate
 extension PlantCareViewController: PlantCareViewModelDelegate {
-    func fetchComplete(plantCareVideos: [PlantCareVideo]) {
+    func fetchCompleted(plantCareVideos: [PlantCareVideo]) {
         self.plantCareVideos = plantCareVideos
         collectionView.reloadData()
     }
@@ -106,13 +106,10 @@ extension PlantCareViewController: UICollectionViewDataSource {
         }
         return cell
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PlantCareViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.bounds.width / 2) - 5
         return CGSize(width: size, height: size)
@@ -121,11 +118,8 @@ extension PlantCareViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UICollectionViewDelegate
 extension PlantCareViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let videoViewController = VideoViewController(videoID: plantCareVideos[indexPath.row].id.videoID)
         present(videoViewController, animated: true)
-//        navigationController?.pushViewController(videoViewController, animated: true)
     }
-    
 }

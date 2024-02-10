@@ -31,7 +31,7 @@ final class AddNewMyPlantViewController: UIViewController {
         return stackView
     }()
     
-    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: .systemGray, height: 300, width: nil)
+    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: .systemGray, opacity: 0.1, height: 300, width: nil)
     
     private let addPhotoHorizontalStackView: UIStackView = {
         let stackView = UIStackView()
