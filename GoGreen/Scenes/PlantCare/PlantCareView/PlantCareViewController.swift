@@ -33,6 +33,14 @@ final class PlantCareViewController: UIViewController {
         viewModel.viewDidLoad()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.invalidateLayout()
+        }
+    }
+    
     // MARK: - Initialization
     init(viewModel: PlantCareViewModel) {
         self.viewModel = viewModel
@@ -111,6 +119,8 @@ extension PlantCareViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PlantCareViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let size = (view.frame.width / 2) - 10
+
         let size = (collectionView.bounds.width / 2) - 5
         return CGSize(width: size, height: size)
     }
