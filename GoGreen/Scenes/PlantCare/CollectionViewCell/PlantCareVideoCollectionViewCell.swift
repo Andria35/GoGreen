@@ -64,12 +64,9 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     
     private func setupSubViews() {
         addSubview(verticalStackView)
-        
         verticalStackView.addArrangedSubview(imageView)
         verticalStackView.addArrangedSubview(label)
-        
         imageView.addSubview(playImageView)
-        
     }
     
     // MARK: - Setup Constraints
@@ -107,7 +104,7 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: - PlantCareVideoCollectionViewCellViewModelDelegate
+// MARK: - PlantCareVideoCollectionViewCellViewModel Delegate
 extension PlantCareVideoCollectionViewCell: PlantCareVideoCollectionViewCellViewModelDelegate {
     func fetchCompleted(image: UIImage) {
         imageView.image = image

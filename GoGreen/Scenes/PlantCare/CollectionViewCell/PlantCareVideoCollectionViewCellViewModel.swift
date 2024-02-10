@@ -38,7 +38,7 @@ final class PlantCareVideoCollectionViewCellViewModel {
                 delegate?.fetchCompleted(image: image)
             }
         } catch {
-            
+            print(error)
         }
     }
 }

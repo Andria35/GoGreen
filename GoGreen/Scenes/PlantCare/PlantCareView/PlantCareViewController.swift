@@ -92,7 +92,7 @@ final class PlantCareViewController: UIViewController {
     }
 }
 
-// MARK: - PlantCareViewModelDelegate
+// MARK: - PlantCareViewModel Delegate
 extension PlantCareViewController: PlantCareViewModelDelegate {
     func fetchCompleted(plantCareVideos: [PlantCareVideo]) {
         self.plantCareVideos = plantCareVideos
@@ -100,7 +100,7 @@ extension PlantCareViewController: PlantCareViewModelDelegate {
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - UICollectionView DataSource
 extension PlantCareViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         plantCareVideos.count
@@ -116,17 +116,15 @@ extension PlantCareViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionView DelegateFlowLayout
 extension PlantCareViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let size = (view.frame.width / 2) - 10
-
         let size = (collectionView.bounds.width / 2) - 5
         return CGSize(width: size, height: size)
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - UICollectionView Delegate
 extension PlantCareViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let videoViewController = VideoViewController(videoID: plantCareVideos[indexPath.row].id.videoID)
