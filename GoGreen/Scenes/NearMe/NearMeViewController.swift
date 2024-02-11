@@ -16,7 +16,6 @@ final class NearMeViewController: UIViewController {
     // MARK: - UI Components
     private let mapView = MKMapView()
     
-    
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,6 @@ final class NearMeViewController: UIViewController {
         setupUI()
         setupConstraints()
     }
-    
     
     // MARK: - Setup UI
     private func setupUI() {
