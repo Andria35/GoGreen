@@ -11,10 +11,10 @@ import MapKit
 final class NearMeViewController: UIViewController {
     
     // MARK: - Class Properties
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     // MARK: - UI Components
-    let mapView = MKMapView()
+    private let mapView = MKMapView()
     
     
     // MARK: - ViewLifeCycles
@@ -67,7 +67,7 @@ final class NearMeViewController: UIViewController {
     }
     
     // MARK: - Class Methods
-    func searchForPlantStores(near location: CLLocationCoordinate2D) {
+    private func searchForPlantStores(near location: CLLocationCoordinate2D) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "plant shop"
         request.region = mapView.region
@@ -89,7 +89,17 @@ final class NearMeViewController: UIViewController {
             }
         }
     }
+}
 
+// MARK: - MKMapView Delegate, CLLocationManager Delegate
+extension NearMeViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let userLocation = locations.first?.coordinate {
+            let region = MKCoordinateRegion(center: userLocation, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.setRegion(region, animated: true)
+            searchForPlantStores(near: userLocation)
+        }
+    }
 }
 

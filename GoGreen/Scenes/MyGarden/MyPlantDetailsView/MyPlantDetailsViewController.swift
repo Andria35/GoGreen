@@ -14,9 +14,9 @@ protocol MyPlantDetailsViewControllerDelegate: AnyObject {
 final class MyPlantDetailsViewController: UIViewController {
     
     // MARK: - Class Properties
-    var myPlantID: String?
+    private var myPlantID: String?
     weak var delegate: MyPlantDetailsViewControllerDelegate?
-    let animationManager: Animating
+    private let animationManager: Animating
     
     // MARK: - UI Components
     private let scrollView: UIScrollView = {
@@ -33,7 +33,7 @@ final class MyPlantDetailsViewController: UIViewController {
         return stackView
     }()
     
-    let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: nil, opacity: 0.1, height: 300, width: nil)
+    private let myPlantImageView = CustomUIImageView(customImage: UIImage(systemName: "photo"), customTintColor: nil, opacity: 0.1, height: 300, width: nil)
     
     private let nameHorizontalStackView: UIStackView = {
         let stackView = UIStackView()
