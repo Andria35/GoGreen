@@ -12,12 +12,12 @@ import NetworkManager
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
-    let viewModel: FlowerRecognitionViewModel
-    let alertManager: Alerting
+    private let viewModel: FlowerRecognitionViewModel
+    private let alertManager: Alerting
     private let imagePickerManager: ImagePicking
     
     // MARK: - UI Components
-    lazy private var cameraButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
+    lazy private var cameraButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
         
     lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
         let hostingController = UIHostingController(
@@ -91,5 +91,29 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
+    }
+}
+
+// MARK: - ImagePicker Delegate
+extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            viewModel.detectPlant(image: userPickedImage)
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - FlowerRecognitionViewModel Delegate
+extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
+    func displayFlowerRecognitionFailedAlert() {
+        alertManager.displayAlert(message: "There was a problem recognising this image", buttonTitle: "Ok", vc: self)
+    }
+    
+    func fetchCompleted(plant: Plant) {
+        flowerDetailsHostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }

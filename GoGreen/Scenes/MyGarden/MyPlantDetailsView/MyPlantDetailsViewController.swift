@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MyPlantDetailsViewControllerDelegate: AnyObject {
+    func deletePressed(myPlantID: String)
+}
+
 final class MyPlantDetailsViewController: UIViewController {
     
     // MARK: - Class Properties
