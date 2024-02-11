@@ -29,24 +29,18 @@ struct ID: Decodable {
 
 // MARK: - Snippet
 struct Snippet: Decodable {
-    let title, description: String?
+    let title: String?
     let thumbnails: Thumbnails?
 
 }
 
 // MARK: - Thumbnails
 struct Thumbnails: Decodable {
-    let thumbnailsDefault, medium, high: Default?
-
-    enum CodingKeys: String, CodingKey {
-        case thumbnailsDefault = "default"
-        case medium, high
-    }
+    let medium: Default?
 }
 
 // MARK: - Default
 struct Default: Decodable {
     let url: String?
-    let width, height: Int?
 }
 
