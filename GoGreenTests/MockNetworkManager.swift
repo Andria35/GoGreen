@@ -10,7 +10,7 @@ import UIKit
 @testable import NetworkManager
 
 
-class MockNetworkManager: APIServices {
+final class MockNetworkManager: APIServices {
     
     var fetchDataCallCounter = 0
     var fetchImageCallCounter = 0

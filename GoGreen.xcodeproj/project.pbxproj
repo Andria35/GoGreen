@@ -30,8 +30,8 @@
 		1062DB2C2B569608001B5AEE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1062DB2B2B569608001B5AEE /* NetworkManager */; };
 		1075A6202B5D20320025922C /* FlowerRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075A61F2B5D20320025922C /* FlowerRecognitionViewModel.swift */; };
 		1075A6262B5EBDAC0025922C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075A6252B5EBDAC0025922C /* AlertManager.swift */; };
-		107652FE2B5AAE03005F7E4B /* PlantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */; };
-		107653002B5AAE0F005F7E4B /* PlantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */; };
+		107652FE2B5AAE03005F7E4B /* PlantDetailsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FD2B5AAE03005F7E4B /* PlantDetailsComponentView.swift */; };
+		107653002B5AAE0F005F7E4B /* PlantDetailsComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107652FF2B5AAE0F005F7E4B /* PlantDetailsComponentViewModel.swift */; };
 		107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653022B5AE373005F7E4B /* PlantDetails.swift */; };
 		107653072B5AE8DC005F7E4B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653062B5AE8DC005F7E4B /* Router.swift */; };
 		107653092B5AF699005F7E4B /* PlantDetailsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */; };
@@ -110,8 +110,8 @@
 		1062DB1C2B567FA4001B5AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1075A61F2B5D20320025922C /* FlowerRecognitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerRecognitionViewModel.swift; sourceTree = "<group>"; };
 		1075A6252B5EBDAC0025922C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsView.swift; sourceTree = "<group>"; };
-		107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewModel.swift; sourceTree = "<group>"; };
+		107652FD2B5AAE03005F7E4B /* PlantDetailsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsComponentView.swift; sourceTree = "<group>"; };
+		107652FF2B5AAE0F005F7E4B /* PlantDetailsComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsComponentViewModel.swift; sourceTree = "<group>"; };
 		107653022B5AE373005F7E4B /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		107653062B5AE8DC005F7E4B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		107653082B5AF699005F7E4B /* PlantDetailsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsMockData.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 				108E50022B63C99F00D37AC4 /* CustomUITextView */,
 				108E4FFF2B63B79F00D37AC4 /* CustomUITextField */,
 				10FA5F552B6E705B00995C13 /* MainBackgroundComponentView */,
-				107652FC2B5AADE1005F7E4B /* PlantDetailsView */,
+				107652FC2B5AADE1005F7E4B /* PlantDetailsComponentView */,
 				10FA5F542B6E6F0400995C13 /* PlantDetailsTextComponentView */,
 				10E442442B59181100E54334 /* PlantComponentView */,
 				10E4424F2B59AB5E00E54334 /* PlantFamilyComponentView */,
@@ -364,13 +364,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		107652FC2B5AADE1005F7E4B /* PlantDetailsView */ = {
+		107652FC2B5AADE1005F7E4B /* PlantDetailsComponentView */ = {
 			isa = PBXGroup;
 			children = (
-				107652FD2B5AAE03005F7E4B /* PlantDetailsView.swift */,
-				107652FF2B5AAE0F005F7E4B /* PlantDetailsViewModel.swift */,
+				107652FD2B5AAE03005F7E4B /* PlantDetailsComponentView.swift */,
+				107652FF2B5AAE0F005F7E4B /* PlantDetailsComponentViewModel.swift */,
 			);
-			path = PlantDetailsView;
+			path = PlantDetailsComponentView;
 			sourceTree = "<group>";
 		};
 		107653052B5AE8C6005F7E4B /* Navigation */ = {
@@ -698,7 +698,7 @@
 				108E500A2B63E34100D37AC4 /* CustomUIButton.swift in Sources */,
 				10E442462B59184000E54334 /* PlantComponentView.swift in Sources */,
 				1084F27B2B753F7700B22FD5 /* PlantCareVideoCollectionViewCellViewModel.swift in Sources */,
-				107653002B5AAE0F005F7E4B /* PlantDetailsViewModel.swift in Sources */,
+				107653002B5AAE0F005F7E4B /* PlantDetailsComponentViewModel.swift in Sources */,
 				101B0ED42B5720800074B0E6 /* MyGardenViewController.swift in Sources */,
 				1076530C2B5AFEC2005F7E4B /* PlantDetailsTextComponentView.swift in Sources */,
 				10595A8A2B57379D00419366 /* Color.swift in Sources */,
@@ -730,7 +730,7 @@
 				107653032B5AE373005F7E4B /* PlantDetails.swift in Sources */,
 				10E4424E2B59578500E54334 /* PlantFamilies.swift in Sources */,
 				108E50342B66E71400D37AC4 /* LocalFileManager.swift in Sources */,
-				107652FE2B5AAE03005F7E4B /* PlantDetailsView.swift in Sources */,
+				107652FE2B5AAE03005F7E4B /* PlantDetailsComponentView.swift in Sources */,
 				10E4424C2B594BB700E54334 /* PlantFamilyComponentView.swift in Sources */,
 				108E50042B63C9C900D37AC4 /* CustomUITextView.swift in Sources */,
 				108E50412B699D8200D37AC4 /* AnimationManager.swift in Sources */,

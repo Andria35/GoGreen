@@ -19,10 +19,10 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - UI Components
     lazy private var cameraButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
         
-    lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
+    lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsComponentView> = {
         let hostingController = UIHostingController(
-            rootView: PlantDetailsView(
-                viewModel: PlantDetailsViewModel(
+            rootView: PlantDetailsComponentView(
+                viewModel: PlantDetailsComponentViewModel(
                     id: nil, networkManager: NetworkManager())))
         return hostingController
     }()
@@ -114,6 +114,6 @@ extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
     }
     
     func fetchCompleted(plant: Plant) {
-        flowerDetailsHostingController.rootView = PlantDetailsView(viewModel: PlantDetailsViewModel(id: plant.id, networkManager: NetworkManager()))
+        flowerDetailsHostingController.rootView = PlantDetailsComponentView(viewModel: PlantDetailsComponentViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }
