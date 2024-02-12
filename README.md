@@ -89,6 +89,17 @@ To test the watering reminder feature, the app provides a testing case of 0 days
 
 <img width="398" alt="Screenshot 2024-02-12 at 22 16 58" src="https://github.com/Andria35/GoGreen/assets/96011442/cfc872ca-81e1-4804-ab42-2ca48edc8443">
 
+## Architecture
+In GoGreen, we have adopted the MVVM (Model-View-ViewModel) architecture pattern. MVVM was chosen due to its ability to separate concerns effectively and provide a clear separation of responsibilities between different layers of the application.
+
+### The motivation behind choosing MVVM for GoGreen includes:
+- Separation of Concerns
+- Testability
+- Flexibility and Scalability
+
+By adopting the MVVM architecture pattern, GoGreen aims to ensure a robust, maintainable, and scalable codebase, making it easier for developers to understand, extend, and maintain the application over time.
+
+
 
 
 
