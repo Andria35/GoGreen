@@ -119,6 +119,11 @@ In Xcode, the folder structure of GoGreen follows a logical organization to ensu
 ### Resources:
 - Stores assets, including images, icons, and launch screen files, used within the application.
 
+## Dependency
+In GoGreen, we utilize Swift Package Manager (SPM) for managing dependencies.
+
+### Libraries Used:
+- Network Manager: https://github.com/Andria35/NetworkManager
 
 
 
