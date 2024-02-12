@@ -30,8 +30,7 @@ Follow these steps to install the project:
 ### 4. Pull the FlowerClassifier CoreML file using Git LFS
 - git lfs pull
 
-In order you have problem with pulling file from git lfs, or you simply dont want to install git lfs extension on your machine (abandon steps 2-4), you can download FlowerClassifier file from given google drive
-link, and manually replace FlowerClassifier file in GoGreen folder, with downloaded file: https://drive.google.com/drive/folders/1SiuGoVLoeECHhjMlVx_aRQbLVvNnrgnX?usp=drive_link
+In case you encounter difficulties pulling the file from Git LFS, or if you prefer not to install the Git LFS extension on your machine (abandon steps 2-4), you can download the FlowerClassifier file directly from the provided Google Drive link. After downloading the file, manually replace the FlowerClassifier file in the GoGreen folder with the downloaded one. This ensures that the necessary file is available locally for the proper functioning of the application: https://drive.google.com/drive/folders/1SiuGoVLoeECHhjMlVx_aRQbLVvNnrgnX?usp=drive_link
 
 
 ## Features
