@@ -122,6 +122,7 @@ In Xcode, the folder structure of GoGreen follows a logical organization to ensu
 - UIKit
 - SwiftUI
 - CoreML
+- CoreData
 - FileManager
 - VisionKit
 - MapKit
