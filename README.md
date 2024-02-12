@@ -102,22 +102,32 @@ By adopting the MVVM architecture pattern, GoGreen aims to ensure a robust, main
 ## Structure
 In Xcode, the folder structure of GoGreen follows a logical organization to ensure clarity and maintainability. Here's an overview of the main folders:
 
-### Aplication:
-- Contains essential files related to the application setup and configuration, such as the AppDelegate and SceneDelegate files.
-### Scenes
-- Contains folders for each scene in the application. Each scene folder typically includes a Views folder, which contains the view controller and view model files specific to that scene.
-### Components:
-- Contains custom UI components or reusable UI elements used across different scenes of the application.
-### Models:
-- The model classes representing the data structures used within the application. These classes typically encapsulate the data and business logic related to specific entities in the application.
-### Exstensions:
-- Extensions for various Swift standard library types, UIKit components, or third-party libraries, providing additional functionalities or utilities.
-### Managers:
-- Contains manager classes responsible for handling specific tasks or functionalities, such as Alerting, File Managing, or Notification Managing.
-### Helpers:
-- Contains utility/helper functions or classes that provide common functionalities or assist in performing specific tasks across the application.
-### Resources:
-- Stores assets, including images, icons, and launch screen files, used within the application.
+- Aplication: Contains essential files related to the application setup and configuration, such as the AppDelegate and SceneDelegate files.
+
+- Scenes: Contains folders for each scene in the application. Each scene folder typically includes a Views folder, which contains the view controller and view model files specific to that scene.
+  
+- Components: Contains custom UI components or reusable UI elements used across different scenes of the application.
+  
+- Models: Contains the model classes representing the data structures used within the application. These classes typically encapsulate the data and business logic related to specific entities in the application.
+  
+- Exstensions: Contains Extensions for various Swift standard library types, UIKit components, or third-party libraries, providing additional functionalities or utilities.
+  
+- Managers: Contains manager classes responsible for handling specific tasks or functionalities, such as Alerting, File Managing, or Notification Managing.
+  
+- Helpers: Contains utility/helper functions or classes that provide common functionalities or assist in performing specific tasks across the application.
+  
+- Resources: Contains assets, including images, icons, and launch screen files, used within the application.
+
+## Technologies Used
+
+- UIKit
+- SwiftUI
+- CoreML
+- FileManager
+- VisionKit
+- MapKit
+- WebKit
+
 
 ## Dependency
 In GoGreen, we utilize Swift Package Manager (SPM) for managing dependencies.
@@ -127,12 +137,11 @@ In GoGreen, we utilize Swift Package Manager (SPM) for managing dependencies.
 
 ## References
 
-### Plant API:
-- https://trefle.io/
-### Youtube API:
-- https://developers.google.com/youtube/v3
-### FlowerClassifier Model:
-- https://github.com/jimgoo/caffe-oxford102
+- Plant API: https://trefle.io/
+  
+- Youtube API: https://developers.google.com/youtube/v3
+  
+- FlowerClassifier Model: https://github.com/jimgoo/caffe-oxford102
 
 
 
