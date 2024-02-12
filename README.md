@@ -125,6 +125,15 @@ In GoGreen, we utilize Swift Package Manager (SPM) for managing dependencies.
 ### Libraries Used:
 - Network Manager: https://github.com/Andria35/NetworkManager
 
+## References
+
+### Plant API:
+- https://trefle.io/
+### Youtube API:
+- https://developers.google.com/youtube/v3
+### FlowerClassifier Model:
+- https://github.com/jimgoo/caffe-oxford102
+
 
 
 
