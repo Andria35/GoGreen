@@ -10,7 +10,12 @@ import UIKit
 final class MyGardenViewController: UIViewController {
     
     // MARK: - Class Properties
-    private var myPlants: [MyPlant] = []
+    private var myPlants: [MyPlant] = [] {
+        didSet {
+            updateAddYourPlantLabelVisibility()
+        }
+    }
+    
     private let viewModel: MyGardenViewModel
     
     // MARK: - UI Components
@@ -23,6 +28,8 @@ final class MyGardenViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    private let addYourPlantLabel = CustomUILabel(customText: "Add Your Plant", fontSize: .big, customNumberOfLines: 0)
     
     // MARK: - ViewLifeCycles
     override func viewDidLoad() {
@@ -58,6 +65,8 @@ final class MyGardenViewController: UIViewController {
     private func setupSubViews() {
         view.addSubview(addNewPlantButton)
         view.addSubview(tableView)
+        
+        view.addSubview(addYourPlantLabel)
     }
     
     private func setupAddNewFlowerButton() {
@@ -78,6 +87,7 @@ final class MyGardenViewController: UIViewController {
     // MARK: - Setup Constraints
     private func setupConstraints() {
         setUpTableViewConstraints()
+        setupEmptyLabelConstraints()
     }
     
     private func setUpTableViewConstraints() {
@@ -89,11 +99,21 @@ final class MyGardenViewController: UIViewController {
         ])
     }
     
+    private func setupEmptyLabelConstraints() {
+        addYourPlantLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addYourPlantLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    // MARK: - Helper Methods
+    private func updateAddYourPlantLabelVisibility() {
+        addYourPlantLabel.isHidden = !myPlants.isEmpty
     }
 }
 

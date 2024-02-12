@@ -14,6 +14,7 @@ final class CustomUILabel: UILabel {
         super.init(frame: .zero)
         text = customText
         self.alpha = alpha
+        translatesAutoresizingMaskIntoConstraints = false
         
         if let customNumberOfLines {
             numberOfLines = customNumberOfLines
