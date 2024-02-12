@@ -65,3 +65,31 @@ link, and manually replace FlowerClassifier file in GoGreen folder, with downloa
 - Uses MapKit to display map information.
 <img width="823" alt="Screenshot 2024-02-12 at 18 00 25" src="https://github.com/Andria35/GoGreen/assets/96011442/a7e98f18-7dd1-402f-bfca-ccca12f351c6">
 
+## Usage
+
+### Flower Recognition
+The flower recognition model is trained to identify a finite number of flower species. In some cases, it may produce incorrect identifications. Here are a few photos that have been verified to be identified correctly:
+
+- Sunflower:
+  
+![sunflower-1627193_1920](https://github.com/Andria35/GoGreen/assets/96011442/20be8af3-7ecd-44db-90ce-05ee785f79f3)
+
+- Rose:
+  
+![rose-flower](https://github.com/Andria35/GoGreen/assets/96011442/59a3a04d-d377-4271-bbef-780d5c72e9b9)
+
+- Passion Flower:
+
+![1452975139987](https://github.com/Andria35/GoGreen/assets/96011442/745abc39-4f11-4b64-ae58-4f9eda5e1ad0)
+
+### Watering Reminder
+To test the watering reminder feature, the app provides a testing case of 0 days. If the user chooses to be reminded to water in 0 days, a notification will be sent after 5-10 seconds.
+
+<img width="437" alt="Screenshot 2024-02-12 at 22 16 38" src="https://github.com/Andria35/GoGreen/assets/96011442/755b3be5-ff73-4f96-bc96-dbdf7eccfd19">
+
+<img width="398" alt="Screenshot 2024-02-12 at 22 16 58" src="https://github.com/Andria35/GoGreen/assets/96011442/cfc872ca-81e1-4804-ab42-2ca48edc8443">
+
+
+
+
+
