@@ -19,7 +19,7 @@ final class MyGardenViewController: UIViewController {
     private let viewModel: MyGardenViewModel
     
     // MARK: - UI Components
-    lazy private var addNewPlantButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
+    lazy private var addNewPlantButton = CustomUIButton(title: nil, image: UIImage(systemName: "plus"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: addNewFlowerButtonTapped)
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -31,7 +31,7 @@ final class MyGardenViewController: UIViewController {
     
     private let addYourPlantLabel = CustomUILabel(customText: "Add Your Plant", fontSize: .big, customNumberOfLines: 0)
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -111,7 +111,7 @@ final class MyGardenViewController: UIViewController {
         tableView.delegate = self
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Class Methods
     private func updateAddYourPlantLabelVisibility() {
         addYourPlantLabel.isHidden = !myPlants.isEmpty
     }

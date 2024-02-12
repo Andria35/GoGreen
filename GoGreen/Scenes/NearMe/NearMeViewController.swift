@@ -16,7 +16,7 @@ final class NearMeViewController: UIViewController {
     // MARK: - UI Components
     private let mapView = MKMapView()
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         

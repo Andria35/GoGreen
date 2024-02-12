@@ -60,7 +60,7 @@ final class AddNewMyPlantViewController: UIViewController {
     
     private let setupWateringReminderLabel = CustomUILabel(customText: "Set Up Watering Reminder(Optional):", fontSize: .small, customNumberOfLines: 0, alpha: 0.8)
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -243,7 +243,7 @@ extension AddNewMyPlantViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - KeyboardNotifications
+// MARK: - Keyboard Notifications
 extension AddNewMyPlantViewController {
     func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIControl.keyboardWillShowNotification, object: nil)

@@ -27,7 +27,7 @@ final class FlowerRecognitionViewController: UIViewController {
         return hostingController
     }()
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

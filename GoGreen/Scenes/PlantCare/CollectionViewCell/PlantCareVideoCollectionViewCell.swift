@@ -43,7 +43,7 @@ final class PlantCareVideoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - PrepareForReuse
+    // MARK: - Prepare For Reuse
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
@@ -110,4 +110,3 @@ extension PlantCareVideoCollectionViewCell: PlantCareVideoCollectionViewCellView
         imageView.image = image
     }
 }
-

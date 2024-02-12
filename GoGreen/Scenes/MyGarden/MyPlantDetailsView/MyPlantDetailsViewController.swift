@@ -70,7 +70,7 @@ final class MyPlantDetailsViewController: UIViewController {
     
     lazy private var deleteButton = CustomUIButton(title: "Delete", image: nil, customBackgroundColor: .systemRed, fontSize: .big, isRounded: true, height: 50, width: nil, customAction: deleteButtonTapped)
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         

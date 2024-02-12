@@ -11,7 +11,7 @@ import NetworkManager
 
 final class TabBarController: UITabBarController {
     
-    // MARK: - LifeCycles
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
@@ -78,7 +78,7 @@ final class TabBarController: UITabBarController {
         return hostingController
     }
     
-    // MARK: - SetupUI
+    // MARK: - Setup UI
     private func setupUI() {
         tabBar.unselectedItemTintColor = .white.withAlphaComponent(0.5)
         tabBar.standardAppearance = createTabBarAppearance()

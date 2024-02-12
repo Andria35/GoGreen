@@ -23,7 +23,7 @@ final class PlantCareViewModel {
         self.networkManager = networkManager
     }
     
-    // MARK: - LifeCycles
+    // MARK: - Life Cycles
     func viewDidLoad() {
         Task {
             await fetchPlantCareVideos()
