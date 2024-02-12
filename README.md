@@ -99,6 +99,28 @@ In GoGreen, we have adopted the MVVM (Model-View-ViewModel) architecture pattern
 
 By adopting the MVVM architecture pattern, GoGreen aims to ensure a robust, maintainable, and scalable codebase, making it easier for developers to understand, extend, and maintain the application over time.
 
+## Structure
+In Xcode, the folder structure of GoGreen follows a logical organization to ensure clarity and maintainability. Here's an overview of the main folders:
+
+### Aplication:
+- Contains essential files related to the application setup and configuration, such as the AppDelegate and SceneDelegate files.
+### Scenes
+- Contains folders for each scene in the application. Each scene folder typically includes a Views folder, which contains the view controller and view model files specific to that scene.
+### Components:
+- Contains custom UI components or reusable UI elements used across different scenes of the application.
+### Models:
+- The model classes representing the data structures used within the application. These classes typically encapsulate the data and business logic related to specific entities in the application.
+### Exstensions:
+- Extensions for various Swift standard library types, UIKit components, or third-party libraries, providing additional functionalities or utilities.
+### Managers:
+- Contains manager classes responsible for handling specific tasks or functionalities, such as Alerting, File Managing, or Notification Managing.
+### Helpers:
+- Contains utility/helper functions or classes that provide common functionalities or assist in performing specific tasks across the application.
+### Resources:
+- Stores assets, including images, icons, and launch screen files, used within the application.
+
+
+
 
 
 
