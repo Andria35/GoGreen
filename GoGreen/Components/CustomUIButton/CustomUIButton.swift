@@ -75,6 +75,5 @@ final class CustomUIButton: UIButton {
             widthAnchor.constraint(equalToConstant: width).isActive = true
             
         }
-        
     }
 }

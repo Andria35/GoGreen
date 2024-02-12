@@ -7,12 +7,14 @@
 
 import UIKit
 
-class CustomUILabel: UILabel {
+final class CustomUILabel: UILabel {
 
+    // MARK: - Initialization
     init(customText: String?, fontSize: FontSize?, customNumberOfLines: Int?, alpha: CGFloat = 1.0) {
         super.init(frame: .zero)
         text = customText
         self.alpha = alpha
+        translatesAutoresizingMaskIntoConstraints = false
         
         if let customNumberOfLines {
             numberOfLines = customNumberOfLines

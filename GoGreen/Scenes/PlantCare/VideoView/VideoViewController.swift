@@ -16,7 +16,7 @@ final class VideoViewController: UIViewController {
     // MARK: - UI Components
     private let webView = WKWebView()
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,5 +44,4 @@ final class VideoViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

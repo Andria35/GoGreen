@@ -1,5 +1,5 @@
 //
-//  PlantDetailsView.swift
+//  PlantDetailsComponentView.swift
 //  GoGreen
 //
 //  Created by Andria Inasaridze on 19.01.24.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 import NetworkManager
-struct PlantDetailsView: View {
+
+struct PlantDetailsComponentView: View {
     
     // MARK: - Properties
-    @ObservedObject var viewModel: PlantDetailsViewModel
+    @ObservedObject var viewModel: PlantDetailsComponentViewModel
     
     // MARK: - Body
     var body: some View {
@@ -49,7 +50,7 @@ struct PlantDetailsView: View {
 }
 
 // MARK: - Components
-extension PlantDetailsView {
+extension PlantDetailsComponentView {
     
     // MARK: - PlantImage
     private var placeHolderImage: some View {
@@ -116,6 +117,6 @@ extension PlantDetailsView {
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        PlantDetailsView(viewModel: PlantDetailsViewModel(id: 501, networkManager: NetworkManager()))
+        PlantDetailsComponentView(viewModel: PlantDetailsComponentViewModel(id: 501, networkManager: NetworkManager()))
     }
 }

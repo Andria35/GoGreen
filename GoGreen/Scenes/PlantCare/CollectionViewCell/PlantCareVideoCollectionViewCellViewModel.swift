@@ -23,7 +23,7 @@ final class PlantCareVideoCollectionViewCellViewModel {
         self.networkManager = networkManager
     }
     
-    // MARK: - LifeCycles
+    // MARK: - Life Cycles
     func cellDidLoad(thumbnailURL: String) {
         Task {
             await fetchVideoThumbnail(thumbnailURL: thumbnailURL)

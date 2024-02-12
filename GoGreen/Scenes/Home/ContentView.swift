@@ -20,7 +20,7 @@ struct ContentView: View {
                 .navigationDestination(for: Router.Destination.self) { destination in
                     switch destination {
                     case .plantDetailsView(let id):
-                        PlantDetailsView(viewModel: PlantDetailsViewModel(id: id, networkManager: NetworkManager()))
+                        PlantDetailsComponentView(viewModel: PlantDetailsComponentViewModel(id: id, networkManager: NetworkManager()))
                     }
                 }
         }

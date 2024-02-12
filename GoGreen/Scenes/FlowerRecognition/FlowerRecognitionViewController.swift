@@ -12,22 +12,22 @@ import NetworkManager
 final class FlowerRecognitionViewController: UIViewController {
 
     // MARK: - Class Properties
-    let viewModel: FlowerRecognitionViewModel
-    let alertManager: Alerting
+    private let viewModel: FlowerRecognitionViewModel
+    private let alertManager: Alerting
     private let imagePickerManager: ImagePicking
     
     // MARK: - UI Components
-    lazy private var cameraButton: UIButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
+    lazy private var cameraButton = CustomUIButton(title: nil, image: UIImage(systemName: "camera.fill"), customBackgroundColor: nil, fontSize: nil, isRounded: false, height: nil, width: nil, customAction: cameraButtonTapped)
         
-    lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsView> = {
+    lazy var flowerDetailsHostingController: UIHostingController<PlantDetailsComponentView> = {
         let hostingController = UIHostingController(
-            rootView: PlantDetailsView(
-                viewModel: PlantDetailsViewModel(
+            rootView: PlantDetailsComponentView(
+                viewModel: PlantDetailsComponentViewModel(
                     id: nil, networkManager: NetworkManager())))
         return hostingController
     }()
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -91,5 +91,29 @@ final class FlowerRecognitionViewController: UIViewController {
     // MARK: - Setup Delegates
     private func setupDelegates() {
         viewModel.delegate = self
+    }
+}
+
+// MARK: - ImagePicker Delegate
+extension FlowerRecognitionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            viewModel.detectPlant(image: userPickedImage)
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - FlowerRecognitionViewModel Delegate
+extension FlowerRecognitionViewController: FlowerRecognitionViewModelDelegate {
+    func displayFlowerRecognitionFailedAlert() {
+        alertManager.displayAlert(message: "There was a problem recognising this image", buttonTitle: "Ok", vc: self)
+    }
+    
+    func fetchCompleted(plant: Plant) {
+        flowerDetailsHostingController.rootView = PlantDetailsComponentView(viewModel: PlantDetailsComponentViewModel(id: plant.id, networkManager: NetworkManager()))
     }
 }

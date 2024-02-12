@@ -13,7 +13,7 @@ protocol ImagePicking {
 }
 
 final class ImagePickerManager: ImagePicking {
-        
+    
     // MARK: - Class Methods
     func showCamera(viewController: UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
         let imagePicker = UIImagePickerController()

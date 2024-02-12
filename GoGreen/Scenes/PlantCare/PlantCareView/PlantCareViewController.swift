@@ -23,7 +23,7 @@ final class PlantCareViewController: UIViewController {
         return collectionView
     }()
     
-    // MARK: - ViewLifeCycles
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         

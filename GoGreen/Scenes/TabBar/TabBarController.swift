@@ -11,7 +11,7 @@ import NetworkManager
 
 final class TabBarController: UITabBarController {
     
-    // MARK: - LifeCycles
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
@@ -22,7 +22,6 @@ final class TabBarController: UITabBarController {
         super.viewDidAppear(animated)
         setupOnboarding()
     }
-    
     
     // MARK: - Setup Onboarding
     private func setupOnboarding() {
@@ -47,7 +46,7 @@ final class TabBarController: UITabBarController {
     // MARK: - Tab Setup
     private func setupTabs() {
         let contentViewHostingController = createHostingController(title: "Home", image: UIImage(systemName: "house"), rootView: ContentView())
-        let flowerRecognitionNavigationController = createNavigationController(title: "Flower Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController(viewModel: FlowerRecognitionViewModel(networkManager: NetworkManager()), alertManager: AlertManager(), imagePickerManager: ImagePickerManager()))
+        let flowerRecognitionNavigationController = createNavigationController(title: "Recognition", image: UIImage(systemName: "camera"), viewController: FlowerRecognitionViewController(viewModel: FlowerRecognitionViewModel(networkManager: NetworkManager()), alertManager: AlertManager(), imagePickerManager: ImagePickerManager()))
         let myGardenNavigationController = createNavigationController(title: "My Garden", image: UIImage(systemName: "leaf"), viewController: MyGardenViewController(viewModel: MyGardenViewModel(localFileManager: LocalFileManager(), notificationManager: NotificationManager())))
         
         let plantCareNavigationController = createNavigationController(title: "Plant Care", image: UIImage(systemName: "heart"), viewController: PlantCareViewController(viewModel: PlantCareViewModel(networkManager: NetworkManager())))
@@ -79,7 +78,7 @@ final class TabBarController: UITabBarController {
         return hostingController
     }
     
-    // MARK: - SetupUI
+    // MARK: - Setup UI
     private func setupUI() {
         tabBar.unselectedItemTintColor = .white.withAlphaComponent(0.5)
         tabBar.standardAppearance = createTabBarAppearance()

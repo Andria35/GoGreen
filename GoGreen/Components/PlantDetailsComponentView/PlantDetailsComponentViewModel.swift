@@ -1,5 +1,5 @@
 //
-//  PlantDetailsViewModel.swift
+//  PlantDetailsComponentViewModel.swift
 //  GoGreen
 //
 //  Created by Andria Inasaridze on 19.01.24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import NetworkManager
 
-final class PlantDetailsViewModel: ObservableObject {
+final class PlantDetailsComponentViewModel: ObservableObject {
     
     // MARK: - Properties
     let id: Int?
