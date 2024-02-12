@@ -1,6 +1,17 @@
 # GoGreen
 
 GoGreen is an iOS application designed for plant enthusiasts, providing a comprehensive platform to learn about, care for, and find plants and flowers.
+
+## Description
+
+GoGreen isn't just an app—it's an immersive journey into the world of plants, designed for learning, exploration, and fun. Created with a passion for nature and a desire to push the boundaries of iOS development, GoGreen is an endeavor aimed at integrating various iOS development concepts into one innovative project.
+
+With GoGreen, users embark on an educational adventure, discovering new plant species, trying out cutting-edge Apple frameworks, and honing their skills in a captivating environment. From the thrill of identifying unknown plants with CoreML to the satisfaction of nurturing your virtual garden with Core Data, every feature of GoGreen is crafted to inspire curiosity and spark creativity.
+
+But GoGreen isn't just about learning—it's about having fun. Dive into a world of plant care videos from YouTube API, explore nearby plant shops with MapKit, and immerse yourself in a vibrant community of like-minded enthusiasts. Whether you're a seasoned developer looking to expand your skill set or a nature lover eager to deepen your understanding of plants, GoGreen offers something for everyone.
+
+Join the adventure today and let GoGreen be your guide as you explore, learn, and grow in the captivating world of plants and flowers
+
 ## Features
 
 ### 1. Search Plants
